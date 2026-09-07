@@ -29,6 +29,7 @@ CHECKS = [
     ("framework_independence", "python3 -B scripts/validate-framework-independence.py"),
     ("benchmark", "python3 -B scripts/validate-benchmark.py"),
     ("context_efficiency", "python3 -B scripts/run-context-efficiency.py"),
+    ("routing_mutations", "python3 -B scripts/run-routing-mutations.py"),
     ("legacy_fixture_eval", "python3 -B tests/run_evals.py"),
     ("legacy_known_bad", "python3 -B tests/run_known_bad.py"),
     ("response_mutations", "python3 -B scripts/run-response-mutations.py"),
@@ -38,6 +39,8 @@ CHECKS = [
     ("behavioral_model_eval", "python3 -B scripts/run-behavioral-eval.py"),
     ("real_composition", "python3 -B scripts/run-composition-eval.py"),
     ("assurance_report", "python3 -B scripts/validate-phase-assurance.py"),
+    ("phase_1_2_assurance", "python3 -B scripts/validate-phase-1-2.py"),
+    ("legacy_assurance_report", "python3 -B scripts/validate-assurance-report.py"),
 ]
 
 
@@ -54,8 +57,8 @@ def summarize(name: str, command: str, completed: subprocess.CompletedProcess[st
         pass
     explicit = parsed.get("status") if isinstance(parsed, dict) else None
     if completed.returncode != 0:
-        status = explicit if explicit in {"FAIL", "BLOCKED", "NOT_RUN", "STALE"} else "FAIL"
-    elif explicit in {"BLOCKED", "NOT_RUN", "STALE", "FAIL", "PASS", "NOT_APPLICABLE"}:
+        status = explicit if explicit in {"FAIL", "BLOCKED", "NOT_RUN", "STALE", "INVALID", "NOT_APPLICABLE"} else "FAIL"
+    elif explicit in {"BLOCKED", "NOT_RUN", "STALE", "FAIL", "PASS", "INVALID", "NOT_APPLICABLE"}:
         status = explicit
     else:
         status = "PASS"
@@ -79,7 +82,7 @@ def main() -> int:
         completed = subprocess.run(shlex.split(command), cwd=ROOT, text=True, capture_output=True, check=False)
         checks.append(summarize(name, command, completed))
     statuses = [item["status"] for item in checks]
-    if any(status == "FAIL" for status in statuses):
+    if any(status in {"FAIL", "INVALID"} for status in statuses):
         overall = "FAIL"
     elif any(status in {"BLOCKED", "NOT_RUN", "STALE"} for status in statuses):
         overall = "BLOCKED"
@@ -90,7 +93,7 @@ def main() -> int:
         "status": overall,
         "captured_at": datetime.now(timezone.utc).isoformat(),
         "required_check_count": len(CHECKS),
-        "status_counts": {status: statuses.count(status) for status in ("PASS", "FAIL", "NOT_RUN", "BLOCKED", "STALE", "NOT_APPLICABLE")},
+        "status_counts": {status: statuses.count(status) for status in ("PASS", "FAIL", "NOT_RUN", "BLOCKED", "STALE", "NOT_APPLICABLE", "INVALID")},
         "checks": checks,
         "limitations": ["BLOCKED/NOT_RUN checks are not success; provide the required host adapters for full closure."],
     }

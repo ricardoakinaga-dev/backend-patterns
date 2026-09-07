@@ -4,7 +4,7 @@ Status: living evidence report; updated 2026-09-07. This report is an
 evidence index for the skill package, not a production security, load, or
 model-quality certification.
 
-Package fingerprint: 028ff696116e1ae423c5d9449fa444dc50219a85a2c7f60192a4ca9ba90d6509
+Package fingerprint: 67954c6ec40e7682226e55f79cd5a5f989458f643ddaa0d2ade5cabfa0259332
 
 The package fingerprint covers the consumer scope (`SKILL.md`, `README.md`,
 `composition-contract.json`, `references/`, `scripts/`, and `tests/`) and

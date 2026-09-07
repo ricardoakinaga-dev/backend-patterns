@@ -1,0 +1,344 @@
+{
+  "version": "phase-1.2-v1",
+  "schema_version": 1,
+  "prompt_sha256": "68faec7e4d2e17b82003fb872fe8bcb3a9f09a2ceed36e269f57c8665990f110",
+  "frozen_at": "2026-09-07T17:30:00-03:00",
+  "criteria": [
+    {
+      "id": "P12-01",
+      "source_type": "USER",
+      "source": "pasted-text-1.txt#2-freeze-phase-1.2-baseline",
+      "dimension": "baseline",
+      "target": "A pre-edit baseline records commit, package/skill/benchmark/rubric/router fingerprints, corpus counts, routing metrics, execution states, score and residual risks.",
+      "evidence_method": "docs/phase-1.2-baseline.md plus recomputed hashes and commands",
+      "required": true,
+      "priority": "critical",
+      "baseline": {
+        "status": "NOT_RUN",
+        "actual": "No Phase 1.2 artifact exists before edits."
+      },
+      "validity_notes": "The baseline must be created before phase-owned source changes and preserve the pre-edit failure of the stale legacy report.",
+      "conditions": "Python 3, shared repository, current Phase 1.2 corpus; external adapters absent unless explicitly supplied.",
+      "version": "phase-1.2-v1",
+      "snapshot_sha256": null,
+      "license_notes": "Local deterministic evidence only; no production or model-quality certification."
+    },
+    {
+      "id": "P12-02",
+      "source_type": "USER",
+      "source": "pasted-text-1.txt#15-18-routing-recall-closure",
+      "dimension": "routing_taxonomy",
+      "target": "Every current binary reference omission is audited and references have PRIMARY, SECONDARY or OPTIONAL relevance without routing-label leakage.",
+      "evidence_method": "python3 -B scripts/run-context-efficiency.py and scripts/run-routing-mutations.py plus docs/routing-error-analysis.md",
+      "required": true,
+      "priority": "critical",
+      "baseline": {
+        "status": "NOT_RUN",
+        "actual": "148 binary relevant-reference omissions."
+      },
+      "validity_notes": "The audit must enumerate every omission and distinguish router defects from over-inclusive labels.",
+      "conditions": "Python 3, shared repository, current Phase 1.2 corpus; external adapters absent unless explicitly supplied.",
+      "version": "phase-1.2-v1",
+      "snapshot_sha256": null,
+      "license_notes": "Local deterministic evidence only; no production or model-quality certification."
+    },
+    {
+      "id": "P12-03",
+      "source_type": "USER",
+      "source": "pasted-text-1.txt#18-routing-targets",
+      "dimension": "routing_quality",
+      "target": "Routing precision >= 0.90, PRIMARY recall >= 0.85, and PRIMARY+SECONDARY recall >= 0.75; average context must remain <= 2.0x the 50,764.62-byte baseline and P95 <= 1.75x the 80,691-byte baseline on the same corpus.",
+      "evidence_method": "python3 -B scripts/run-context-efficiency.py --output <artifact>",
+      "required": true,
+      "priority": "critical",
+      "baseline": {
+        "status": "NOT_RUN",
+        "actual": "Precision 0.9174; binary recall 0.5201; average context 50764.62 bytes."
+      },
+      "validity_notes": "Primary recall is release-blocking; broader recall and context are reported separately. The context ceilings make the prompt's unreasonable-growth condition rejectable without changing the recall targets.",
+      "conditions": "Python 3, shared repository, current Phase 1.2 corpus; external adapters absent unless explicitly supplied.",
+      "version": "phase-1.2-v1",
+      "snapshot_sha256": null,
+      "license_notes": "Local deterministic evidence only; no production or model-quality certification."
+    },
+    {
+      "id": "P12-04",
+      "source_type": "USER",
+      "source": "pasted-text-1.txt#23-routing-regression-mutations",
+      "dimension": "routing_mutation_sensitivity",
+      "target": "Intentional removal, overloading and keyword-only router defects are detected by deterministic known-good/known-bad routing tests.",
+      "evidence_method": "python3 -B tests/test_routing.py and scripts/run-routing-mutations.py",
+      "required": true,
+      "priority": "high",
+      "baseline": {
+        "status": "NOT_RUN",
+        "actual": "No Phase 1.2 routing mutation suite."
+      },
+      "validity_notes": "Each mutation must change routing behavior or metrics and be rejected by the test oracle.",
+      "conditions": "Python 3, shared repository, current Phase 1.2 corpus; external adapters absent unless explicitly supplied.",
+      "version": "phase-1.2-v1",
+      "snapshot_sha256": null,
+      "license_notes": "Local deterministic evidence only; no production or model-quality certification."
+    },
+    {
+      "id": "P12-05",
+      "source_type": "USER",
+      "source": "pasted-text-1.txt#5-8-model-adapter-contract",
+      "dimension": "model_protocol",
+      "target": "The model adapter receives only opaque public scenarios, stores raw output before scoring, records identity/version/fingerprints, and fails closed when absent or invalid.",
+      "evidence_method": "adapter protocol tests and behavioral runner result artifact",
+      "required": true,
+      "priority": "critical",
+      "baseline": {
+        "status": "NOT_RUN",
+        "actual": "Opaque projection exists; raw adapter capture and identity contract need Phase 1.2 audit."
+      },
+      "validity_notes": "Gold fields must remain private until capture and a supplied response file must be distinct from generated fixtures.",
+      "conditions": "Python 3, shared repository, current Phase 1.2 corpus; external adapters absent unless explicitly supplied.",
+      "version": "phase-1.2-v1",
+      "snapshot_sha256": null,
+      "license_notes": "Local deterministic evidence only; no production or model-quality certification."
+    },
+    {
+      "id": "P12-06",
+      "source_type": "USER",
+      "source": "pasted-text-1.txt#9-14-staged-model-evaluation",
+      "dimension": "behavioral_execution",
+      "target": "Smoke, development, adversarial and holdout model lanes execute when a real adapter exists; otherwise each result is BLOCKED with capability, evidence and impact and no fabricated score.",
+      "evidence_method": "scripts/run-behavioral-eval.py with host adapter or explicit BLOCKED artifact",
+      "required": true,
+      "priority": "critical",
+      "baseline": {
+        "status": "NOT_RUN",
+        "actual": "No consumer-model adapter; execution BLOCKED."
+      },
+      "validity_notes": "A fixture or expected response cannot satisfy this criterion.",
+      "conditions": "Python 3, shared repository, current Phase 1.2 corpus; external adapters absent unless explicitly supplied.",
+      "version": "phase-1.2-v1",
+      "snapshot_sha256": null,
+      "license_notes": "Local deterministic evidence only; no production or model-quality certification."
+    },
+    {
+      "id": "P12-07",
+      "source_type": "USER",
+      "source": "pasted-text-1.txt#46-48-response-mutation-evaluator-sensitivity",
+      "dimension": "evaluator_sensitivity",
+      "target": "Critical response mutations are non-tautological and detected at 100%; hard safety failures override aggregate scores.",
+      "evidence_method": "response mutation suite, known-bad suite and scorer unit tests",
+      "required": true,
+      "priority": "critical",
+      "baseline": {
+        "status": "NOT_RUN",
+        "actual": "15 response mutation oracles pass; model execution is not inferred."
+      },
+      "validity_notes": "The scorer must inspect semantic response content, not mutation metadata.",
+      "conditions": "Python 3, shared repository, current Phase 1.2 corpus; external adapters absent unless explicitly supplied.",
+      "version": "phase-1.2-v1",
+      "snapshot_sha256": null,
+      "license_notes": "Local deterministic evidence only; no production or model-quality certification."
+    },
+    {
+      "id": "P12-08",
+      "source_type": "USER",
+      "source": "pasted-text-1.txt#24-35-generalization-red-team",
+      "dimension": "generalization",
+      "target": "Holdout integrity, metamorphic, stability, minimality, framework, scale, ambiguity, failure, migration, operability and security structures are validated; response execution remains explicit when unavailable.",
+      "evidence_method": "scripts/run-generalization-gates.py and relation/variant validators",
+      "required": true,
+      "priority": "critical",
+      "baseline": {
+        "status": "NOT_RUN",
+        "actual": "Structural relations pass; response comparison BLOCKED."
+      },
+      "conditions": "Python 3, shared repository, current Phase 1.2 corpus; external adapters absent unless explicitly supplied.",
+      "version": "phase-1.2-v1",
+      "snapshot_sha256": null,
+      "license_notes": "Local deterministic evidence only; no production or model-quality certification.",
+      "validity_notes": "Evidence must remain bound to the current artifact and preserve BLOCKED, INVALID, STALE and NOT_RUN states."
+    },
+    {
+      "id": "P12-09",
+      "source_type": "USER",
+      "source": "pasted-text-1.txt#50-framework-independence",
+      "dimension": "framework_independence",
+      "target": "Equivalent architectural forces remain represented across the required framework/language families without hard-coded framework decisions.",
+      "evidence_method": "framework independence validator plus benchmark variant manifest",
+      "required": true,
+      "priority": "high",
+      "baseline": {
+        "status": "NOT_RUN",
+        "actual": "Static framework scan passes; behavioral swaps are not executed."
+      },
+      "conditions": "Python 3, shared repository, current Phase 1.2 corpus; external adapters absent unless explicitly supplied.",
+      "version": "phase-1.2-v1",
+      "snapshot_sha256": null,
+      "license_notes": "Local deterministic evidence only; no production or model-quality certification.",
+      "validity_notes": "Evidence must remain bound to the current artifact and preserve BLOCKED, INVALID, STALE and NOT_RUN states."
+    },
+    {
+      "id": "P12-10",
+      "source_type": "USER",
+      "source": "pasted-text-1.txt#37-44-real-composition",
+      "dimension": "composition",
+      "target": "Real neighboring-skill handoffs and a repair loop execute when adapters exist; otherwise composition is BLOCKED and contract-only validation is not mislabeled as execution.",
+      "evidence_method": "scripts/run-composition-eval.py and composition trace validator",
+      "required": true,
+      "priority": "high",
+      "baseline": {
+        "status": "NOT_RUN",
+        "actual": "No composition adapter or observed trace; BLOCKED."
+      },
+      "conditions": "Python 3, shared repository, current Phase 1.2 corpus; external adapters absent unless explicitly supplied.",
+      "version": "phase-1.2-v1",
+      "snapshot_sha256": null,
+      "license_notes": "Local deterministic evidence only; no production or model-quality certification.",
+      "validity_notes": "Evidence must remain bound to the current artifact and preserve BLOCKED, INVALID, STALE and NOT_RUN states."
+    },
+    {
+      "id": "P12-11",
+      "source_type": "USER",
+      "source": "pasted-text-1.txt#45-runtime-evidence",
+      "dimension": "runtime_boundary",
+      "target": "Backend runtime evidence is kept separate and is PASS only with a real service/harness; absent runtime is BLOCKED with exact missing evidence.",
+      "evidence_method": "scripts/run-runtime-gates.py",
+      "required": true,
+      "priority": "high",
+      "baseline": {
+        "status": "NOT_RUN",
+        "actual": "No executable backend service or runtime harness; BLOCKED."
+      },
+      "conditions": "Python 3, shared repository, current Phase 1.2 corpus; external adapters absent unless explicitly supplied.",
+      "version": "phase-1.2-v1",
+      "snapshot_sha256": null,
+      "license_notes": "Local deterministic evidence only; no production or model-quality certification.",
+      "validity_notes": "Evidence must remain bound to the current artifact and preserve BLOCKED, INVALID, STALE and NOT_RUN states."
+    },
+    {
+      "id": "P12-12",
+      "source_type": "USER",
+      "source": "pasted-text-1.txt#61-final-gauntlet",
+      "dimension": "final_gauntlet",
+      "target": "The final 20-case architectural gauntlet is structurally complete and executed when model capability exists; critical hard-failure count is never fabricated.",
+      "evidence_method": "final-gauntlet manifest and behavioral/generalization result",
+      "required": true,
+      "priority": "critical",
+      "baseline": {
+        "status": "NOT_RUN",
+        "actual": "20 cases structurally present; execution BLOCKED."
+      },
+      "conditions": "Python 3, shared repository, current Phase 1.2 corpus; external adapters absent unless explicitly supplied.",
+      "version": "phase-1.2-v1",
+      "snapshot_sha256": null,
+      "license_notes": "Local deterministic evidence only; no production or model-quality certification.",
+      "validity_notes": "Evidence must remain bound to the current artifact and preserve BLOCKED, INVALID, STALE and NOT_RUN states."
+    },
+    {
+      "id": "P12-13",
+      "source_type": "USER",
+      "source": "pasted-text-1.txt#58-60-one-command-and-fingerprints",
+      "dimension": "aggregate_evidence",
+      "target": "One command preserves PASS, FAIL, BLOCKED, NOT_RUN, STALE, NOT_APPLICABLE and INVALID, and binds commit/package/skill/benchmark/rubric/router/model/adapter/judge evidence where available.",
+      "evidence_method": "python3 -B scripts/run-all-gates.py --output <artifact>",
+      "required": true,
+      "priority": "critical",
+      "baseline": {
+        "status": "NOT_RUN",
+        "actual": "Aggregate has 12 PASS, 4 BLOCKED and one legacy report drift outside the phase aggregator."
+      },
+      "conditions": "Python 3, shared repository, current Phase 1.2 corpus; external adapters absent unless explicitly supplied.",
+      "version": "phase-1.2-v1",
+      "snapshot_sha256": null,
+      "license_notes": "Local deterministic evidence only; no production or model-quality certification.",
+      "validity_notes": "Evidence must remain bound to the current artifact and preserve BLOCKED, INVALID, STALE and NOT_RUN states."
+    },
+    {
+      "id": "P12-14",
+      "source_type": "USER",
+      "source": "pasted-text-1.txt#64-72-assurance-report",
+      "dimension": "assurance_reporting",
+      "target": "Required Phase 1.2 artifacts contain current evidence, three distinct scores, honest unavailable states, residual risks, final critic/sentinel state and a conditional verdict when proof is incomplete.",
+      "evidence_method": "scripts/validate-phase-1-2.py and report inspection",
+      "required": true,
+      "priority": "critical",
+      "baseline": {
+        "status": "NOT_RUN",
+        "actual": "No Phase 1.2 report or validator exists."
+      },
+      "conditions": "Python 3, shared repository, current Phase 1.2 corpus; external adapters absent unless explicitly supplied.",
+      "version": "phase-1.2-v1",
+      "snapshot_sha256": null,
+      "license_notes": "Local deterministic evidence only; no production or model-quality certification.",
+      "validity_notes": "Evidence must remain bound to the current artifact and preserve BLOCKED, INVALID, STALE and NOT_RUN states."
+    },
+    {
+      "id": "P12-15",
+      "source_type": "USER",
+      "source": "pasted-text-1.txt#62-63-independent-critic",
+      "dimension": "independent_assurance",
+      "target": "A fresh read-only critic is commissioned with a mutation sentinel; unavailable delegation is disclosed and deterministic evidence is strengthened.",
+      "evidence_method": "Gauntlet state round, critic return and pre/post fingerprint",
+      "required": true,
+      "priority": "high",
+      "baseline": {
+        "status": "NOT_RUN",
+        "actual": "Prior final critic belongs to Phase 1.1 and cannot serve as Phase 1.2 evidence."
+      },
+      "conditions": "Python 3, shared repository, current Phase 1.2 corpus; external adapters absent unless explicitly supplied.",
+      "version": "phase-1.2-v1",
+      "snapshot_sha256": null,
+      "license_notes": "Local deterministic evidence only; no production or model-quality certification.",
+      "validity_notes": "Evidence must remain bound to the current artifact and preserve BLOCKED, INVALID, STALE and NOT_RUN states."
+    },
+    {
+      "id": "P12-16",
+      "source_type": "REPO",
+      "source": "scripts/validate-assurance-report.py",
+      "dimension": "historical_report_integrity",
+      "target": "The legacy assurance report either remains current or is explicitly superseded without a stale fingerprint failure.",
+      "evidence_method": "python3 -B scripts/validate-assurance-report.py",
+      "required": true,
+      "priority": "high",
+      "baseline": {
+        "status": "NOT_RUN",
+        "actual": "FAIL: docs/assurance-report.md package fingerprint is stale."
+      },
+      "conditions": "Python 3, shared repository, current Phase 1.2 corpus; external adapters absent unless explicitly supplied.",
+      "version": "phase-1.2-v1",
+      "snapshot_sha256": null,
+      "license_notes": "Local deterministic evidence only; no production or model-quality certification.",
+      "validity_notes": "Evidence must remain bound to the current artifact and preserve BLOCKED, INVALID, STALE and NOT_RUN states."
+    }
+  ],
+  "goal": "Implement and evidence-check Backend Patterns Phase 1.2 with routing recall, evaluator integrity, generalization, composition boundary, and an honest Triple-A conditional verdict.",
+  "sources": [
+    {
+      "type": "USER",
+      "location": "pasted-text-1.txt",
+      "version": "2026-09-07",
+      "snapshot_sha256": "68faec7e4d2e17b82003fb872fe8bcb3a9f09a2ceed36e269f57c8665990f110",
+      "license_notes": "User-provided task prompt; used only as the frozen acceptance source."
+    },
+    {
+      "type": "REPO",
+      "location": "backend-patterns pre-edit baseline",
+      "version": "69e034c16e250cb5008aec851a364724667b61a4",
+      "snapshot_sha256": null,
+      "license_notes": "Local repository evidence; no external certification implied."
+    }
+  ],
+  "revision_log": [
+    {
+      "timestamp": "2026-09-07T18:32:00-03:00",
+      "author": "Codex Lead",
+      "reason": "Fresh independent critic found that the named routing validator did not exist and that unreasonable context growth lacked a numeric rejection boundary. The live equivalent mutation/evaluation commands were named and the prompt's qualitative context condition was made measurable without lowering any recall or precision target.",
+      "previous": {
+        "P12-02.evidence_method": "scripts/validate-routing.py and docs/routing-error-analysis.md",
+        "P12-03.target": "without unreasonable context growth"
+      },
+      "current": {
+        "P12-02.evidence_method": "scripts/run-context-efficiency.py and scripts/run-routing-mutations.py plus docs/routing-error-analysis.md",
+        "P12-03.target": "average <= 2.0x baseline and P95 <= 1.75x baseline"
+      }
+    }
+  ]
+}

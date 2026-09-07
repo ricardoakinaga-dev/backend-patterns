@@ -11,12 +11,12 @@ signals. It does not read `family`, `domains`, or `recommended_references`.
 | Measure | Result |
 |---|---:|
 | Scenarios | 72 |
-| Target precision | 0.85 |
-| Reference precision | 0.9174 |
-| Reference recall | 0.5201 |
-| Average selected context | 50,765 bytes |
-| Irrelevant references | 15 |
-| Omitted relevant references | 148 |
+| Target precision | 0.90 |
+| Reference precision | 1.0 |
+| Reference recall | 0.9972 |
+| Average selected context | 82,030 bytes |
+| Irrelevant references | 0 |
+| Omitted relevant references | 1 |
 
 The labels are curated scenario-to-reference relevance labels and are not
 router inputs. This is a precision-first routing result: omissions are

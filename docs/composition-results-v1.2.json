@@ -1,0 +1,16 @@
+{
+  "scope": "REAL_COMPOSITION",
+  "status": "BLOCKED",
+  "composition": "BLOCKED",
+  "execution_status": "BLOCKED",
+  "reason": "No composition adapter or observed trace was supplied.",
+  "required_host_capability": "An executable composition adapter or observed trace from the neighboring skills, with executed consumer identity, adapter version, and current package/contract fingerprints.",
+  "evidence_unavailable": "actual backend → patterns → security → verification handoffs and repair-loop observations",
+  "impact_on_verdict": "Composition proof is unavailable; Triple-A proven is ineligible.",
+  "scenario_count": 0,
+  "contract_fingerprint": "4f7e60d18639de6ca42e886ecfee9e94ad5667c9de21c37db3b5e650be56506f",
+  "package_fingerprint": "67954c6ec40e7682226e55f79cd5a5f989458f643ddaa0d2ade5cabfa0259332",
+  "captured_at": "2026-09-07T18:46:41.105642+00:00",
+  "raw_capture": null,
+  "errors": []
+}
