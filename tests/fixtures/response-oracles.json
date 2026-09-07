@@ -1,0 +1,167 @@
+[
+  {
+    "id": "RM-01",
+    "scenario_id": "G-05",
+    "mutation": "unsafe_retry",
+    "expected_tag": "unsafe_retry",
+    "min_score_delta": 0.15,
+    "mutation_operator": "replace bounded retry clause with unbounded non-idempotent retry",
+    "preserved_contract": "payment invariants, unknown outcome, recovery, and verification clauses",
+    "baseline": "Decision: keep payment capture behind one local transaction boundary. The trigger is a non-idempotent charge and the timeout outcome is unknown. The invariants are one logical purchase cannot charge the customer twice and an unknown provider outcome must not be represented as a confirmed failure. Forces are availability versus duplicate-charge risk. The simpler baseline is no retry; the candidate is a bounded retry only after an idempotency key, a deadline, backoff, and reconciliation. Reject unlimited retry. On partial failure use operator recovery. Verify with failure injection, duplicate delivery, and evidence; this is not an executed runtime claim.",
+    "mutated": "Decision: keep payment capture behind one local transaction boundary. The trigger is a non-idempotent charge and the timeout outcome is unknown. The invariants are one logical purchase cannot charge the customer twice and an unknown provider outcome must not be represented as a confirmed failure. Forces are availability versus duplicate-charge risk. The simpler baseline is no retry; the candidate is retry the charge three times without an idempotency key or deduplication boundary. Reject unlimited retry. On partial failure use operator recovery. Verify with failure injection, duplicate delivery, and evidence; this is not an executed runtime claim."
+  },
+  {
+    "id": "RM-02",
+    "scenario_id": "G-08",
+    "mutation": "direct_dual_write",
+    "expected_tag": "direct_dual_write",
+    "min_score_delta": 0.15,
+    "mutation_operator": "replace the outbox boundary with a direct database-and-broker write",
+    "preserved_contract": "reservation invariants, recovery, duplicate delivery, and verification clauses",
+    "baseline": "Decision: use a transactional outbox in the order transaction. The invariants are atomic reservation, a durable publication obligation, and duplicate delivery that cannot reserve twice. The simpler baseline is one database transaction; the candidate writes the outbox row atomically and a relay publishes with an idempotency key. Reject direct dual write. Recovery reconciles pending rows and operators can replay safely. Verify crash windows, duplicate delivery, and evidence; this is a design, not an executed runtime claim.",
+    "mutated": "Decision: use a direct dual write in the order transaction. The invariants are atomic reservation, a durable publication obligation, and duplicate delivery that cannot reserve twice. The simpler baseline is one database transaction; the candidate writes the database and broker separately. Reject direct dual write. Recovery reconciles pending rows and operators can replay safely. Verify crash windows, duplicate delivery, and evidence; this is a design, not an executed runtime claim."
+  },
+  {
+    "id": "RM-03",
+    "scenario_id": "G-06",
+    "mutation": "unsupported_exactly_once",
+    "expected_tag": "exactly_once",
+    "min_score_delta": 0.1,
+    "mutation_operator": "flip the delivery guarantee from at-least-once to exactly-once",
+    "preserved_contract": "payment idempotency, timeout, retry, reconciliation, and verification clauses",
+    "baseline": "Decision: use an idempotency key and an atomic payment state transition. Delivery is at least once; the system makes no exactly-once promise. The invariants are one logical payment is captured at most once and a timeout is not treated as proof that capture failed. Unknown timeout outcomes remain explicit. The simpler baseline is a durable request record; the candidate uses bounded retries, deadline, backoff, reconciliation, and operator recovery. Verify duplicate delivery and failure evidence; no runtime claim was executed.",
+    "mutated": "Decision: use an idempotency key and an atomic payment state transition. Delivery is at least once; the system promises exactly once. The invariants are one logical payment is captured at most once and a timeout is not treated as proof that capture failed. Unknown timeout outcomes remain explicit. The simpler baseline is a durable request record; the candidate uses bounded retries, deadline, backoff, reconciliation, and operator recovery. Verify duplicate delivery and failure evidence; no runtime claim was executed."
+  },
+  {
+    "id": "RM-04",
+    "scenario_id": "SEC-103",
+    "mutation": "missing_authz",
+    "expected_tag": "missing_authz",
+    "min_score_delta": 0.1,
+    "mutation_operator": "remove the server-side authorization and tenant-scope clause",
+    "preserved_contract": "URL safety invariant, resource budget, bounded failure, and SSRF verification",
+    "baseline": "Decision: keep the URL fetch behind a server-side authorization boundary and an egress allowlist. The invariant is that untrusted input cannot reach protected network or leak secrets. Unknowns include the allowlist and resource budget. The simpler baseline is deny by default; the candidate validates scheme, destination, tenant scope, timeout, and response size. Recovery is a bounded failure with observability and an operator path. Verify SSRF probes and evidence; no security execution is claimed.",
+    "mutated": "Decision: keep the URL fetch behind a server boundary and an egress allowlist. The invariant is that untrusted input cannot reach protected network or leak secrets. Unknowns include the allowlist and resource budget. The simpler baseline is the existing HTTP client; the candidate validates scheme, destination, timeout, and response size. Recovery is a bounded failure with observability and an operator path. Verify SSRF probes and evidence; no security execution is claimed."
+  },
+  {
+    "id": "RM-05",
+    "scenario_id": "SU-008",
+    "mutation": "removed_migration_compatibility",
+    "expected_tag": "removed_migration_compatibility",
+    "min_score_delta": 0.15,
+    "mutation_operator": "replace the mixed-version compatibility assertion with an incompatibility assertion",
+    "preserved_contract": "migration sequence, cleanup unknown, rollback, and verification clauses",
+    "baseline": "Decision: use expand-contract for the rolling migration. Mixed-version readers remain backward compatible while both formats are written and backfilled. The invariant is no contact loss and rollback remains safe. Unknowns include the cleanup window. The simpler baseline is additive schema change; the candidate dual-reads, observes errors, then contracts after old consumers are gone. Verify rollout, rollback, and evidence; no migration was executed.",
+    "mutated": "Decision: use expand-contract for the rolling migration. Mixed-version readers are incompatible during the rollout. The invariant is no contact loss and rollback remains safe. Unknowns include the cleanup window. The simpler baseline is additive schema change; the candidate dual-reads, observes errors, then contracts after old consumers are gone. Verify rollout, rollback, and evidence; no migration was executed."
+  },
+  {
+    "id": "RM-06",
+    "scenario_id": "FD-103",
+    "mutation": "duplicate_delivery",
+    "expected_tag": "missing_duplicate_safety",
+    "min_score_delta": 0.1,
+    "mutation_operator": "remove inbox deduplication and make duplicate delivery ordinary",
+    "preserved_contract": "signature verification, fulfillment invariant, recovery, and concurrency verification",
+    "baseline": "Decision: verify the webhook signature before revealing state and process it through an inbox keyed by provider event ID. The invariant is one fulfillment per event. Concurrent duplicate delivery is expected. The simpler baseline is a durable deduplication record; the candidate uses an atomic claim, transaction, and idempotent fulfillment. Recovery reconciles pending events and operators can replay safely. Verify concurrency and evidence; no runtime claim was executed.",
+    "mutated": "Decision: verify the webhook signature before revealing state and process it directly. The invariant is one fulfillment per event. Concurrent duplicate delivery is processed normally. The simpler baseline is a direct handler; the candidate uses an atomic claim, transaction, and ordinary fulfillment. Recovery reconciles pending events and operators can inspect pending events. Verify concurrency and evidence; no runtime claim was executed."
+  },
+  {
+    "id": "RM-07",
+    "scenario_id": "SU-002",
+    "mutation": "ignored_invariant",
+    "expected_tag": "missing_invariant",
+    "min_score_delta": 0.1,
+    "mutation_operator": "replace the stale-write invariant with a generic coordination statement",
+    "preserved_contract": "compare-and-swap choice, conflict unknown, recovery, and verification",
+    "baseline": "Decision: use compare-and-swap with the document version, not a distributed lock. The trigger is low-conflict concurrent editing. The invariant is that a stale write cannot overwrite a newer version and a successful update increments the version exactly once. Unknowns about merge versus conflict response remain explicit. The simpler baseline is an optimistic version check; recovery returns a conflict. Verify concurrent edits and evidence; no runtime claim was executed.",
+    "mutated": "Decision: use compare-and-swap with the document version, not a distributed lock. The trigger is low-conflict concurrent editing. The design favors coordination and latency. Unknowns about merge versus conflict response remain explicit. The simpler baseline is an optimistic version check; recovery returns a conflict. Verify concurrent edits and evidence; no runtime claim was executed."
+  },
+  {
+    "id": "RM-08",
+    "scenario_id": "SU-005",
+    "mutation": "unjustified_microservices",
+    "expected_tag": "cargo_cult_microservices",
+    "min_score_delta": 0.1,
+    "mutation_operator": "replace the modular selection with a professionalism-only microservices selection",
+    "preserved_contract": "absence of independent driver, invariant, baseline, evolution evidence, and verification",
+    "baseline": "Decision: use a modular monolith with explicit module boundaries and one local transaction. There is no independent deployment or scaling driver. The invariant is valid order state and testable dependencies. The simpler baseline is the selected design; a later split requires evidence of ownership, deployment, or scale pressure. Verify module contracts and evidence; no runtime claim was executed.",
+    "mutated": "Decision: use microservices because they are more professional and make the modules look clean. There is no independent deployment or scaling driver. The invariant is valid order state and testable dependencies. The simpler baseline is the selected design; a later split requires evidence of ownership, deployment, or scale pressure. Verify module contracts and evidence; no runtime claim was executed."
+  },
+  {
+    "id": "RM-09",
+    "scenario_id": "G-19",
+    "mutation": "unjustified_event_sourcing",
+    "expected_tag": "cargo_cult_event_sourcing",
+    "min_score_delta": 0.1,
+    "mutation_operator": "replace contractual history justification with an audit-fashion justification",
+    "preserved_contract": "history invariant, archive unknown, baseline, and replay verification",
+    "baseline": "Decision: event sourcing is justified because immutable history, deterministic replay, compensating corrections, and schema evolution are contractual requirements. The invariant is append-only history and replay that yields the same projection. Unknown archive cost and ownership remain explicit. The simpler baseline is current-state storage, but it cannot satisfy the history requirement. Verify replay and evidence; no runtime execution is claimed.",
+    "mutated": "Decision: use event sourcing because audit trails are fashionable. The invariant is append-only history and replay that yields the same projection. Unknown archive cost and ownership remain explicit. The simpler baseline is current-state storage, but it cannot satisfy the history requirement. Verify replay and evidence; no runtime execution is claimed."
+  },
+  {
+    "id": "RM-10",
+    "scenario_id": "G-01",
+    "mutation": "fabricated_requirement",
+    "expected_tag": "invented_requirement",
+    "min_score_delta": 0.1,
+    "mutation_operator": "replace the proportionate decision with an unsupported Kafka requirement",
+    "preserved_contract": "current facts, unknown future growth, invariant, baseline, and verification",
+    "baseline": "Decision: keep the small CRUD product as a modular monolith. Current facts are one team, one database, one deployment, and low scale. Unknown future growth and ownership are preserved. The invariant is correct transactions and operability. The simpler baseline is sufficient; reject microservices until independent deployment, ownership, fault isolation, or scale evidence exists. Verify deployment and module contracts; no runtime claim was executed.",
+    "mutated": "Decision: the product must use Kafka. Current facts are one team, one database, one deployment, and low scale. Unknown future growth and ownership are preserved. The invariant is correct transactions and operability. The simpler baseline is sufficient; reject microservices until independent deployment, ownership, fault isolation, or scale evidence exists. Verify deployment and module contracts; no runtime claim was executed."
+  },
+  {
+    "id": "RM-11",
+    "scenario_id": "OP-101",
+    "mutation": "missing_recovery",
+    "expected_tag": "missing_recovery",
+    "min_score_delta": 0.1,
+    "mutation_operator": "remove replay, dead-letter, ownership, and audit recovery obligations",
+    "preserved_contract": "workflow classification, side-effect invariant, reconciliation, and verification",
+    "baseline": "Decision: classify the pending workflow as waiting, failed, or unknown using correlation telemetry. The invariant is that repair cannot repeat a side effect. The simpler baseline is an operator runbook with an idempotency key; the candidate reconciles remote outcome before resume. Recovery includes a safe replay, a dead-letter path, ownership, and audit evidence. Verify timeout and restart cases; no runtime claim was executed.",
+    "mutated": "Decision: classify the pending workflow as waiting, failed, or unknown using correlation telemetry. The invariant is that repair cannot repeat a side effect. The simpler baseline is an operator runbook with an idempotency key; the candidate reconciles remote outcome before resume. Recovery includes no safe replay, dead-letter path, ownership, or audit evidence. Verify timeout and restart cases; no runtime claim was executed."
+  },
+  {
+    "id": "RM-12",
+    "scenario_id": "SU-004",
+    "mutation": "ignored_cache_invariant",
+    "expected_tag": "missing_invariant",
+    "min_score_delta": 0.1,
+    "mutation_operator": "replace cache source-of-truth and staleness invariant with a latency statement",
+    "preserved_contract": "cache choice, database baseline, invalidation controls, recovery, and verification",
+    "baseline": "Decision: use cache-aside only for bounded reads. The invariant is that a cache hit never authorizes or mutates data, a miss rebuilds from the database, and price staleness stays within the window. The simpler baseline is the database; the candidate uses TTL, invalidation, source-of-truth checks, and observability. Recovery rebuilds after eviction. Verify stale reads and evidence; no runtime claim was executed.",
+    "mutated": "Decision: use cache-aside only for bounded reads. The invariant is that reads remain fast. The simpler baseline is the database; the candidate uses TTL, invalidation, source-of-truth checks, and observability. Recovery rebuilds after eviction. Verify stale reads and evidence; no runtime claim was executed."
+  },
+  {
+    "id": "RM-13",
+    "scenario_id": "SR-012",
+    "mutation": "retry_amplification",
+    "expected_tag": "unsafe_retry",
+    "min_score_delta": 0.1,
+    "mutation_operator": "replace one bounded retry budget with retries at three independent layers",
+    "preserved_contract": "inventory invariant, retry-after unknown, reconciliation recovery, and verification",
+    "baseline": "Decision: collapse the retry layers into one bounded budget with a deadline, backoff, jitter, and idempotency key. The invariant is that retries cannot multiply an inventory decrement or overwhelm the dependency. Unknown retry-after behavior remains explicit. The simpler baseline is fail fast; recovery uses reconciliation and operator telemetry. Verify retry amplification and evidence; no runtime claim was executed.",
+    "mutated": "Decision: keep three client retries, three API retries, and five worker retries, and retry the inventory mutation without an idempotency key. The invariant is that retries cannot multiply an inventory decrement or overwhelm the dependency. Unknown retry-after behavior remains explicit. The simpler baseline is fail fast; recovery uses reconciliation and operator telemetry. Verify retry amplification and evidence; no runtime claim was executed."
+  },
+  {
+    "id": "RM-14",
+    "scenario_id": "G-18",
+    "mutation": "unproven_readiness",
+    "expected_tag": "unproven_readiness",
+    "min_score_delta": 0.1,
+    "mutation_operator": "remove the static-evidence readiness disclaimer by changing one readiness assertion",
+    "preserved_contract": "event-sourcing rejection, unknowns, runtime-test requirement, operators, and claim boundary",
+    "baseline": "Decision: reject event sourcing without temporal reconstruction evidence and keep the simpler state model. Unknowns and residual risk are explicit. The design is not production ready from static reasoning alone; verification needs a runtime security and recovery test. Operators need observability and repair. No execution result is claimed.",
+    "mutated": "Decision: reject event sourcing without temporal reconstruction evidence and keep the simpler state model. Unknowns and residual risk are explicit. The design is production ready from static reasoning alone; verification needs a runtime security and recovery test. Operators need observability and repair. No execution result is claimed."
+  },
+  {
+    "id": "RM-15",
+    "scenario_id": "FD-102",
+    "mutation": "unknown_remote_outcome",
+    "expected_tag": "unknown_outcome",
+    "min_score_delta": 0.1,
+    "mutation_operator": "replace unknown-outcome classification with direct failure retry",
+    "preserved_contract": "label invariant, idempotency key, deadline, operator recovery, and verification",
+    "baseline": "Decision: treat the provider timeout as an unknown outcome. Query the provider by reference before any retry, mark the request pending while status is indeterminate, and reconcile the final label. The invariant is that retry cannot create two labels. Use an idempotency key, a bounded deadline, and an operator recovery path. Verify timeout, delayed provider status, duplicate delivery, and evidence; no runtime claim was executed.",
+    "mutated": "Decision: treat the provider timeout as a failure and retry the label directly. The invariant is that retry cannot create two labels. Use an idempotency key, a bounded deadline, and an operator recovery path. Verify timeout, delayed provider status, duplicate delivery, and evidence; no runtime claim was executed."
+  }
+]

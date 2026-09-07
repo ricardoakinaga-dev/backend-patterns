@@ -1,0 +1,20 @@
+{
+  "scope": "BACKEND_RUNTIME",
+  "status": "BLOCKED",
+  "runtime_status": "BLOCKED",
+  "execution_status": "BLOCKED",
+  "captured_at": "2026-09-07T15:52:22.509266+00:00",
+  "reason": "No executable backend service or runtime harness was supplied.",
+  "required_host_capability": [
+    "backend service with representative routes and persistence",
+    "database and broker or equivalent external dependencies",
+    "load/concurrency, migration, security, failure-injection, and operator-repair harnesses"
+  ],
+  "evidence_unavailable": [
+    "latency, throughput, and saturation behavior",
+    "transaction, duplicate, timeout, and recovery behavior under runtime failure",
+    "migration interruption, authorization isolation, and repair-loop observations"
+  ],
+  "impact_on_verdict": "Runtime proof is unavailable; it cannot be counted as PASS and Triple-A proven remains ineligible.",
+  "errors": []
+}

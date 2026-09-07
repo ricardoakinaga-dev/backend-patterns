@@ -1,0 +1,302 @@
+{
+  "schema_version": 1,
+  "version": "v1",
+  "frozen_at": "2026-09-07T00:00:00-03:00",
+  "goal": "Demonstrate reproducible, adversarial and causally honest evidence for backend-patterns architectural judgment without claiming unavailable model or runtime proof.",
+  "source": {
+    "type": "USER",
+    "location": "docs/master-prompt-v1.1.md",
+    "snapshot_sha256": "712f18add7908cbb05be6a98a04f4729efafa12e00632d7e697a8421094cb6d1"
+  },
+  "criteria": [
+    {
+      "id": "P11-01",
+      "source_type": "USER",
+      "source": "master-prompt-v1.1.md#4-freeze-current-quality",
+      "dimension": "baseline",
+      "target": "A current baseline records the exact prompt/package fingerprints, counts, checks, score, and limitations before phase edits.",
+      "evidence_method": "inspect docs/phase-1.1-baseline.md and recompute fingerprints",
+      "required": true,
+      "priority": "critical",
+      "status": "PASS",
+      "validity_notes": "The baseline predates phase implementation and is independently recomputable.",
+      "baseline": {
+        "status": "NOT_RUN",
+        "actual": "Phase baseline is recorded separately before the implementation edits."
+      },
+      "conditions": "Run the named evidence method against the current frozen phase artifact and preserve unavailable states.",
+      "version": "user-phase-1.1",
+      "snapshot_sha256": "712f18add7908cbb05be6a98a04f4729efafa12e00632d7e697a8421094cb6d1",
+      "license_notes": "Acceptance criterion derived from the user prompt."
+    },
+    {
+      "id": "P11-02",
+      "source_type": "USER",
+      "source": "master-prompt-v1.1.md#5-build-a-real-architectural-judgment-benchmark",
+      "dimension": "benchmark",
+      "target": "The benchmark contains at least 60 materially distinct scenarios, preferably 80 or more, with all required classes and no duplicate prompts.",
+      "evidence_method": "python3 -B scripts/validate-benchmark.py",
+      "required": true,
+      "priority": "critical",
+      "status": "PASS",
+      "validity_notes": "Schema, relation, decision-component, and mutation-diagnostic checks reject undersized, generic, or duplicated corpora.",
+      "baseline": {
+        "status": "NOT_RUN",
+        "actual": "Phase baseline is recorded separately before the implementation edits."
+      },
+      "conditions": "Run the named evidence method against the current frozen phase artifact and preserve unavailable states.",
+      "version": "user-phase-1.1",
+      "snapshot_sha256": "712f18add7908cbb05be6a98a04f4729efafa12e00632d7e697a8421094cb6d1",
+      "license_notes": "Acceptance criterion derived from the user prompt."
+    },
+    {
+      "id": "P11-03",
+      "source_type": "USER",
+      "source": "master-prompt-v1.1.md#11-decision-quality-rubric",
+      "dimension": "rubric",
+      "target": "A machine-readable 0–4 rubric has anchored dimensions for trigger, facts, unknowns, invariants, forces, candidates, proportionality, failure, security, operability, compatibility, verification, residual risk and context efficiency.",
+      "evidence_method": "benchmark schema validation and rubric unit tests",
+      "required": true,
+      "priority": "critical",
+      "status": "PASS",
+      "validity_notes": "Anchors are inspectable and scoreable without treating keywords as sole behavioral proof.",
+      "baseline": {
+        "status": "NOT_RUN",
+        "actual": "Phase baseline is recorded separately before the implementation edits."
+      },
+      "conditions": "Run the named evidence method against the current frozen phase artifact and preserve unavailable states.",
+      "version": "user-phase-1.1",
+      "snapshot_sha256": "712f18add7908cbb05be6a98a04f4729efafa12e00632d7e697a8421094cb6d1",
+      "license_notes": "Acceptance criterion derived from the user prompt."
+    },
+    {
+      "id": "P11-04",
+      "source_type": "USER",
+      "source": "master-prompt-v1.1.md#12-hard-fail-conditions",
+      "dimension": "safety",
+      "target": "Unsafe retries, authorization confusion, unjustified exactly-once claims, invariant loss, unsupported overengineering, fabricated requirements, and ignored compatibility constraints are hard failures.",
+      "evidence_method": "deterministic response scorer and response mutation suite",
+      "required": true,
+      "priority": "critical",
+      "status": "PASS",
+      "validity_notes": "Hard failures cannot be averaged away by verbosity or aggregate score.",
+      "baseline": {
+        "status": "NOT_RUN",
+        "actual": "Phase baseline is recorded separately before the implementation edits."
+      },
+      "conditions": "Run the named evidence method against the current frozen phase artifact and preserve unavailable states.",
+      "version": "user-phase-1.1",
+      "snapshot_sha256": "712f18add7908cbb05be6a98a04f4729efafa12e00632d7e697a8421094cb6d1",
+      "license_notes": "Acceptance criterion derived from the user prompt."
+    },
+    {
+      "id": "P11-05",
+      "source_type": "USER",
+      "source": "master-prompt-v1.1.md#19-20-known-bad-and-causal-oracle",
+      "dimension": "evaluator_sensitivity",
+      "target": "Removing a critical response element lowers the score or triggers a hard failure for every declared critical mutation.",
+      "evidence_method": "python3 -B scripts/run-response-mutations.py",
+      "required": true,
+      "priority": "critical",
+      "status": "PASS",
+      "validity_notes": "Known-good oracle fixtures validate the evaluator before consumer-model claims.",
+      "baseline": {
+        "status": "NOT_RUN",
+        "actual": "Phase baseline is recorded separately before the implementation edits."
+      },
+      "conditions": "Run the named evidence method against the current frozen phase artifact and preserve unavailable states.",
+      "version": "user-phase-1.1",
+      "snapshot_sha256": "712f18add7908cbb05be6a98a04f4729efafa12e00632d7e697a8421094cb6d1",
+      "license_notes": "Acceptance criterion derived from the user prompt."
+    },
+    {
+      "id": "P11-06",
+      "source_type": "USER",
+      "source": "master-prompt-v1.1.md#13-18-model-executed-evaluation",
+      "dimension": "causal_behavior",
+      "target": "A consumer-model control/treatment lane is attempted; if unavailable, output is BLOCKED with capability, reason, impact and no fabricated scores.",
+      "evidence_method": "python3 -B scripts/run-behavioral-eval.py",
+      "required": true,
+      "priority": "critical",
+      "status": "BLOCKED",
+      "validity_notes": "BLOCKED is an honest terminal status for missing host model execution.",
+      "baseline": {
+        "status": "NOT_RUN",
+        "actual": "Phase baseline is recorded separately before the implementation edits."
+      },
+      "conditions": "Run the named evidence method against the current frozen phase artifact and preserve unavailable states.",
+      "version": "user-phase-1.1",
+      "snapshot_sha256": "712f18add7908cbb05be6a98a04f4729efafa12e00632d7e697a8421094cb6d1",
+      "license_notes": "Acceptance criterion derived from the user prompt."
+    },
+    {
+      "id": "P11-07",
+      "source_type": "USER",
+      "source": "master-prompt-v1.1.md#21-25-real-composition-closure",
+      "dimension": "composition",
+      "target": "Composition is executed when capabilities exist, or its exact unavailable capability and impact are recorded; schema presence is not execution proof.",
+      "evidence_method": "python3 -B scripts/run-composition-eval.py",
+      "required": true,
+      "priority": "high",
+      "status": "BLOCKED",
+      "validity_notes": "The runner separates observed handoff output from contract-only validation.",
+      "baseline": {
+        "status": "NOT_RUN",
+        "actual": "Phase baseline is recorded separately before the implementation edits."
+      },
+      "conditions": "Run the named evidence method against the current frozen phase artifact and preserve unavailable states.",
+      "version": "user-phase-1.1",
+      "snapshot_sha256": "712f18add7908cbb05be6a98a04f4729efafa12e00632d7e697a8421094cb6d1",
+      "license_notes": "Acceptance criterion derived from the user prompt."
+    },
+    {
+      "id": "P11-08",
+      "source_type": "USER",
+      "source": "master-prompt-v1.1.md#26-28-context-efficiency",
+      "dimension": "routing",
+      "target": "Routing precision is measured on scenario-to-reference mappings, with relevant and irrelevant references recorded and a target of at least 85% precision where the corpus is applicable.",
+      "evidence_method": "python3 -B scripts/run-context-efficiency.py",
+      "required": true,
+      "priority": "high",
+      "status": "PASS",
+      "validity_notes": "The measurement is deterministic and reports omissions separately from irrelevant loads.",
+      "baseline": {
+        "status": "NOT_RUN",
+        "actual": "Phase baseline is recorded separately before the implementation edits."
+      },
+      "conditions": "Run the named evidence method against the current frozen phase artifact and preserve unavailable states.",
+      "version": "user-phase-1.1",
+      "snapshot_sha256": "712f18add7908cbb05be6a98a04f4729efafa12e00632d7e697a8421094cb6d1",
+      "license_notes": "Acceptance criterion derived from the user prompt."
+    },
+    {
+      "id": "P11-09",
+      "source_type": "USER",
+      "source": "master-prompt-v1.1.md#31-42-red-team",
+      "dimension": "adversarial_coverage",
+      "target": "Framework swaps, language pairs, scale changes, ambiguity, failure matrices, retry amplification, unknown outcomes, concurrency, migration, operability and security boundary cases are represented and checked.",
+      "evidence_method": "benchmark coverage validator and final architectural gauntlet",
+      "required": true,
+      "priority": "critical",
+      "status": "PASS",
+      "validity_notes": "Coverage is structural plus deterministic oracle execution; behavioral quality remains separately bounded.",
+      "baseline": {
+        "status": "NOT_RUN",
+        "actual": "Phase baseline is recorded separately before the implementation edits."
+      },
+      "conditions": "Run the named evidence method against the current frozen phase artifact and preserve unavailable states.",
+      "version": "user-phase-1.1",
+      "snapshot_sha256": "712f18add7908cbb05be6a98a04f4729efafa12e00632d7e697a8421094cb6d1",
+      "license_notes": "Acceptance criterion derived from the user prompt."
+    },
+    {
+      "id": "P11-10",
+      "source_type": "USER",
+      "source": "master-prompt-v1.1.md#47-51-holdout-metamorphic-stability",
+      "dimension": "generalization",
+      "target": "Development, adversarial-repair and holdout splits exist; metamorphic pairs and semantically equivalent stability groups have explicit expected relations and are evaluated without holdout repair.",
+      "evidence_method": "benchmark validator and deterministic relation runner",
+      "required": true,
+      "priority": "critical",
+      "status": "BLOCKED",
+      "validity_notes": "The runner reports structural PASS separately from execution BLOCKED when responses are unavailable rather than inferring generalization.",
+      "baseline": {
+        "status": "NOT_RUN",
+        "actual": "Phase baseline is recorded separately before the implementation edits."
+      },
+      "conditions": "Run the named evidence method against the current frozen phase artifact and preserve unavailable states.",
+      "version": "user-phase-1.1",
+      "snapshot_sha256": "712f18add7908cbb05be6a98a04f4729efafa12e00632d7e697a8421094cb6d1",
+      "license_notes": "Acceptance criterion derived from the user prompt."
+    },
+    {
+      "id": "P11-11",
+      "source_type": "USER",
+      "source": "master-prompt-v1.1.md#54-56-machine-results-and-validation",
+      "dimension": "reproducibility",
+      "target": "Machine-readable results include fingerprints, model/status, corpus counts, scores only when executed, and one aggregate command exposes every gate status.",
+      "evidence_method": "python3 -B scripts/run-all-gates.py",
+      "required": true,
+      "priority": "critical",
+      "status": "PASS",
+      "validity_notes": "Aggregate output preserves failures and unavailable gates.",
+      "baseline": {
+        "status": "NOT_RUN",
+        "actual": "Phase baseline is recorded separately before the implementation edits."
+      },
+      "conditions": "Run the named evidence method against the current frozen phase artifact and preserve unavailable states.",
+      "version": "user-phase-1.1",
+      "snapshot_sha256": "712f18add7908cbb05be6a98a04f4729efafa12e00632d7e697a8421094cb6d1",
+      "license_notes": "Acceptance criterion derived from the user prompt."
+    },
+    {
+      "id": "P11-12",
+      "source_type": "USER",
+      "source": "master-prompt-v1.1.md#57-65-verdict-and-report",
+      "dimension": "assurance",
+      "target": "The assurance report uses explicit statuses and verdict taxonomy, includes all required score dimensions, reports limitations, and never declares TRIPLE_A_PROVEN without behavioral evidence.",
+      "evidence_method": "python3 -B scripts/validate-phase-assurance.py",
+      "required": true,
+      "priority": "critical",
+      "status": "PASS",
+      "validity_notes": "Report validation binds current package and benchmark fingerprints.",
+      "baseline": {
+        "status": "NOT_RUN",
+        "actual": "Phase baseline is recorded separately before the implementation edits."
+      },
+      "conditions": "Run the named evidence method against the current frozen phase artifact and preserve unavailable states.",
+      "version": "user-phase-1.1",
+      "snapshot_sha256": "712f18add7908cbb05be6a98a04f4729efafa12e00632d7e697a8421094cb6d1",
+      "license_notes": "Acceptance criterion derived from the user prompt."
+    },
+    {
+      "id": "P11-13",
+      "source_type": "USER",
+      "source": "master-prompt-v1.1.md#60-62-critic-gauntlet",
+      "dimension": "independent_review",
+      "target": "A fresh read-only critic evaluates benchmark validity, evaluator sensitivity, overfitting, false assurance and claimed evidence with a clean mutation sentinel; the final gauntlet covers all 20 named scenarios.",
+      "evidence_method": "fresh non-inherited critic packet, pre/post fingerprint and final gauntlet result",
+      "required": true,
+      "priority": "critical",
+      "status": "BLOCKED",
+      "validity_notes": "A critic approval is bounded by its independence level and available runtime capabilities.",
+      "baseline": {
+        "status": "NOT_RUN",
+        "actual": "Phase baseline is recorded separately before the implementation edits."
+      },
+      "conditions": "Run the named evidence method against the current frozen phase artifact and preserve unavailable states.",
+      "version": "user-phase-1.1",
+      "snapshot_sha256": "712f18add7908cbb05be6a98a04f4729efafa12e00632d7e697a8421094cb6d1",
+      "license_notes": "Acceptance criterion derived from the user prompt."
+    },
+    {
+      "id": "P11-14",
+      "source_type": "USER",
+      "source": "master-prompt-v1.1.md#64-required-final-score-dimensions",
+      "dimension": "score_honesty",
+      "target": "All 30 required score dimensions have evidence-backed values or explicit NOT_RUN/UNKNOWN states; overall score does not hide missing behavioral evidence.",
+      "evidence_method": "report schema validation and manual closure audit",
+      "required": true,
+      "priority": "high",
+      "status": "PASS",
+      "validity_notes": "Unavailable model/runtime evidence is not converted into numeric causal improvement.",
+      "baseline": {
+        "status": "NOT_RUN",
+        "actual": "Phase baseline is recorded separately before the implementation edits."
+      },
+      "conditions": "Run the named evidence method against the current frozen phase artifact and preserve unavailable states.",
+      "version": "user-phase-1.1",
+      "snapshot_sha256": "712f18add7908cbb05be6a98a04f4729efafa12e00632d7e697a8421094cb6d1",
+      "license_notes": "Acceptance criterion derived from the user prompt."
+    }
+  ],
+  "sources": [
+    {
+      "type": "USER",
+      "location": "docs/master-prompt-v1.1.md",
+      "version": "user-phase-1.1",
+      "snapshot_sha256": "712f18add7908cbb05be6a98a04f4729efafa12e00632d7e697a8421094cb6d1",
+      "license_notes": "Acceptance criteria supplied by the user; no copied implementation."
+    }
+  ]
+}

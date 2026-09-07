@@ -1,0 +1,15 @@
+{
+  "scope": "BEHAVIORAL_MODEL_EVAL",
+  "status": "BLOCKED",
+  "model_execution": "BLOCKED",
+  "reason": "No consumer-model adapter was supplied.",
+  "required_host_capability": "An adapter that invokes the same model in control and treatment lanes and returns JSON response records.",
+  "evidence_unavailable": "control/treatment responses, scores, pairwise judgments and causal delta",
+  "impact_on_verdict": "TRIPLE_A_PROVEN is ineligible; use TRIPLE_A_CONDITIONAL at most.",
+  "scenario_count": 72,
+  "split": null,
+  "package_fingerprint": "8819afd5f2dee411309429575223cbcdad61950e4b0118aaf3abbf4457b080bf",
+  "benchmark_fingerprint": "1b01914abffa1dd2d710b0c9e631786e468cd9b03d23bbce49a7ec07e24bf9f2",
+  "captured_at": "2026-09-07T16:14:49.675744+00:00",
+  "errors": []
+}

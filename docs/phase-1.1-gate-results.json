@@ -1,0 +1,1460 @@
+{
+  "scope": "COMPLETE_LOCAL_VALIDATION",
+  "status": "BLOCKED",
+  "captured_at": "2026-09-07T16:15:29.633881+00:00",
+  "required_check_count": 16,
+  "status_counts": {
+    "PASS": 12,
+    "FAIL": 0,
+    "NOT_RUN": 0,
+    "BLOCKED": 4,
+    "STALE": 0,
+    "NOT_APPLICABLE": 0
+  },
+  "checks": [
+    {
+      "name": "static_skill",
+      "command": "python3 -B scripts/validate-skill.py",
+      "status": "PASS",
+      "exit_status": 0,
+      "raw_output_sha256": "70bac654e7e4ac875ac343a2558d30c670e9534f3e26ac09e3d864e9f1811796",
+      "summary": "{\n  \"scope\": \"STATIC_SKILL_STRUCTURE\",\n  \"errors\": [],\n  \"warnings\": []\n}",
+      "structured": {
+        "scope": "STATIC_SKILL_STRUCTURE",
+        "errors": [],
+        "warnings": []
+      }
+    },
+    {
+      "name": "links",
+      "command": "python3 -B scripts/validate-links.py",
+      "status": "PASS",
+      "exit_status": 0,
+      "raw_output_sha256": "59212e4b20314b596d80a05d0d1dd550e781ec2ee0711bf9d83f445de7cd7ac3",
+      "summary": "{\n  \"scope\": \"MARKDOWN_LOCAL_LINKS\",\n  \"files_checked\": 23,\n  \"errors\": []\n}",
+      "structured": {
+        "scope": "MARKDOWN_LOCAL_LINKS",
+        "files_checked": 23,
+        "errors": []
+      }
+    },
+    {
+      "name": "pattern_index",
+      "command": "python3 -B scripts/validate-pattern-index.py",
+      "status": "PASS",
+      "exit_status": 0,
+      "raw_output_sha256": "ba8ae1a52255098b782d517d0ea79a554adcb820d98f3075cb7805415308431f",
+      "summary": "{\n  \"scope\": \"PATTERN_INDEX\",\n  \"expected_reference_count\": 20,\n  \"errors\": [],\n  \"references\": [\n    \"anti-patterns.md\",\n    \"api-patterns.md\",\n    \"architecture-boundaries.md\",\n    \"caching-patterns.md\",\n    \"composition-contracts.md\",\n    \"concurrency-patterns.md\",\n    \"consistency-patterns.md\",\n    \"data-access-patterns.md\",\n    \"decision-matrix.md\",\n    \"distributed-systems.md\",\n    \"domain-modeling.md\",\n    \"idempotency.md\",\n    \"messaging-patterns.md\",\n    \"migration-patterns.md\",\n    \"observability-patterns.md\",\n    \"performance-patterns.md\",\n    \"resilience-patterns.md\",\n    \"security-boundaries.md\",\n    \"testing-patterns.md\",\n    \"transaction-patterns.md\"\n  ]\n}",
+      "structured": {
+        "scope": "PATTERN_INDEX",
+        "expected_reference_count": 20,
+        "errors": [],
+        "references": [
+          "anti-patterns.md",
+          "api-patterns.md",
+          "architecture-boundaries.md",
+          "caching-patterns.md",
+          "composition-contracts.md",
+          "concurrency-patterns.md",
+          "consistency-patterns.md",
+          "data-access-patterns.md",
+          "decision-matrix.md",
+          "distributed-systems.md",
+          "domain-modeling.md",
+          "idempotency.md",
+          "messaging-patterns.md",
+          "migration-patterns.md",
+          "observability-patterns.md",
+          "performance-patterns.md",
+          "resilience-patterns.md",
+          "security-boundaries.md",
+          "testing-patterns.md",
+          "transaction-patterns.md"
+        ]
+      }
+    },
+    {
+      "name": "composition_contract",
+      "command": "python3 -B scripts/validate-composition.py",
+      "status": "PASS",
+      "exit_status": 0,
+      "raw_output_sha256": "3334ea6671522d9078102849bddb7c18b984fce0f164fde32205a4d6eb39a1ee",
+      "summary": "{\n  \"scope\": \"COMPOSITION_CONTRACT\",\n  \"errors\": [],\n  \"capabilities\": [\n    \"backend-engineering-vNext\",\n    \"security-engineering-vNext\",\n    \"verification-loop-vNext\"\n  ]\n}",
+      "structured": {
+        "scope": "COMPOSITION_CONTRACT",
+        "errors": [],
+        "capabilities": [
+          "backend-engineering-vNext",
+          "security-engineering-vNext",
+          "verification-loop-vNext"
+        ]
+      }
+    },
+    {
+      "name": "framework_independence",
+      "command": "python3 -B scripts/validate-framework-independence.py",
+      "status": "PASS",
+      "exit_status": 0,
+      "raw_output_sha256": "b6fc269c12c3e63b53203d8be34395d67b097ed000db2d2c6a28713cfdbebd52",
+      "summary": "{\n  \"scope\": \"FRAMEWORK_INDEPENDENCE\",\n  \"files_checked\": [\n    \"SKILL.md\",\n    \"README.md\",\n    \"references/pattern-index.md\",\n    \"references/decision-matrix.md\"\n  ],\n  \"errors\": []\n}",
+      "structured": {
+        "scope": "FRAMEWORK_INDEPENDENCE",
+        "files_checked": [
+          "SKILL.md",
+          "README.md",
+          "references/pattern-index.md",
+          "references/decision-matrix.md"
+        ],
+        "errors": []
+      }
+    },
+    {
+      "name": "benchmark",
+      "command": "python3 -B scripts/validate-benchmark.py",
+      "status": "PASS",
+      "exit_status": 0,
+      "raw_output_sha256": "0259122f8d4c7cb06bec4341b130e0b8277c17eb811070d9e9a226eb691ad870",
+      "summary": "ion semantics, and idempotent transitions.\",\n      \"expected_behavior\": \"The answer does not substitute retries for compensation.\"\n    },\n    \"ST-UNKNOWN-OUTCOME\": {\n      \"axis\": \"ambiguous remote outcome\",\n      \"relation\": \"Changing timeout wording preserves the distinction between unknown, failed, and confirmed success.\",\n      \"expected_behavior\": \"The answer reconciles before repeating a side effect.\"\n    },\n    \"ST-WEBHOOK-IDEMPOTENCY\": {\n      \"axis\": \"duplicate webhook delivery\",\n      \"relation\": \"Changing provider timing or delivery count preserves signature verification and one-effect processing.\",\n      \"expected_behavior\": \"The answer uses a durable event identity rather than in-memory deduplication.\"\n    }\n  },\n  \"final_gauntlet_count\": 20,\n  \"errors\": [],\n  \"warnings\": []\n}",
+      "structured": {
+        "scope": "BENCHMARK_CORPUS",
+        "status": "PASS",
+        "scenario_count": 72,
+        "family_counts": {
+          "BROWNFIELD": 8,
+          "FAILURE_DRIVEN": 8,
+          "NEED_MORE_EVIDENCE": 8,
+          "OPERABILITY": 8,
+          "SECURITY_SENSITIVE": 8,
+          "SHOULD_REJECT": 16,
+          "SHOULD_USE": 16
+        },
+        "split_counts": {
+          "adversarial": 25,
+          "development": 29,
+          "holdout": 18
+        },
+        "domain_count": 58,
+        "tag_count": 17,
+        "duplicate_decision_count": 0,
+        "duplicate_decision_rate": 0.0,
+        "decision_component_max_frequency": 3,
+        "decision_component_reuse_count": 5,
+        "mutation_diagnostic_count": 72,
+        "mutation_diagnostic_max_frequency": 1,
+        "metamorphic_groups": {
+          "MG-CACHE-EVIDENCE": [
+            "FD-105",
+            "SR-009",
+            "SU-004",
+            "SU-103"
+          ],
+          "MG-COMMIT-PUBLISH": [
+            "FD-108",
+            "G-07",
+            "G-08"
+          ],
+          "MG-CQRS-SCALE": [
+            "G-03",
+            "G-04",
+            "SR-102"
+          ],
+          "MG-EVENT-HISTORY": [
+            "G-18",
+            "G-19",
+            "SR-103"
+          ],
+          "MG-LOCK-CONSTRAINT": [
+            "G-09",
+            "G-10"
+          ],
+          "MG-MIGRATION-SAFETY": [
+            "BF-105",
+            "FD-107",
+            "OP-103",
+            "SU-008"
+          ],
+          "MG-MIXED-VERSIONS": [
+            "BF-101",
+            "SU-104"
+          ],
+          "MG-OWNERSHIP": [
+            "BF-102",
+            "NE-105"
+          ],
+          "MG-REMOTE-UNKNOWN": [
+            "FD-101",
+            "FD-102"
+          ],
+          "MG-REPLAY-REPAIR": [
+            "OP-102",
+            "OP-107"
+          ],
+          "MG-RETRY-SAFETY": [
+            "G-05",
+            "G-06"
+          ],
+          "MG-SCALE-OWNERSHIP": [
+            "G-01",
+            "G-02",
+            "SR-101",
+            "SU-005"
+          ],
+          "MG-TENANT-AUTH": [
+            "SEC-101",
+            "SEC-102",
+            "SEC-108"
+          ]
+        },
+        "stability_groups": {
+          "ST-ATOMIC-RESERVATION": [
+            "G-09",
+            "G-10"
+          ],
+          "ST-BULKHEAD-POOLS": [
+            "SU-009",
+            "SU-102"
+          ],
+          "ST-CQRS-SCALE": [
+            "G-03",
+            "G-04",
+            "SR-102"
+          ],
+          "ST-EVENT-HISTORY": [
+            "G-18",
+            "G-19",
+            "SR-103"
+          ],
+          "ST-LOCAL-MODULES": [
+            "SR-007",
+            "SR-104"
+          ],
+          "ST-MICROSERVICES-PRESSURE": [
+            "G-01",
+            "SR-101"
+          ],
+          "ST-MIGRATION-RESUME": [
+            "BF-105",
+            "FD-107",
+            "OP-103"
+          ],
+          "ST-MIXED-VERSION": [
+            "BF-101",
+            "SU-008",
+            "SU-104"
+          ],
+          "ST-OUTBOX-WEBHOOK": [
+            "FD-108",
+            "G-07",
+            "G-08"
+          ],
+          "ST-OWNERSHIP": [
+            "BF-102",
+            "NE-105"
+          ],
+          "ST-PAYMENT-IDEMPOTENCY": [
+            "G-05",
+            "G-06"
+          ],
+          "ST-REPLAY-REPAIR": [
+            "OP-102",
+            "OP-107"
+          ],
+          "ST-RETRY-LAYERS": [
+            "FD-104",
+            "SR-012"
+          ],
+          "ST-SAGA-WORKFLOW": [
+            "SR-010",
+            "SU-010"
+          ],
+          "ST-UNKNOWN-OUTCOME": [
+            "FD-101",
+            "FD-102"
+          ],
+          "ST-WEBHOOK-IDEMPOTENCY": [
+            "FD-103",
+            "SEC-102"
+          ]
+        },
+        "metamorphic_relations": {
+          "MG-CACHE-EVIDENCE": {
+            "axis": "measured cache benefit and freshness budget",
+            "relation": "Changing measured read cost or acceptable staleness may change the cache decision, but never changes the database source-of-truth invariant.",
+            "expected_behavior": "The recommendation changes only when the evidence crosses the stated cost or staleness threshold."
+          },
+          "MG-COMMIT-PUBLISH": {
+            "axis": "publication failure after local commit",
+            "relation": "Changing broker availability must not change the local transaction outcome or erase the durable publication obligation.",
+            "expected_behavior": "A direct dual write remains unsafe; an outbox/reconciliation path remains the minimum boundary."
+          },
+          "MG-CQRS-SCALE": {
+            "axis": "read/write asymmetry and projection lag",
+            "relation": "Changing read volume or write volume may justify a read model only when lag and ownership remain acceptable.",
+            "expected_behavior": "The answer distinguishes measured projection pressure from a symmetric CRUD baseline."
+          },
+          "MG-EVENT-HISTORY": {
+            "axis": "temporal reconstruction requirement",
+            "relation": "Adding a contractual need to reconstruct past state can change the event-history decision; ordinary audit fields do not.",
+            "expected_behavior": "The answer preserves current-state correctness and names replay/schema/privacy evidence."
+          },
+          "MG-LOCK-CONSTRAINT": {
+            "axis": "conflict rate and invariant scope",
+            "relation": "Changing conflict rate may move from optimistic compare-and-swap to stronger coordination, but the invariant and conflict response stay explicit.",
+            "expected_behavior": "A distributed lock is not selected merely because concurrent writes exist."
+          },
+          "MG-MIGRATION-SAFETY": {
+            "axis": "interruption and mixed-version compatibility",
+            "relation": "Adding worker interruption or old readers changes rollout controls, not the need for additive compatibility and a parity gate.",
+            "expected_behavior": "The answer retains expand-contract, resumability, and rollback/roll-forward evidence."
+          },
+          "MG-MIXED-VERSIONS": {
+            "axis": "old/new client coexistence",
+            "relation": "Changing the duration or population of mixed versions may change retirement timing, but not compatibility during the window.",
+            "expected_behavior": "The answer identifies translation, telemetry, and a reversible contract boundary."
+          },
+          "MG-OWNERSHIP": {
+            "axis": "data and team ownership",
+            "relation": "Changing independent ownership or deployment authority may justify a boundary; shared mutable ownership does not.",
+            "expected_behavior": "The recommendation follows ownership evidence rather than service-count preference."
+          },
+          "MG-REMOTE-UNKNOWN": {
+            "axis": "remote timeout and outcome lookup",
+            "relation": "Changing the provider's timeout behavior must not turn an unknown outcome into a confirmed failure.",
+            "expected_behavior": "The answer queries or reconciles the remote reference before any non-idempotent retry."
+          },
+          "MG-REPLAY-REPAIR": {
+            "axis": "operator replay and repair authorization",
+            "relation": "Changing replay volume or approval policy must not remove idempotency, auditability, or quarantine controls.",
+            "expected_behavior": "The answer separates safe replay from an unbounded requeue loop."
+          },
+          "MG-RETRY-SAFETY": {
+            "axis": "side-effect safety and retry budget",
+            "relation": "Changing idempotency evidence or deadline budget may change whether retry is allowed, but never licenses multiplicative retries.",
+            "expected_behavior": "The answer assigns one retry owner and defines reconciliation for ambiguous effects."
+          },
+          "MG-SCALE-OWNERSHIP": {
+            "axis": "independent scale, deploy, or fault-isolation pressure",
+            "relation": "Adding measured independent pressure may justify a service boundary; generic projected scale does not.",
+            "expected_behavior": "The answer compares extraction cost with a modular baseline and ownership evidence."
+          },
+          "MG-TENANT-AUTH": {
+            "axis": "tenant boundary and authorization context",
+            "relation": "Changing tenant count or cache pressure must not weaken server-side tenant authorization or cache-key isolation.",
+            "expected_behavior": "The answer treats tenant scope as a security invariant, not a client convention."
+          }
+        },
+        "stability_relations": {
+          "ST-ATOMIC-RESERVATION": {
+            "axis": "reservation under duplicate and crash interleavings",
+            "relation": "Framework, wording, or scale changes preserve the reservation boundary and duplicate outcome.",
+            "expected_behavior": "The answer remains local-atomic or explicitly reconciled when publication is external."
+          },
+          "ST-BULKHEAD-POOLS": {
+            "axis": "resource pool isolation",
+            "relation": "Changing pool size or optional-work load preserves capacity for critical work.",
+            "expected_behavior": "The answer keeps bounded admission and visible degradation."
+          },
+          "ST-CQRS-SCALE": {
+            "axis": "projection lag under read pressure",
+            "relation": "Changing scale wording does not create a CQRS requirement without read/write asymmetry and lag acceptance.",
+            "expected_behavior": "The answer remains consistent with the freshness contract."
+          },
+          "ST-EVENT-HISTORY": {
+            "axis": "history and replay obligation",
+            "relation": "Changing framework or deployment wording preserves the distinction between audit history and event-sourced truth.",
+            "expected_behavior": "The answer requires temporal reconstruction evidence before event sourcing."
+          },
+          "ST-LOCAL-MODULES": {
+            "axis": "same-process module atomicity",
+            "relation": "Changing module names or team wording does not justify a broker when local atomicity is the requirement.",
+            "expected_behavior": "The answer preserves in-process boundaries until durable asynchronous ownership exists."
+          },
+          "ST-MICROSERVICES-PRESSURE": {
+            "axis": "measured service-boundary pressure",
+            "relation": "Changing scale language preserves the requirement for independent ownership, deployment, isolation, or scaling evidence.",
+            "expected_behavior": "The answer rejects architecture by professionalism or projected scale alone."
+          },
+          "ST-MIGRATION-RESUME": {
+            "axis": "resume and contraction gates",
+            "relation": "Changing backfill size or worker count preserves checkpoint integrity and parity before contraction.",
+            "expected_behavior": "The answer remains safe under interruption and mixed versions."
+          },
+          "ST-MIXED-VERSION": {
+            "axis": "compatibility window",
+            "relation": "Changing client mix or rollout wording preserves old/new compatibility until retirement evidence exists.",
+            "expected_behavior": "The answer does not assume an atomic fleet upgrade."
+          },
+          "ST-OUTBOX-WEBHOOK": {
+            "axis": "publication and webhook duplicate effects",
+            "relation": "Changing delivery timing preserves durable publication and idempotent consumer effects.",
+            "expected_behavior": "The answer does not infer business exactly-once from transport delivery."
+          },
+          "ST-OWNERSHIP": {
+            "axis": "ownership and boundary authority",
+            "relation": "Changing framework or team labels preserves the owner of mutable state and the contract at its boundary.",
+            "expected_behavior": "The answer avoids shared mutable truth without an explicit transition plan."
+          },
+          "ST-PAYMENT-IDEMPOTENCY": {
+            "axis": "payment retry and duplicate capture",
+            "relation": "Changing provider latency or client retry wording preserves the at-most-once business effect and unknown-outcome handling.",
+            "expected_behavior": "The answer queries/reconciles before retrying a timed-out capture."
+          },
+          "ST-REPLAY-REPAIR": {
+            "axis": "safe replay under live traffic",
+            "relation": "Changing replay size or operator wording preserves authorization, deduplication, and convergence.",
+            "expected_behavior": "The answer remains safe when replay overlaps live delivery."
+          },
+          "ST-RETRY-LAYERS": {
+            "axis": "retry ownership and deadline",
+            "relation": "Changing the number of client or worker layers preserves one bounded retry budget.",
+            "expected_behavior": "The answer rejects multiplicative retry loops and names recovery."
+          },
+          "ST-SAGA-WORKFLOW": {
+            "axis": "workflow ownership and compensation",
+            "relation": "Changing step count or framework preserves durable state, compensation semantics, and idempotent transitions.",
+            "expected_behavior": "The answer does not substitute retries for compensation."
+          },
+          "ST-UNKNOWN-OUTCOME": {
+            "axis": "ambiguous remote outcome",
+            "relation": "Changing timeout wording preserves the distinction between unknown, failed, and confirmed success.",
+            "expected_behavior": "The answer reconciles before repeating a side effect."
+          },
+          "ST-WEBHOOK-IDEMPOTENCY": {
+            "axis": "duplicate webhook delivery",
+            "relation": "Changing provider timing or delivery count preserves signature verification and one-effect processing.",
+            "expected_behavior": "The answer uses a durable event identity rather than in-memory deduplication."
+          }
+        },
+        "final_gauntlet_count": 20,
+        "errors": [],
+        "warnings": []
+      }
+    },
+    {
+      "name": "context_efficiency",
+      "command": "python3 -B scripts/run-context-efficiency.py",
+      "status": "PASS",
+      "exit_status": 0,
+      "raw_output_sha256": "d18d3498ec2c399c76b763b5a04e11047972b1175263eb16e6dd5f7e0286240c",
+      "summary": "references\": [\n        \"concurrency-patterns.md\",\n        \"messaging-patterns.md\",\n        \"observability-patterns.md\",\n        \"security-boundaries.md\"\n      ],\n      \"reference_precision\": 1.0,\n      \"reference_recall\": 0.2,\n      \"approximate_context_bytes\": 28431\n    },\n    {\n      \"scenario_id\": \"OP-108\",\n      \"references_loaded\": [\n        \"observability-patterns.md\"\n      ],\n      \"relevant_references\": [\n        \"distributed-systems.md\",\n        \"observability-patterns.md\",\n        \"resilience-patterns.md\"\n      ],\n      \"irrelevant_references\": [],\n      \"omitted_relevant_references\": [\n        \"distributed-systems.md\",\n        \"resilience-patterns.md\"\n      ],\n      \"reference_precision\": 1.0,\n      \"reference_recall\": 0.3333,\n      \"approximate_context_bytes\": 30335\n    }\n  ]\n}",
+      "structured": null
+    },
+    {
+      "name": "legacy_fixture_eval",
+      "command": "python3 -B tests/run_evals.py",
+      "status": "PASS",
+      "exit_status": 0,
+      "raw_output_sha256": "e032b9b51cfbb3acfa2acb2d4e05fad27bfd24f3b487bc359d31565084f79805",
+      "summary": "{\n  \"scope\": \"DETERMINISTIC_SKILL_EVAL_FIXTURES\",\n  \"model_execution\": \"NOT_RUN\",\n  \"scenario_count\": 26,\n  \"category\": null,\n  \"categories\": [\n    \"activation\",\n    \"adversarial\",\n    \"composition\",\n    \"regression\",\n    \"rejection\",\n    \"selection\"\n  ],\n  \"errors\": [],\n  \"known_bad_mutations_declared\": 26\n}",
+      "structured": {
+        "scope": "DETERMINISTIC_SKILL_EVAL_FIXTURES",
+        "model_execution": "NOT_RUN",
+        "scenario_count": 26,
+        "category": null,
+        "categories": [
+          "activation",
+          "adversarial",
+          "composition",
+          "regression",
+          "rejection",
+          "selection"
+        ],
+        "errors": [],
+        "known_bad_mutations_declared": 26
+      }
+    },
+    {
+      "name": "legacy_known_bad",
+      "command": "python3 -B tests/run_known_bad.py",
+      "status": "PASS",
+      "exit_status": 0,
+      "raw_output_sha256": "ea36d5e636ae8fe1b72f0b44c484b00e2b7e5a434b82b49765c72c1f8659a9b2",
+      "summary": "{\n  \"scope\": \"KNOWN_BAD_MUTATION_EXECUTION\",\n  \"model_execution\": \"NOT_RUN\",\n  \"scenario_count\": 26,\n  \"executed\": 26,\n  \"declarations_verified\": 26,\n  \"passed_oracles\": 26,\n  \"failures\": []\n}",
+      "structured": {
+        "scope": "KNOWN_BAD_MUTATION_EXECUTION",
+        "model_execution": "NOT_RUN",
+        "scenario_count": 26,
+        "executed": 26,
+        "declarations_verified": 26,
+        "passed_oracles": 26,
+        "failures": []
+      }
+    },
+    {
+      "name": "response_mutations",
+      "command": "python3 -B scripts/run-response-mutations.py",
+      "status": "PASS",
+      "exit_status": 0,
+      "raw_output_sha256": "f734a45906e1bc8d406bd06b3f6c49fb259a2c4fd965441ee82373b36a5a208c",
+      "summary": "eadline, operator recovery, and verification\",\n      \"body_shape\": {\n        \"sequence_ratio\": 0.7839,\n        \"token_jaccard\": 0.6981,\n        \"changed_token_count\": 16\n      },\n      \"body_shape_thresholds\": {\n        \"min_sequence_ratio\": 0.65,\n        \"min_token_jaccard\": 0.65\n      },\n      \"body_shape_safe\": true,\n      \"mutation_metadata_safe\": true,\n      \"shared_context_held_constant\": true,\n      \"shared_context_sha256\": \"d7283eccbaf4862bff662f0d3ff044f2f9315902545bcfe5a282aaf1253ca4be\"\n    }\n  ],\n  \"fingerprints\": {\n    \"scenario_file\": \"1b01914abffa1dd2d710b0c9e631786e468cd9b03d23bbce49a7ec07e24bf9f2\",\n    \"rubric_file\": \"cd87521db83758394e2b15ba84c196b0581c878082d963f6465670a700ab3b06\",\n    \"oracle_file\": \"44f43d563c7665be19cca9646588d676a5820c5d70996f0afeebd39c2ed9a876\"\n  }\n}",
+      "structured": {
+        "scope": "RESPONSE_LEVEL_MUTATION_ORACLES",
+        "status": "PASS",
+        "model_execution": "NOT_INFERRED",
+        "oracle_count": 15,
+        "passed": 15,
+        "failed": 0,
+        "errors": [],
+        "results": [
+          {
+            "id": "RM-01",
+            "scenario_id": "G-05",
+            "mutation": "unsafe_retry",
+            "status": "PASS",
+            "baseline_status": "PASS",
+            "baseline_safe": true,
+            "mutated_status": "FAIL",
+            "baseline_average_0_4": 3.6957,
+            "mutated_average_0_4": 3.6522,
+            "score_delta_0_4": 0.0435,
+            "expected_tag": "unsafe_retry",
+            "observed_tags": [
+              "unsafe_retry"
+            ],
+            "tag_hit": true,
+            "minimum_score_delta": 0.15,
+            "causal_sensitivity": true,
+            "mutation_operator": "replace bounded retry clause with unbounded non-idempotent retry",
+            "preserved_contract": "payment invariants, unknown outcome, recovery, and verification clauses",
+            "body_shape": {
+              "sequence_ratio": 0.9338,
+              "token_jaccard": 0.8533,
+              "changed_token_count": 11
+            },
+            "body_shape_thresholds": {
+              "min_sequence_ratio": 0.65,
+              "min_token_jaccard": 0.65
+            },
+            "body_shape_safe": true,
+            "mutation_metadata_safe": true,
+            "shared_context_held_constant": true,
+            "shared_context_sha256": "6878db4e6f81ad2928824246d79f7815ff9b09caa3f38ac60ec4cbe633119401"
+          },
+          {
+            "id": "RM-02",
+            "scenario_id": "G-08",
+            "mutation": "direct_dual_write",
+            "status": "PASS",
+            "baseline_status": "PASS",
+            "baseline_safe": true,
+            "mutated_status": "FAIL",
+            "baseline_average_0_4": 3.6957,
+            "mutated_average_0_4": 3.6522,
+            "score_delta_0_4": 0.0435,
+            "expected_tag": "direct_dual_write",
+            "observed_tags": [
+              "direct_dual_write"
+            ],
+            "tag_hit": true,
+            "minimum_score_delta": 0.15,
+            "causal_sensitivity": true,
+            "mutation_operator": "replace the outbox boundary with a direct database-and-broker write",
+            "preserved_contract": "reservation invariants, recovery, duplicate delivery, and verification clauses",
+            "body_shape": {
+              "sequence_ratio": 0.9071,
+              "token_jaccard": 0.8226,
+              "changed_token_count": 11
+            },
+            "body_shape_thresholds": {
+              "min_sequence_ratio": 0.65,
+              "min_token_jaccard": 0.65
+            },
+            "body_shape_safe": true,
+            "mutation_metadata_safe": true,
+            "shared_context_held_constant": true,
+            "shared_context_sha256": "efeca6c8d6815e4fef0941a953c76bdb3d273cfb2185fb63ddf5f907af13a5fb"
+          },
+          {
+            "id": "RM-03",
+            "scenario_id": "G-06",
+            "mutation": "unsupported_exactly_once",
+            "status": "PASS",
+            "baseline_status": "PASS",
+            "baseline_safe": true,
+            "mutated_status": "FAIL",
+            "baseline_average_0_4": 3.6957,
+            "mutated_average_0_4": 3.6957,
+            "score_delta_0_4": 0.0,
+            "expected_tag": "exactly_once",
+            "observed_tags": [
+              "exactly_once"
+            ],
+            "tag_hit": true,
+            "minimum_score_delta": 0.1,
+            "causal_sensitivity": true,
+            "mutation_operator": "flip the delivery guarantee from at-least-once to exactly-once",
+            "preserved_contract": "payment idempotency, timeout, retry, reconciliation, and verification clauses",
+            "body_shape": {
+              "sequence_ratio": 0.981,
+              "token_jaccard": 0.9524,
+              "changed_token_count": 3
+            },
+            "body_shape_thresholds": {
+              "min_sequence_ratio": 0.65,
+              "min_token_jaccard": 0.65
+            },
+            "body_shape_safe": true,
+            "mutation_metadata_safe": true,
+            "shared_context_held_constant": true,
+            "shared_context_sha256": "7e20c42df4c2e1f5e9c075da7349aa5a3ce7bfd8a67248eee0bed0a52a1bf585"
+          },
+          {
+            "id": "RM-04",
+            "scenario_id": "SEC-103",
+            "mutation": "missing_authz",
+            "status": "PASS",
+            "baseline_status": "PASS",
+            "baseline_safe": true,
+            "mutated_status": "FAIL",
+            "baseline_average_0_4": 3.6522,
+            "mutated_average_0_4": 3.6522,
+            "score_delta_0_4": 0.0,
+            "expected_tag": "missing_authz",
+            "observed_tags": [
+              "missing_authz"
+            ],
+            "tag_hit": true,
+            "minimum_score_delta": 0.1,
+            "causal_sensitivity": true,
+            "mutation_operator": "remove the server-side authorization and tenant-scope clause",
+            "preserved_contract": "URL safety invariant, resource budget, bounded failure, and SSRF verification",
+            "body_shape": {
+              "sequence_ratio": 0.9325,
+              "token_jaccard": 0.8413,
+              "changed_token_count": 10
+            },
+            "body_shape_thresholds": {
+              "min_sequence_ratio": 0.65,
+              "min_token_jaccard": 0.65
+            },
+            "body_shape_safe": true,
+            "mutation_metadata_safe": true,
+            "shared_context_held_constant": true,
+            "shared_context_sha256": "c57fec88a9d2e47bb707c52b5e7cbd6e02d6752c0a8e959937535288cc2a10db"
+          },
+          {
+            "id": "RM-05",
+            "scenario_id": "SU-008",
+            "mutation": "removed_migration_compatibility",
+            "status": "PASS",
+            "baseline_status": "PASS",
+            "baseline_safe": true,
+            "mutated_status": "FAIL",
+            "baseline_average_0_4": 3.6087,
+            "mutated_average_0_4": 3.5652,
+            "score_delta_0_4": 0.0435,
+            "expected_tag": "removed_migration_compatibility",
+            "observed_tags": [
+              "removed_migration_compatibility"
+            ],
+            "tag_hit": true,
+            "minimum_score_delta": 0.15,
+            "causal_sensitivity": true,
+            "mutation_operator": "replace the mixed-version compatibility assertion with an incompatibility assertion",
+            "preserved_contract": "migration sequence, cleanup unknown, rollback, and verification clauses",
+            "body_shape": {
+              "sequence_ratio": 0.925,
+              "token_jaccard": 0.8214,
+              "changed_token_count": 10
+            },
+            "body_shape_thresholds": {
+              "min_sequence_ratio": 0.65,
+              "min_token_jaccard": 0.65
+            },
+            "body_shape_safe": true,
+            "mutation_metadata_safe": true,
+            "shared_context_held_constant": true,
+            "shared_context_sha256": "91b24e4d5482c7d891f107ae233c39e3e0489ea4566d6327e1510abaa29e9558"
+          },
+          {
+            "id": "RM-06",
+            "scenario_id": "FD-103",
+            "mutation": "duplicate_delivery",
+            "status": "PASS",
+            "baseline_status": "PASS",
+            "baseline_safe": true,
+            "mutated_status": "FAIL",
+            "baseline_average_0_4": 3.7391,
+            "mutated_average_0_4": 3.7391,
+            "score_delta_0_4": 0.0,
+            "expected_tag": "missing_duplicate_safety",
+            "observed_tags": [
+              "missing_duplicate_safety"
+            ],
+            "tag_hit": true,
+            "minimum_score_delta": 0.1,
+            "causal_sensitivity": true,
+            "mutation_operator": "remove inbox deduplication and make duplicate delivery ordinary",
+            "preserved_contract": "signature verification, fulfillment invariant, recovery, and concurrency verification",
+            "body_shape": {
+              "sequence_ratio": 0.849,
+              "token_jaccard": 0.6721,
+              "changed_token_count": 20
+            },
+            "body_shape_thresholds": {
+              "min_sequence_ratio": 0.65,
+              "min_token_jaccard": 0.65
+            },
+            "body_shape_safe": true,
+            "mutation_metadata_safe": true,
+            "shared_context_held_constant": true,
+            "shared_context_sha256": "4f2248c8f289fa5ff238f10467a66be46663a1486a12e73e0a73cf268159cc6b"
+          },
+          {
+            "id": "RM-07",
+            "scenario_id": "SU-002",
+            "mutation": "ignored_invariant",
+            "status": "PASS",
+            "baseline_status": "PASS",
+            "baseline_safe": true,
+            "mutated_status": "FAIL",
+            "baseline_average_0_4": 3.6957,
+            "mutated_average_0_4": 3.6957,
+            "score_delta_0_4": 0.0,
+            "expected_tag": "missing_invariant",
+            "observed_tags": [
+              "missing_invariant"
+            ],
+            "tag_hit": true,
+            "minimum_score_delta": 0.1,
+            "causal_sensitivity": true,
+            "mutation_operator": "replace the stale-write invariant with a generic coordination statement",
+            "preserved_contract": "compare-and-swap choice, conflict unknown, recovery, and verification",
+            "body_shape": {
+              "sequence_ratio": 0.8558,
+              "token_jaccard": 0.7193,
+              "changed_token_count": 16
+            },
+            "body_shape_thresholds": {
+              "min_sequence_ratio": 0.65,
+              "min_token_jaccard": 0.65
+            },
+            "body_shape_safe": true,
+            "mutation_metadata_safe": true,
+            "shared_context_held_constant": true,
+            "shared_context_sha256": "f39c289adbf4b869df86401d1a5cf0a0f34f48cb399874100541c668582914d7"
+          },
+          {
+            "id": "RM-08",
+            "scenario_id": "SU-005",
+            "mutation": "unjustified_microservices",
+            "status": "PASS",
+            "baseline_status": "PASS",
+            "baseline_safe": true,
+            "mutated_status": "FAIL",
+            "baseline_average_0_4": 3.6522,
+            "mutated_average_0_4": 3.6522,
+            "score_delta_0_4": 0.0,
+            "expected_tag": "cargo_cult_microservices",
+            "observed_tags": [
+              "cargo_cult_microservices"
+            ],
+            "tag_hit": true,
+            "minimum_score_delta": 0.1,
+            "causal_sensitivity": true,
+            "mutation_operator": "replace the modular selection with a professionalism-only microservices selection",
+            "preserved_contract": "absence of independent driver, invariant, baseline, evolution evidence, and verification",
+            "body_shape": {
+              "sequence_ratio": 0.865,
+              "token_jaccard": 0.6786,
+              "changed_token_count": 18
+            },
+            "body_shape_thresholds": {
+              "min_sequence_ratio": 0.65,
+              "min_token_jaccard": 0.65
+            },
+            "body_shape_safe": true,
+            "mutation_metadata_safe": true,
+            "shared_context_held_constant": true,
+            "shared_context_sha256": "26f0cd21d6a93630d3ef094736db197a09b1e2ead1cdea74f9b8ee9b3a66cac3"
+          },
+          {
+            "id": "RM-09",
+            "scenario_id": "G-19",
+            "mutation": "unjustified_event_sourcing",
+            "status": "PASS",
+            "baseline_status": "PASS",
+            "baseline_safe": true,
+            "mutated_status": "FAIL",
+            "baseline_average_0_4": 3.4348,
+            "mutated_average_0_4": 3.4348,
+            "score_delta_0_4": 0.0,
+            "expected_tag": "cargo_cult_event_sourcing",
+            "observed_tags": [
+              "cargo_cult_event_sourcing"
+            ],
+            "tag_hit": true,
+            "minimum_score_delta": 0.1,
+            "causal_sensitivity": true,
+            "mutation_operator": "replace contractual history justification with an audit-fashion justification",
+            "preserved_contract": "history invariant, archive unknown, baseline, and replay verification",
+            "body_shape": {
+              "sequence_ratio": 0.8373,
+              "token_jaccard": 0.75,
+              "changed_token_count": 13
+            },
+            "body_shape_thresholds": {
+              "min_sequence_ratio": 0.65,
+              "min_token_jaccard": 0.65
+            },
+            "body_shape_safe": true,
+            "mutation_metadata_safe": true,
+            "shared_context_held_constant": true,
+            "shared_context_sha256": "38e9ec242f9ea0e8414d62f7396fbc65935c1031f28f078a794e3c43d4c8adc1"
+          },
+          {
+            "id": "RM-10",
+            "scenario_id": "G-01",
+            "mutation": "fabricated_requirement",
+            "status": "PASS",
+            "baseline_status": "PASS",
+            "baseline_safe": true,
+            "mutated_status": "FAIL",
+            "baseline_average_0_4": 3.6087,
+            "mutated_average_0_4": 3.6087,
+            "score_delta_0_4": 0.0,
+            "expected_tag": "invented_requirement",
+            "observed_tags": [
+              "invented_requirement"
+            ],
+            "tag_hit": true,
+            "minimum_score_delta": 0.1,
+            "causal_sensitivity": true,
+            "mutation_operator": "replace the proportionate decision with an unsupported Kafka requirement",
+            "preserved_contract": "current facts, unknown future growth, invariant, baseline, and verification",
+            "body_shape": {
+              "sequence_ratio": 0.9465,
+              "token_jaccard": 0.8113,
+              "changed_token_count": 10
+            },
+            "body_shape_thresholds": {
+              "min_sequence_ratio": 0.65,
+              "min_token_jaccard": 0.65
+            },
+            "body_shape_safe": true,
+            "mutation_metadata_safe": true,
+            "shared_context_held_constant": true,
+            "shared_context_sha256": "1159c6a0206fb18b8114d45e80b76e9a62c4b356b3986e385b2ce58f75c17aad"
+          },
+          {
+            "id": "RM-11",
+            "scenario_id": "OP-101",
+            "mutation": "missing_recovery",
+            "status": "PASS",
+            "baseline_status": "PASS",
+            "baseline_safe": true,
+            "mutated_status": "FAIL",
+            "baseline_average_0_4": 3.6087,
+            "mutated_average_0_4": 3.6087,
+            "score_delta_0_4": 0.0,
+            "expected_tag": "missing_recovery",
+            "observed_tags": [
+              "missing_recovery"
+            ],
+            "tag_hit": true,
+            "minimum_score_delta": 0.1,
+            "causal_sensitivity": true,
+            "mutation_operator": "remove replay, dead-letter, ownership, and audit recovery obligations",
+            "preserved_contract": "workflow classification, side-effect invariant, reconciliation, and verification",
+            "body_shape": {
+              "sequence_ratio": 0.9883,
+              "token_jaccard": 1.0,
+              "changed_token_count": 0
+            },
+            "body_shape_thresholds": {
+              "min_sequence_ratio": 0.65,
+              "min_token_jaccard": 0.65
+            },
+            "body_shape_safe": true,
+            "mutation_metadata_safe": true,
+            "shared_context_held_constant": true,
+            "shared_context_sha256": "2643cc9a6446dfeacf84250a84a14d3fde4e203db1e8c526b063f444a343f59d"
+          },
+          {
+            "id": "RM-12",
+            "scenario_id": "SU-004",
+            "mutation": "ignored_cache_invariant",
+            "status": "PASS",
+            "baseline_status": "PASS",
+            "baseline_safe": true,
+            "mutated_status": "FAIL",
+            "baseline_average_0_4": 3.6087,
+            "mutated_average_0_4": 3.6087,
+            "score_delta_0_4": 0.0,
+            "expected_tag": "missing_invariant",
+            "observed_tags": [
+              "missing_cache_invalidation",
+              "missing_invariant"
+            ],
+            "tag_hit": true,
+            "minimum_score_delta": 0.1,
+            "causal_sensitivity": true,
+            "mutation_operator": "replace cache source-of-truth and staleness invariant with a latency statement",
+            "preserved_contract": "cache choice, database baseline, invalidation controls, recovery, and verification",
+            "body_shape": {
+              "sequence_ratio": 0.8377,
+              "token_jaccard": 0.6981,
+              "changed_token_count": 16
+            },
+            "body_shape_thresholds": {
+              "min_sequence_ratio": 0.65,
+              "min_token_jaccard": 0.65
+            },
+            "body_shape_safe": true,
+            "mutation_metadata_safe": true,
+            "shared_context_held_constant": true,
+            "shared_context_sha256": "8a2c12bba7bc794641c2a1a1bb435f0f2c1513a97b847a55400afd980496e2f4"
+          },
+          {
+            "id": "RM-13",
+            "scenario_id": "SR-012",
+            "mutation": "retry_amplification",
+            "status": "PASS",
+            "baseline_status": "PASS",
+            "baseline_safe": true,
+            "mutated_status": "FAIL",
+            "baseline_average_0_4": 3.5217,
+            "mutated_average_0_4": 3.4783,
+            "score_delta_0_4": 0.0434,
+            "expected_tag": "unsafe_retry",
+            "observed_tags": [
+              "unsafe_retry"
+            ],
+            "tag_hit": true,
+            "minimum_score_delta": 0.1,
+            "causal_sensitivity": true,
+            "mutation_operator": "replace one bounded retry budget with retries at three independent layers",
+            "preserved_contract": "inventory invariant, retry-after unknown, reconciliation recovery, and verification",
+            "body_shape": {
+              "sequence_ratio": 0.8393,
+              "token_jaccard": 0.678,
+              "changed_token_count": 19
+            },
+            "body_shape_thresholds": {
+              "min_sequence_ratio": 0.65,
+              "min_token_jaccard": 0.65
+            },
+            "body_shape_safe": true,
+            "mutation_metadata_safe": true,
+            "shared_context_held_constant": true,
+            "shared_context_sha256": "1af422a4cd8e324cd32207e4d6b185025e0864711c91f03184b5fe52a511b398"
+          },
+          {
+            "id": "RM-14",
+            "scenario_id": "G-18",
+            "mutation": "unproven_readiness",
+            "status": "PASS",
+            "baseline_status": "PASS",
+            "baseline_safe": true,
+            "mutated_status": "FAIL",
+            "baseline_average_0_4": 3.5652,
+            "mutated_average_0_4": 3.5652,
+            "score_delta_0_4": 0.0,
+            "expected_tag": "unproven_readiness",
+            "observed_tags": [
+              "unproven_readiness"
+            ],
+            "tag_hit": true,
+            "minimum_score_delta": 0.1,
+            "causal_sensitivity": true,
+            "mutation_operator": "remove the static-evidence readiness disclaimer by changing one readiness assertion",
+            "preserved_contract": "event-sourcing rejection, unknowns, runtime-test requirement, operators, and claim boundary",
+            "body_shape": {
+              "sequence_ratio": 0.9941,
+              "token_jaccard": 0.9767,
+              "changed_token_count": 1
+            },
+            "body_shape_thresholds": {
+              "min_sequence_ratio": 0.65,
+              "min_token_jaccard": 0.65
+            },
+            "body_shape_safe": true,
+            "mutation_metadata_safe": true,
+            "shared_context_held_constant": true,
+            "shared_context_sha256": "d87a34fc7595c1b2e146fd8f108a8ff4f98a6b88f68e7d6e71484336f3416e2c"
+          },
+          {
+            "id": "RM-15",
+            "scenario_id": "FD-102",
+            "mutation": "unknown_remote_outcome",
+            "status": "PASS",
+            "baseline_status": "PASS",
+            "baseline_safe": true,
+            "mutated_status": "FAIL",
+            "baseline_average_0_4": 3.6087,
+            "mutated_average_0_4": 3.6087,
+            "score_delta_0_4": 0.0,
+            "expected_tag": "unknown_outcome",
+            "observed_tags": [
+              "unknown_outcome"
+            ],
+            "tag_hit": true,
+            "minimum_score_delta": 0.1,
+            "causal_sensitivity": true,
+            "mutation_operator": "replace unknown-outcome classification with direct failure retry",
+            "preserved_contract": "label invariant, idempotency key, deadline, operator recovery, and verification",
+            "body_shape": {
+              "sequence_ratio": 0.7839,
+              "token_jaccard": 0.6981,
+              "changed_token_count": 16
+            },
+            "body_shape_thresholds": {
+              "min_sequence_ratio": 0.65,
+              "min_token_jaccard": 0.65
+            },
+            "body_shape_safe": true,
+            "mutation_metadata_safe": true,
+            "shared_context_held_constant": true,
+            "shared_context_sha256": "d7283eccbaf4862bff662f0d3ff044f2f9315902545bcfe5a282aaf1253ca4be"
+          }
+        ],
+        "fingerprints": {
+          "scenario_file": "1b01914abffa1dd2d710b0c9e631786e468cd9b03d23bbce49a7ec07e24bf9f2",
+          "rubric_file": "cd87521db83758394e2b15ba84c196b0581c878082d963f6465670a700ab3b06",
+          "oracle_file": "44f43d563c7665be19cca9646588d676a5820c5d70996f0afeebd39c2ed9a876"
+        }
+      }
+    },
+    {
+      "name": "generalization",
+      "command": "python3 -B scripts/run-generalization-gates.py",
+      "status": "BLOCKED",
+      "exit_status": 0,
+      "raw_output_sha256": "c1e7a78f0c52f2dd9951e41f71c89f49b8e534c52e4220273fb47347fe5b491d",
+      "summary": "inal-gauntlet cases are structurally present; consumer-model response capture was not supplied.\"\n  },\n  \"holdout\": {\n    \"status\": \"PASS\",\n    \"execution_status\": \"BLOCKED\",\n    \"reason\": \"No consumer-model response capture was supplied.\"\n  },\n  \"metamorphic\": {\n    \"structure_status\": \"PASS\",\n    \"relations_status\": \"PASS\",\n    \"execution_status\": \"BLOCKED\",\n    \"reason\": \"Pairwise response comparison requires model output.\"\n  },\n  \"minimality\": {\n    \"status\": \"BLOCKED\",\n    \"reason\": \"Minimal-context response comparison requires model output.\"\n  },\n  \"decision_stability\": {\n    \"structure_status\": \"PASS\",\n    \"relations_status\": \"PASS\",\n    \"execution_status\": \"BLOCKED\",\n    \"reason\": \"Framework/wording/scale stability requires model output.\"\n  },\n  \"status\": \"BLOCKED\",\n  \"errors\": []\n}",
+      "structured": {
+        "scope": "GENERALIZATION_GATES",
+        "captured_at": "2026-09-07T16:15:12.555920+00:00",
+        "model_execution": "NOT_INFERRED",
+        "corpus_fingerprint": "1b01914abffa1dd2d710b0c9e631786e468cd9b03d23bbce49a7ec07e24bf9f2",
+        "structure": {
+          "scenario_count": 72,
+          "split_counts": {
+            "development": 29,
+            "adversarial": 25,
+            "holdout": 18
+          },
+          "holdout_fraction": 0.25,
+          "metamorphic_groups": {
+            "MG-CACHE-EVIDENCE": [
+              "FD-105",
+              "SR-009",
+              "SU-004",
+              "SU-103"
+            ],
+            "MG-COMMIT-PUBLISH": [
+              "FD-108",
+              "G-07",
+              "G-08"
+            ],
+            "MG-CQRS-SCALE": [
+              "G-03",
+              "G-04",
+              "SR-102"
+            ],
+            "MG-EVENT-HISTORY": [
+              "G-18",
+              "G-19",
+              "SR-103"
+            ],
+            "MG-LOCK-CONSTRAINT": [
+              "G-09",
+              "G-10"
+            ],
+            "MG-MIGRATION-SAFETY": [
+              "BF-105",
+              "FD-107",
+              "OP-103",
+              "SU-008"
+            ],
+            "MG-MIXED-VERSIONS": [
+              "BF-101",
+              "SU-104"
+            ],
+            "MG-OWNERSHIP": [
+              "BF-102",
+              "NE-105"
+            ],
+            "MG-REMOTE-UNKNOWN": [
+              "FD-101",
+              "FD-102"
+            ],
+            "MG-REPLAY-REPAIR": [
+              "OP-102",
+              "OP-107"
+            ],
+            "MG-RETRY-SAFETY": [
+              "G-05",
+              "G-06"
+            ],
+            "MG-SCALE-OWNERSHIP": [
+              "G-01",
+              "G-02",
+              "SR-101",
+              "SU-005"
+            ],
+            "MG-TENANT-AUTH": [
+              "SEC-101",
+              "SEC-102",
+              "SEC-108"
+            ]
+          },
+          "metamorphic_pair_groups": 13,
+          "stability_groups": {
+            "ST-ATOMIC-RESERVATION": [
+              "G-09",
+              "G-10"
+            ],
+            "ST-BULKHEAD-POOLS": [
+              "SU-009",
+              "SU-102"
+            ],
+            "ST-CQRS-SCALE": [
+              "G-03",
+              "G-04",
+              "SR-102"
+            ],
+            "ST-EVENT-HISTORY": [
+              "G-18",
+              "G-19",
+              "SR-103"
+            ],
+            "ST-LOCAL-MODULES": [
+              "SR-007",
+              "SR-104"
+            ],
+            "ST-MICROSERVICES-PRESSURE": [
+              "G-01",
+              "SR-101"
+            ],
+            "ST-MIGRATION-RESUME": [
+              "BF-105",
+              "FD-107",
+              "OP-103"
+            ],
+            "ST-MIXED-VERSION": [
+              "BF-101",
+              "SU-008",
+              "SU-104"
+            ],
+            "ST-OUTBOX-WEBHOOK": [
+              "FD-108",
+              "G-07",
+              "G-08"
+            ],
+            "ST-OWNERSHIP": [
+              "BF-102",
+              "NE-105"
+            ],
+            "ST-PAYMENT-IDEMPOTENCY": [
+              "G-05",
+              "G-06"
+            ],
+            "ST-REPLAY-REPAIR": [
+              "OP-102",
+              "OP-107"
+            ],
+            "ST-RETRY-LAYERS": [
+              "FD-104",
+              "SR-012"
+            ],
+            "ST-SAGA-WORKFLOW": [
+              "SR-010",
+              "SU-010"
+            ],
+            "ST-UNKNOWN-OUTCOME": [
+              "FD-101",
+              "FD-102"
+            ],
+            "ST-WEBHOOK-IDEMPOTENCY": [
+              "FD-103",
+              "SEC-102"
+            ]
+          },
+          "stability_pair_groups": 16,
+          "metamorphic_relations": {
+            "MG-CACHE-EVIDENCE": {
+              "axis": "measured cache benefit and freshness budget",
+              "relation": "Changing measured read cost or acceptable staleness may change the cache decision, but never changes the database source-of-truth invariant.",
+              "expected_behavior": "The recommendation changes only when the evidence crosses the stated cost or staleness threshold."
+            },
+            "MG-COMMIT-PUBLISH": {
+              "axis": "publication failure after local commit",
+              "relation": "Changing broker availability must not change the local transaction outcome or erase the durable publication obligation.",
+              "expected_behavior": "A direct dual write remains unsafe; an outbox/reconciliation path remains the minimum boundary."
+            },
+            "MG-CQRS-SCALE": {
+              "axis": "read/write asymmetry and projection lag",
+              "relation": "Changing read volume or write volume may justify a read model only when lag and ownership remain acceptable.",
+              "expected_behavior": "The answer distinguishes measured projection pressure from a symmetric CRUD baseline."
+            },
+            "MG-EVENT-HISTORY": {
+              "axis": "temporal reconstruction requirement",
+              "relation": "Adding a contractual need to reconstruct past state can change the event-history decision; ordinary audit fields do not.",
+              "expected_behavior": "The answer preserves current-state correctness and names replay/schema/privacy evidence."
+            },
+            "MG-LOCK-CONSTRAINT": {
+              "axis": "conflict rate and invariant scope",
+              "relation": "Changing conflict rate may move from optimistic compare-and-swap to stronger coordination, but the invariant and conflict response stay explicit.",
+              "expected_behavior": "A distributed lock is not selected merely because concurrent writes exist."
+            },
+            "MG-MIGRATION-SAFETY": {
+              "axis": "interruption and mixed-version compatibility",
+              "relation": "Adding worker interruption or old readers changes rollout controls, not the need for additive compatibility and a parity gate.",
+              "expected_behavior": "The answer retains expand-contract, resumability, and rollback/roll-forward evidence."
+            },
+            "MG-MIXED-VERSIONS": {
+              "axis": "old/new client coexistence",
+              "relation": "Changing the duration or population of mixed versions may change retirement timing, but not compatibility during the window.",
+              "expected_behavior": "The answer identifies translation, telemetry, and a reversible contract boundary."
+            },
+            "MG-OWNERSHIP": {
+              "axis": "data and team ownership",
+              "relation": "Changing independent ownership or deployment authority may justify a boundary; shared mutable ownership does not.",
+              "expected_behavior": "The recommendation follows ownership evidence rather than service-count preference."
+            },
+            "MG-REMOTE-UNKNOWN": {
+              "axis": "remote timeout and outcome lookup",
+              "relation": "Changing the provider's timeout behavior must not turn an unknown outcome into a confirmed failure.",
+              "expected_behavior": "The answer queries or reconciles the remote reference before any non-idempotent retry."
+            },
+            "MG-REPLAY-REPAIR": {
+              "axis": "operator replay and repair authorization",
+              "relation": "Changing replay volume or approval policy must not remove idempotency, auditability, or quarantine controls.",
+              "expected_behavior": "The answer separates safe replay from an unbounded requeue loop."
+            },
+            "MG-RETRY-SAFETY": {
+              "axis": "side-effect safety and retry budget",
+              "relation": "Changing idempotency evidence or deadline budget may change whether retry is allowed, but never licenses multiplicative retries.",
+              "expected_behavior": "The answer assigns one retry owner and defines reconciliation for ambiguous effects."
+            },
+            "MG-SCALE-OWNERSHIP": {
+              "axis": "independent scale, deploy, or fault-isolation pressure",
+              "relation": "Adding measured independent pressure may justify a service boundary; generic projected scale does not.",
+              "expected_behavior": "The answer compares extraction cost with a modular baseline and ownership evidence."
+            },
+            "MG-TENANT-AUTH": {
+              "axis": "tenant boundary and authorization context",
+              "relation": "Changing tenant count or cache pressure must not weaken server-side tenant authorization or cache-key isolation.",
+              "expected_behavior": "The answer treats tenant scope as a security invariant, not a client convention."
+            }
+          },
+          "stability_relations": {
+            "ST-ATOMIC-RESERVATION": {
+              "axis": "reservation under duplicate and crash interleavings",
+              "relation": "Framework, wording, or scale changes preserve the reservation boundary and duplicate outcome.",
+              "expected_behavior": "The answer remains local-atomic or explicitly reconciled when publication is external."
+            },
+            "ST-BULKHEAD-POOLS": {
+              "axis": "resource pool isolation",
+              "relation": "Changing pool size or optional-work load preserves capacity for critical work.",
+              "expected_behavior": "The answer keeps bounded admission and visible degradation."
+            },
+            "ST-CQRS-SCALE": {
+              "axis": "projection lag under read pressure",
+              "relation": "Changing scale wording does not create a CQRS requirement without read/write asymmetry and lag acceptance.",
+              "expected_behavior": "The answer remains consistent with the freshness contract."
+            },
+            "ST-EVENT-HISTORY": {
+              "axis": "history and replay obligation",
+              "relation": "Changing framework or deployment wording preserves the distinction between audit history and event-sourced truth.",
+              "expected_behavior": "The answer requires temporal reconstruction evidence before event sourcing."
+            },
+            "ST-LOCAL-MODULES": {
+              "axis": "same-process module atomicity",
+              "relation": "Changing module names or team wording does not justify a broker when local atomicity is the requirement.",
+              "expected_behavior": "The answer preserves in-process boundaries until durable asynchronous ownership exists."
+            },
+            "ST-MICROSERVICES-PRESSURE": {
+              "axis": "measured service-boundary pressure",
+              "relation": "Changing scale language preserves the requirement for independent ownership, deployment, isolation, or scaling evidence.",
+              "expected_behavior": "The answer rejects architecture by professionalism or projected scale alone."
+            },
+            "ST-MIGRATION-RESUME": {
+              "axis": "resume and contraction gates",
+              "relation": "Changing backfill size or worker count preserves checkpoint integrity and parity before contraction.",
+              "expected_behavior": "The answer remains safe under interruption and mixed versions."
+            },
+            "ST-MIXED-VERSION": {
+              "axis": "compatibility window",
+              "relation": "Changing client mix or rollout wording preserves old/new compatibility until retirement evidence exists.",
+              "expected_behavior": "The answer does not assume an atomic fleet upgrade."
+            },
+            "ST-OUTBOX-WEBHOOK": {
+              "axis": "publication and webhook duplicate effects",
+              "relation": "Changing delivery timing preserves durable publication and idempotent consumer effects.",
+              "expected_behavior": "The answer does not infer business exactly-once from transport delivery."
+            },
+            "ST-OWNERSHIP": {
+              "axis": "ownership and boundary authority",
+              "relation": "Changing framework or team labels preserves the owner of mutable state and the contract at its boundary.",
+              "expected_behavior": "The answer avoids shared mutable truth without an explicit transition plan."
+            },
+            "ST-PAYMENT-IDEMPOTENCY": {
+              "axis": "payment retry and duplicate capture",
+              "relation": "Changing provider latency or client retry wording preserves the at-most-once business effect and unknown-outcome handling.",
+              "expected_behavior": "The answer queries/reconciles before retrying a timed-out capture."
+            },
+            "ST-REPLAY-REPAIR": {
+              "axis": "safe replay under live traffic",
+              "relation": "Changing replay size or operator wording preserves authorization, deduplication, and convergence.",
+              "expected_behavior": "The answer remains safe when replay overlaps live delivery."
+            },
+            "ST-RETRY-LAYERS": {
+              "axis": "retry ownership and deadline",
+              "relation": "Changing the number of client or worker layers preserves one bounded retry budget.",
+              "expected_behavior": "The answer rejects multiplicative retry loops and names recovery."
+            },
+            "ST-SAGA-WORKFLOW": {
+              "axis": "workflow ownership and compensation",
+              "relation": "Changing step count or framework preserves durable state, compensation semantics, and idempotent transitions.",
+              "expected_behavior": "The answer does not substitute retries for compensation."
+            },
+            "ST-UNKNOWN-OUTCOME": {
+              "axis": "ambiguous remote outcome",
+              "relation": "Changing timeout wording preserves the distinction between unknown, failed, and confirmed success.",
+              "expected_behavior": "The answer reconciles before repeating a side effect."
+            },
+            "ST-WEBHOOK-IDEMPOTENCY": {
+              "axis": "duplicate webhook delivery",
+              "relation": "Changing provider timing or delivery count preserves signature verification and one-effect processing.",
+              "expected_behavior": "The answer uses a durable event identity rather than in-memory deduplication."
+            }
+          },
+          "relation_errors": []
+        },
+        "final_gauntlet": {
+          "count": 20,
+          "structure_status": "PASS",
+          "execution_status": "BLOCKED",
+          "status": "BLOCKED",
+          "reason": "Final-gauntlet cases are structurally present; consumer-model response capture was not supplied."
+        },
+        "holdout": {
+          "status": "PASS",
+          "execution_status": "BLOCKED",
+          "reason": "No consumer-model response capture was supplied."
+        },
+        "metamorphic": {
+          "structure_status": "PASS",
+          "relations_status": "PASS",
+          "execution_status": "BLOCKED",
+          "reason": "Pairwise response comparison requires model output."
+        },
+        "minimality": {
+          "status": "BLOCKED",
+          "reason": "Minimal-context response comparison requires model output."
+        },
+        "decision_stability": {
+          "structure_status": "PASS",
+          "relations_status": "PASS",
+          "execution_status": "BLOCKED",
+          "reason": "Framework/wording/scale stability requires model output."
+        },
+        "status": "BLOCKED",
+        "errors": []
+      }
+    },
+    {
+      "name": "backend_runtime",
+      "command": "python3 -B scripts/run-runtime-gates.py",
+      "status": "BLOCKED",
+      "exit_status": 0,
+      "raw_output_sha256": "245e76f675d1a93b12836532b47f36b825bf3f2bc3fd18e0dacd2da10de75bfc",
+      "summary": "s\": \"BLOCKED\",\n  \"captured_at\": \"2026-09-07T16:15:12.589223+00:00\",\n  \"reason\": \"No executable backend service or runtime harness was supplied.\",\n  \"required_host_capability\": [\n    \"backend service with representative routes and persistence\",\n    \"database and broker or equivalent external dependencies\",\n    \"load/concurrency, migration, security, failure-injection, and operator-repair harnesses\"\n  ],\n  \"evidence_unavailable\": [\n    \"latency, throughput, and saturation behavior\",\n    \"transaction, duplicate, timeout, and recovery behavior under runtime failure\",\n    \"migration interruption, authorization isolation, and repair-loop observations\"\n  ],\n  \"impact_on_verdict\": \"Runtime proof is unavailable; it cannot be counted as PASS and Triple-A proven remains ineligible.\",\n  \"errors\": []\n}",
+      "structured": {
+        "scope": "BACKEND_RUNTIME",
+        "status": "BLOCKED",
+        "runtime_status": "BLOCKED",
+        "execution_status": "BLOCKED",
+        "captured_at": "2026-09-07T16:15:12.589223+00:00",
+        "reason": "No executable backend service or runtime harness was supplied.",
+        "required_host_capability": [
+          "backend service with representative routes and persistence",
+          "database and broker or equivalent external dependencies",
+          "load/concurrency, migration, security, failure-injection, and operator-repair harnesses"
+        ],
+        "evidence_unavailable": [
+          "latency, throughput, and saturation behavior",
+          "transaction, duplicate, timeout, and recovery behavior under runtime failure",
+          "migration interruption, authorization isolation, and repair-loop observations"
+        ],
+        "impact_on_verdict": "Runtime proof is unavailable; it cannot be counted as PASS and Triple-A proven remains ineligible.",
+        "errors": []
+      }
+    },
+    {
+      "name": "unit_tests",
+      "command": "python3 -B -m unittest discover -s tests -p 'test_*.py'",
+      "status": "PASS",
+      "exit_status": 0,
+      "raw_output_sha256": "a28cc4b0eeadbd1e2f969a7655e5dd27b5484ef97474fa8a39d796e6baffae93",
+      "summary": ".............\n----------------------------------------------------------------------\nRan 13 tests in 12.361s\n\nOK",
+      "structured": null
+    },
+    {
+      "name": "behavioral_model_eval",
+      "command": "python3 -B scripts/run-behavioral-eval.py",
+      "status": "BLOCKED",
+      "exit_status": 0,
+      "raw_output_sha256": "6b5409a0aa65dc503ca635219e8bb4652cc4534bf2e17c1bbb9545321c3a7e22",
+      "summary": "{\n  \"scope\": \"BEHAVIORAL_MODEL_EVAL\",\n  \"status\": \"BLOCKED\",\n  \"model_execution\": \"BLOCKED\",\n  \"reason\": \"No consumer-model adapter was supplied.\",\n  \"required_host_capability\": \"An adapter that invokes the same model in control and treatment lanes and returns JSON response records.\",\n  \"evidence_unavailable\": \"control/treatment responses, scores, pairwise judgments and causal delta\",\n  \"impact_on_verdict\": \"TRIPLE_A_PROVEN is ineligible; use TRIPLE_A_CONDITIONAL at most.\",\n  \"scenario_count\": 72,\n  \"split\": null,\n  \"package_fingerprint\": \"8819afd5f2dee411309429575223cbcdad61950e4b0118aaf3abbf4457b080bf\",\n  \"benchmark_fingerprint\": \"1b01914abffa1dd2d710b0c9e631786e468cd9b03d23bbce49a7ec07e24bf9f2\",\n  \"captured_at\": \"2026-09-07T16:15:25.041770+00:00\",\n  \"errors\": []\n}",
+      "structured": {
+        "scope": "BEHAVIORAL_MODEL_EVAL",
+        "status": "BLOCKED",
+        "model_execution": "BLOCKED",
+        "reason": "No consumer-model adapter was supplied.",
+        "required_host_capability": "An adapter that invokes the same model in control and treatment lanes and returns JSON response records.",
+        "evidence_unavailable": "control/treatment responses, scores, pairwise judgments and causal delta",
+        "impact_on_verdict": "TRIPLE_A_PROVEN is ineligible; use TRIPLE_A_CONDITIONAL at most.",
+        "scenario_count": 72,
+        "split": null,
+        "package_fingerprint": "8819afd5f2dee411309429575223cbcdad61950e4b0118aaf3abbf4457b080bf",
+        "benchmark_fingerprint": "1b01914abffa1dd2d710b0c9e631786e468cd9b03d23bbce49a7ec07e24bf9f2",
+        "captured_at": "2026-09-07T16:15:25.041770+00:00",
+        "errors": []
+      }
+    },
+    {
+      "name": "real_composition",
+      "command": "python3 -B scripts/run-composition-eval.py",
+      "status": "BLOCKED",
+      "exit_status": 0,
+      "raw_output_sha256": "55ba01ef86fd1700f1d5a2c016775198a74f2cd9304745423ec419bda3ebede8",
+      "summary": "{\n  \"scope\": \"REAL_COMPOSITION\",\n  \"status\": \"BLOCKED\",\n  \"composition\": \"BLOCKED\",\n  \"reason\": \"No composition adapter or observed trace was supplied.\",\n  \"required_host_capability\": \"An executable composition adapter or observed trace from the neighboring skills.\",\n  \"evidence_unavailable\": \"actual backend → patterns → security → verification handoffs and repair-loop observations\",\n  \"impact_on_verdict\": \"Composition proof is unavailable; Triple-A proven is ineligible.\",\n  \"scenario_count\": 0,\n  \"contract_fingerprint\": \"4f7e60d18639de6ca42e886ecfee9e94ad5667c9de21c37db3b5e650be56506f\",\n  \"captured_at\": \"2026-09-07T16:15:25.075260+00:00\",\n  \"errors\": []\n}",
+      "structured": {
+        "scope": "REAL_COMPOSITION",
+        "status": "BLOCKED",
+        "composition": "BLOCKED",
+        "reason": "No composition adapter or observed trace was supplied.",
+        "required_host_capability": "An executable composition adapter or observed trace from the neighboring skills.",
+        "evidence_unavailable": "actual backend → patterns → security → verification handoffs and repair-loop observations",
+        "impact_on_verdict": "Composition proof is unavailable; Triple-A proven is ineligible.",
+        "scenario_count": 0,
+        "contract_fingerprint": "4f7e60d18639de6ca42e886ecfee9e94ad5667c9de21c37db3b5e650be56506f",
+        "captured_at": "2026-09-07T16:15:25.075260+00:00",
+        "errors": []
+      }
+    },
+    {
+      "name": "assurance_report",
+      "command": "python3 -B scripts/validate-phase-assurance.py",
+      "status": "PASS",
+      "exit_status": 0,
+      "raw_output_sha256": "b3a04438ac0aec58d69acbc60f053bbdb3e91e00f8bc81bc55d3aa3f3b8e4350",
+      "summary": "{\n  \"scope\": \"PHASE_1_1_ASSURANCE\",\n  \"status\": \"PASS\",\n  \"errors\": [],\n  \"package_fingerprint\": \"8819afd5f2dee411309429575223cbcdad61950e4b0118aaf3abbf4457b080bf\",\n  \"prompt_fingerprint\": \"712f18add7908cbb05be6a98a04f4729efafa12e00632d7e697a8421094cb6d1\",\n  \"quality_bar_fingerprint\": \"8686393cbc976bfe6501081487146ed345ce5e61638e79d8da8d82ae40edae62\",\n  \"dimension_count\": 30\n}",
+      "structured": {
+        "scope": "PHASE_1_1_ASSURANCE",
+        "status": "PASS",
+        "errors": [],
+        "package_fingerprint": "8819afd5f2dee411309429575223cbcdad61950e4b0118aaf3abbf4457b080bf",
+        "prompt_fingerprint": "712f18add7908cbb05be6a98a04f4729efafa12e00632d7e697a8421094cb6d1",
+        "quality_bar_fingerprint": "8686393cbc976bfe6501081487146ed345ce5e61638e79d8da8d82ae40edae62",
+        "dimension_count": 30
+      }
+    }
+  ],
+  "limitations": [
+    "BLOCKED/NOT_RUN checks are not success; provide the required host adapters for full closure."
+  ]
+}

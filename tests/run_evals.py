@@ -24,7 +24,10 @@ def load_json(path: Path):
 
 
 def scenario_files() -> list[Path]:
-    return sorted(path for path in FIXTURE_ROOT.rglob("scenarios.json") if "fixtures" not in path.parts)
+    return sorted(
+        path for path in FIXTURE_ROOT.rglob("scenarios.json")
+        if "fixtures" not in path.parts and "benchmark" not in path.parts
+    )
 
 
 def validate(category: str | None = None) -> dict:

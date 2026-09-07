@@ -32,7 +32,10 @@ EXPECTED_TARGETS = {
 
 
 def scenario_files(root: Path) -> list[Path]:
-    return sorted(path for path in (root / "tests").rglob("scenarios.json") if "fixtures" not in path.parts)
+    return sorted(
+        path for path in (root / "tests").rglob("scenarios.json")
+        if "fixtures" not in path.parts and "benchmark" not in path.parts
+    )
 
 
 def copy_package(destination: Path) -> None:

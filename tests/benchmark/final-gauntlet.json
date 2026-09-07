@@ -1,0 +1,25 @@
+{
+  "schema_version": "BP-FINAL-GAUNTLET-1",
+  "cases": [
+    {"label": "premature_microservices", "scenario_id": "G-01"},
+    {"label": "justified_microservices", "scenario_id": "G-02"},
+    {"label": "premature_cqrs", "scenario_id": "G-03"},
+    {"label": "justified_cqrs", "scenario_id": "G-04"},
+    {"label": "unsafe_idempotent_retry", "scenario_id": "G-05"},
+    {"label": "safe_idempotent_retry", "scenario_id": "G-06"},
+    {"label": "direct_dual_write", "scenario_id": "G-07"},
+    {"label": "transactional_outbox", "scenario_id": "G-08"},
+    {"label": "distributed_lock_temptation", "scenario_id": "G-09"},
+    {"label": "atomic_constraint_alternative", "scenario_id": "G-10"},
+    {"label": "duplicate_webhook", "scenario_id": "FD-103"},
+    {"label": "multi_tenant_auth", "scenario_id": "SEC-101"},
+    {"label": "interrupted_migration", "scenario_id": "FD-107"},
+    {"label": "cache_stampede", "scenario_id": "FD-105"},
+    {"label": "retry_storm", "scenario_id": "FD-104"},
+    {"label": "unknown_outcome_remote_call", "scenario_id": "FD-102"},
+    {"label": "mixed_version_api", "scenario_id": "BF-101"},
+    {"label": "event_sourcing_temptation", "scenario_id": "G-18"},
+    {"label": "justified_event_sourcing", "scenario_id": "G-19"},
+    {"label": "operator_recovery", "scenario_id": "OP-101"}
+  ]
+}

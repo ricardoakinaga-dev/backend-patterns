@@ -1,0 +1,1570 @@
+{
+  "scope": "CONTEXT_EFFICIENCY",
+  "status": "PASS",
+  "router_version": "topic-term-v2-text-only",
+  "routing_inputs": [
+    "title",
+    "prompt",
+    "current_facts",
+    "unknowns",
+    "invariants",
+    "forces",
+    "required_signals"
+  ],
+  "gold_labels_independent": true,
+  "target_precision": 0.85,
+  "scenario_count": 72,
+  "reference_precision": 0.9174,
+  "reference_recall": 0.5201,
+  "average_context_bytes": 50764.62,
+  "package_fingerprint": "8894c1dba9a40426ff69fa7e3e69ba5ba439496ffd7487452884b58e0875ad89",
+  "errors": [],
+  "scenarios": [
+    {
+      "scenario_id": "G-08",
+      "references_loaded": [
+        "consistency-patterns.md",
+        "idempotency.md",
+        "messaging-patterns.md",
+        "resilience-patterns.md",
+        "transaction-patterns.md"
+      ],
+      "relevant_references": [
+        "consistency-patterns.md",
+        "idempotency.md",
+        "messaging-patterns.md",
+        "observability-patterns.md",
+        "transaction-patterns.md"
+      ],
+      "irrelevant_references": [
+        "resilience-patterns.md"
+      ],
+      "omitted_relevant_references": [
+        "observability-patterns.md"
+      ],
+      "reference_precision": 0.8,
+      "reference_recall": 0.8,
+      "approximate_context_bytes": 90792
+    },
+    {
+      "scenario_id": "SU-002",
+      "references_loaded": [
+        "architecture-boundaries.md",
+        "concurrency-patterns.md"
+      ],
+      "relevant_references": [
+        "api-patterns.md",
+        "architecture-boundaries.md",
+        "concurrency-patterns.md",
+        "transaction-patterns.md"
+      ],
+      "irrelevant_references": [],
+      "omitted_relevant_references": [
+        "api-patterns.md",
+        "transaction-patterns.md"
+      ],
+      "reference_precision": 1.0,
+      "reference_recall": 0.5,
+      "approximate_context_bytes": 53423
+    },
+    {
+      "scenario_id": "G-06",
+      "references_loaded": [
+        "idempotency.md",
+        "resilience-patterns.md"
+      ],
+      "relevant_references": [
+        "api-patterns.md",
+        "consistency-patterns.md",
+        "idempotency.md",
+        "resilience-patterns.md",
+        "transaction-patterns.md"
+      ],
+      "irrelevant_references": [],
+      "omitted_relevant_references": [
+        "api-patterns.md",
+        "consistency-patterns.md",
+        "transaction-patterns.md"
+      ],
+      "reference_precision": 1.0,
+      "reference_recall": 0.4,
+      "approximate_context_bytes": 41682
+    },
+    {
+      "scenario_id": "SU-004",
+      "references_loaded": [
+        "caching-patterns.md"
+      ],
+      "relevant_references": [
+        "api-patterns.md",
+        "caching-patterns.md",
+        "consistency-patterns.md",
+        "data-access-patterns.md",
+        "observability-patterns.md"
+      ],
+      "irrelevant_references": [],
+      "omitted_relevant_references": [
+        "api-patterns.md",
+        "consistency-patterns.md",
+        "data-access-patterns.md",
+        "observability-patterns.md"
+      ],
+      "reference_precision": 1.0,
+      "reference_recall": 0.2,
+      "approximate_context_bytes": 28764
+    },
+    {
+      "scenario_id": "SU-005",
+      "references_loaded": [
+        "architecture-boundaries.md",
+        "domain-modeling.md"
+      ],
+      "relevant_references": [
+        "architecture-boundaries.md",
+        "domain-modeling.md",
+        "transaction-patterns.md"
+      ],
+      "irrelevant_references": [],
+      "omitted_relevant_references": [
+        "transaction-patterns.md"
+      ],
+      "reference_precision": 1.0,
+      "reference_recall": 0.6667,
+      "approximate_context_bytes": 55076
+    },
+    {
+      "scenario_id": "G-02",
+      "references_loaded": [
+        "architecture-boundaries.md",
+        "consistency-patterns.md",
+        "observability-patterns.md"
+      ],
+      "relevant_references": [
+        "api-patterns.md",
+        "architecture-boundaries.md",
+        "consistency-patterns.md",
+        "messaging-patterns.md",
+        "observability-patterns.md",
+        "transaction-patterns.md"
+      ],
+      "irrelevant_references": [],
+      "omitted_relevant_references": [
+        "api-patterns.md",
+        "messaging-patterns.md",
+        "transaction-patterns.md"
+      ],
+      "reference_precision": 1.0,
+      "reference_recall": 0.5,
+      "approximate_context_bytes": 65107
+    },
+    {
+      "scenario_id": "G-04",
+      "references_loaded": [
+        "consistency-patterns.md",
+        "data-access-patterns.md",
+        "domain-modeling.md"
+      ],
+      "relevant_references": [
+        "consistency-patterns.md",
+        "data-access-patterns.md",
+        "messaging-patterns.md",
+        "observability-patterns.md",
+        "resilience-patterns.md"
+      ],
+      "irrelevant_references": [
+        "domain-modeling.md"
+      ],
+      "omitted_relevant_references": [
+        "messaging-patterns.md",
+        "observability-patterns.md",
+        "resilience-patterns.md"
+      ],
+      "reference_precision": 0.6667,
+      "reference_recall": 0.4,
+      "approximate_context_bytes": 68256
+    },
+    {
+      "scenario_id": "SU-008",
+      "references_loaded": [
+        "migration-patterns.md"
+      ],
+      "relevant_references": [
+        "api-patterns.md",
+        "consistency-patterns.md",
+        "migration-patterns.md",
+        "observability-patterns.md",
+        "transaction-patterns.md"
+      ],
+      "irrelevant_references": [],
+      "omitted_relevant_references": [
+        "api-patterns.md",
+        "consistency-patterns.md",
+        "observability-patterns.md",
+        "transaction-patterns.md"
+      ],
+      "reference_precision": 1.0,
+      "reference_recall": 0.2,
+      "approximate_context_bytes": 28177
+    },
+    {
+      "scenario_id": "SU-009",
+      "references_loaded": [
+        "observability-patterns.md",
+        "resilience-patterns.md"
+      ],
+      "relevant_references": [
+        "observability-patterns.md",
+        "resilience-patterns.md"
+      ],
+      "irrelevant_references": [],
+      "omitted_relevant_references": [],
+      "reference_precision": 1.0,
+      "reference_recall": 1.0,
+      "approximate_context_bytes": 43586
+    },
+    {
+      "scenario_id": "SU-010",
+      "references_loaded": [
+        "messaging-patterns.md",
+        "transaction-patterns.md"
+      ],
+      "relevant_references": [
+        "concurrency-patterns.md",
+        "idempotency.md",
+        "messaging-patterns.md",
+        "observability-patterns.md",
+        "transaction-patterns.md"
+      ],
+      "irrelevant_references": [],
+      "omitted_relevant_references": [
+        "concurrency-patterns.md",
+        "idempotency.md",
+        "observability-patterns.md"
+      ],
+      "reference_precision": 1.0,
+      "reference_recall": 0.4,
+      "approximate_context_bytes": 50261
+    },
+    {
+      "scenario_id": "G-10",
+      "references_loaded": [
+        "concurrency-patterns.md"
+      ],
+      "relevant_references": [
+        "concurrency-patterns.md",
+        "consistency-patterns.md",
+        "data-access-patterns.md",
+        "transaction-patterns.md"
+      ],
+      "irrelevant_references": [],
+      "omitted_relevant_references": [
+        "consistency-patterns.md",
+        "data-access-patterns.md",
+        "transaction-patterns.md"
+      ],
+      "reference_precision": 1.0,
+      "reference_recall": 0.25,
+      "approximate_context_bytes": 33743
+    },
+    {
+      "scenario_id": "G-19",
+      "references_loaded": [
+        "domain-modeling.md"
+      ],
+      "relevant_references": [
+        "consistency-patterns.md",
+        "domain-modeling.md",
+        "messaging-patterns.md",
+        "observability-patterns.md"
+      ],
+      "irrelevant_references": [],
+      "omitted_relevant_references": [
+        "consistency-patterns.md",
+        "messaging-patterns.md",
+        "observability-patterns.md"
+      ],
+      "reference_precision": 1.0,
+      "reference_recall": 0.25,
+      "approximate_context_bytes": 35396
+    },
+    {
+      "scenario_id": "G-01",
+      "references_loaded": [
+        "anti-patterns.md",
+        "architecture-boundaries.md"
+      ],
+      "relevant_references": [
+        "anti-patterns.md",
+        "architecture-boundaries.md",
+        "domain-modeling.md"
+      ],
+      "irrelevant_references": [],
+      "omitted_relevant_references": [
+        "domain-modeling.md"
+      ],
+      "reference_precision": 1.0,
+      "reference_recall": 0.6667,
+      "approximate_context_bytes": 62932
+    },
+    {
+      "scenario_id": "G-03",
+      "references_loaded": [
+        "anti-patterns.md",
+        "consistency-patterns.md"
+      ],
+      "relevant_references": [
+        "anti-patterns.md",
+        "api-patterns.md",
+        "consistency-patterns.md",
+        "data-access-patterns.md",
+        "observability-patterns.md",
+        "transaction-patterns.md"
+      ],
+      "irrelevant_references": [],
+      "omitted_relevant_references": [
+        "api-patterns.md",
+        "data-access-patterns.md",
+        "observability-patterns.md",
+        "transaction-patterns.md"
+      ],
+      "reference_precision": 1.0,
+      "reference_recall": 0.3333,
+      "approximate_context_bytes": 58344
+    },
+    {
+      "scenario_id": "G-05",
+      "references_loaded": [
+        "idempotency.md",
+        "resilience-patterns.md"
+      ],
+      "relevant_references": [
+        "anti-patterns.md",
+        "api-patterns.md",
+        "consistency-patterns.md",
+        "idempotency.md",
+        "resilience-patterns.md",
+        "transaction-patterns.md"
+      ],
+      "irrelevant_references": [],
+      "omitted_relevant_references": [
+        "anti-patterns.md",
+        "api-patterns.md",
+        "consistency-patterns.md",
+        "transaction-patterns.md"
+      ],
+      "reference_precision": 1.0,
+      "reference_recall": 0.3333,
+      "approximate_context_bytes": 41682
+    },
+    {
+      "scenario_id": "G-18",
+      "references_loaded": [
+        "anti-patterns.md",
+        "domain-modeling.md",
+        "security-boundaries.md"
+      ],
+      "relevant_references": [
+        "anti-patterns.md",
+        "consistency-patterns.md",
+        "domain-modeling.md",
+        "observability-patterns.md",
+        "security-boundaries.md",
+        "transaction-patterns.md"
+      ],
+      "irrelevant_references": [],
+      "omitted_relevant_references": [
+        "consistency-patterns.md",
+        "observability-patterns.md",
+        "transaction-patterns.md"
+      ],
+      "reference_precision": 1.0,
+      "reference_recall": 0.5,
+      "approximate_context_bytes": 79764
+    },
+    {
+      "scenario_id": "G-07",
+      "references_loaded": [
+        "consistency-patterns.md",
+        "idempotency.md",
+        "messaging-patterns.md",
+        "transaction-patterns.md"
+      ],
+      "relevant_references": [
+        "anti-patterns.md",
+        "consistency-patterns.md",
+        "messaging-patterns.md",
+        "transaction-patterns.md"
+      ],
+      "irrelevant_references": [
+        "idempotency.md"
+      ],
+      "omitted_relevant_references": [
+        "anti-patterns.md"
+      ],
+      "reference_precision": 0.75,
+      "reference_recall": 0.75,
+      "approximate_context_bytes": 77541
+    },
+    {
+      "scenario_id": "G-09",
+      "references_loaded": [
+        "anti-patterns.md",
+        "concurrency-patterns.md"
+      ],
+      "relevant_references": [
+        "anti-patterns.md",
+        "concurrency-patterns.md",
+        "data-access-patterns.md",
+        "transaction-patterns.md"
+      ],
+      "irrelevant_references": [],
+      "omitted_relevant_references": [
+        "data-access-patterns.md",
+        "transaction-patterns.md"
+      ],
+      "reference_precision": 1.0,
+      "reference_recall": 0.5,
+      "approximate_context_bytes": 60752
+    },
+    {
+      "scenario_id": "SR-007",
+      "references_loaded": [
+        "architecture-boundaries.md",
+        "messaging-patterns.md"
+      ],
+      "relevant_references": [
+        "anti-patterns.md",
+        "architecture-boundaries.md",
+        "consistency-patterns.md",
+        "messaging-patterns.md",
+        "transaction-patterns.md"
+      ],
+      "irrelevant_references": [],
+      "omitted_relevant_references": [
+        "anti-patterns.md",
+        "consistency-patterns.md",
+        "transaction-patterns.md"
+      ],
+      "reference_precision": 1.0,
+      "reference_recall": 0.4,
+      "approximate_context_bytes": 50260
+    },
+    {
+      "scenario_id": "SR-008",
+      "references_loaded": [
+        "data-access-patterns.md",
+        "domain-modeling.md"
+      ],
+      "relevant_references": [
+        "anti-patterns.md",
+        "architecture-boundaries.md",
+        "data-access-patterns.md"
+      ],
+      "irrelevant_references": [
+        "domain-modeling.md"
+      ],
+      "omitted_relevant_references": [
+        "anti-patterns.md",
+        "architecture-boundaries.md"
+      ],
+      "reference_precision": 0.5,
+      "reference_recall": 0.3333,
+      "approximate_context_bytes": 53164
+    },
+    {
+      "scenario_id": "SR-009",
+      "references_loaded": [
+        "anti-patterns.md",
+        "api-patterns.md",
+        "caching-patterns.md",
+        "performance-patterns.md"
+      ],
+      "relevant_references": [
+        "anti-patterns.md",
+        "caching-patterns.md",
+        "observability-patterns.md",
+        "performance-patterns.md",
+        "security-boundaries.md"
+      ],
+      "irrelevant_references": [
+        "api-patterns.md"
+      ],
+      "omitted_relevant_references": [
+        "observability-patterns.md",
+        "security-boundaries.md"
+      ],
+      "reference_precision": 0.75,
+      "reference_recall": 0.6,
+      "approximate_context_bytes": 85366
+    },
+    {
+      "scenario_id": "SR-010",
+      "references_loaded": [
+        "distributed-systems.md",
+        "transaction-patterns.md"
+      ],
+      "relevant_references": [
+        "anti-patterns.md",
+        "architecture-boundaries.md",
+        "transaction-patterns.md"
+      ],
+      "irrelevant_references": [
+        "distributed-systems.md"
+      ],
+      "omitted_relevant_references": [
+        "anti-patterns.md",
+        "architecture-boundaries.md"
+      ],
+      "reference_precision": 0.5,
+      "reference_recall": 0.3333,
+      "approximate_context_bytes": 49141
+    },
+    {
+      "scenario_id": "SR-011",
+      "references_loaded": [
+        "idempotency.md",
+        "messaging-patterns.md"
+      ],
+      "relevant_references": [
+        "anti-patterns.md",
+        "consistency-patterns.md",
+        "idempotency.md",
+        "messaging-patterns.md",
+        "resilience-patterns.md",
+        "transaction-patterns.md"
+      ],
+      "irrelevant_references": [],
+      "omitted_relevant_references": [
+        "anti-patterns.md",
+        "consistency-patterns.md",
+        "resilience-patterns.md",
+        "transaction-patterns.md"
+      ],
+      "reference_precision": 1.0,
+      "reference_recall": 0.3333,
+      "approximate_context_bytes": 42768
+    },
+    {
+      "scenario_id": "SR-012",
+      "references_loaded": [
+        "idempotency.md",
+        "resilience-patterns.md"
+      ],
+      "relevant_references": [
+        "anti-patterns.md",
+        "idempotency.md",
+        "observability-patterns.md",
+        "resilience-patterns.md"
+      ],
+      "irrelevant_references": [],
+      "omitted_relevant_references": [
+        "anti-patterns.md",
+        "observability-patterns.md"
+      ],
+      "reference_precision": 1.0,
+      "reference_recall": 0.5,
+      "approximate_context_bytes": 41682
+    },
+    {
+      "scenario_id": "SU-101",
+      "references_loaded": [
+        "idempotency.md"
+      ],
+      "relevant_references": [
+        "api-patterns.md",
+        "concurrency-patterns.md",
+        "idempotency.md",
+        "transaction-patterns.md"
+      ],
+      "irrelevant_references": [],
+      "omitted_relevant_references": [
+        "api-patterns.md",
+        "concurrency-patterns.md",
+        "transaction-patterns.md"
+      ],
+      "reference_precision": 1.0,
+      "reference_recall": 0.25,
+      "approximate_context_bytes": 28431
+    },
+    {
+      "scenario_id": "SU-102",
+      "references_loaded": [
+        "observability-patterns.md",
+        "performance-patterns.md",
+        "resilience-patterns.md"
+      ],
+      "relevant_references": [
+        "observability-patterns.md",
+        "resilience-patterns.md"
+      ],
+      "irrelevant_references": [
+        "performance-patterns.md"
+      ],
+      "omitted_relevant_references": [],
+      "reference_precision": 0.6667,
+      "reference_recall": 1.0,
+      "approximate_context_bytes": 54645
+    },
+    {
+      "scenario_id": "SU-103",
+      "references_loaded": [
+        "caching-patterns.md",
+        "data-access-patterns.md",
+        "performance-patterns.md",
+        "resilience-patterns.md"
+      ],
+      "relevant_references": [
+        "caching-patterns.md",
+        "observability-patterns.md",
+        "performance-patterns.md"
+      ],
+      "irrelevant_references": [
+        "data-access-patterns.md",
+        "resilience-patterns.md"
+      ],
+      "omitted_relevant_references": [
+        "observability-patterns.md"
+      ],
+      "reference_precision": 0.5,
+      "reference_recall": 0.6667,
+      "approximate_context_bytes": 70842
+    },
+    {
+      "scenario_id": "SU-104",
+      "references_loaded": [
+        "api-patterns.md",
+        "migration-patterns.md"
+      ],
+      "relevant_references": [
+        "api-patterns.md",
+        "migration-patterns.md"
+      ],
+      "irrelevant_references": [],
+      "omitted_relevant_references": [],
+      "reference_precision": 1.0,
+      "reference_recall": 1.0,
+      "approximate_context_bytes": 46711
+    },
+    {
+      "scenario_id": "SR-101",
+      "references_loaded": [
+        "anti-patterns.md",
+        "architecture-boundaries.md"
+      ],
+      "relevant_references": [
+        "anti-patterns.md",
+        "architecture-boundaries.md",
+        "domain-modeling.md"
+      ],
+      "irrelevant_references": [],
+      "omitted_relevant_references": [
+        "domain-modeling.md"
+      ],
+      "reference_precision": 1.0,
+      "reference_recall": 0.6667,
+      "approximate_context_bytes": 62932
+    },
+    {
+      "scenario_id": "SR-102",
+      "references_loaded": [
+        "anti-patterns.md",
+        "consistency-patterns.md",
+        "data-access-patterns.md"
+      ],
+      "relevant_references": [
+        "anti-patterns.md",
+        "architecture-boundaries.md",
+        "consistency-patterns.md",
+        "data-access-patterns.md",
+        "transaction-patterns.md"
+      ],
+      "irrelevant_references": [],
+      "omitted_relevant_references": [
+        "architecture-boundaries.md",
+        "transaction-patterns.md"
+      ],
+      "reference_precision": 1.0,
+      "reference_recall": 0.6,
+      "approximate_context_bytes": 76112
+    },
+    {
+      "scenario_id": "SR-103",
+      "references_loaded": [
+        "domain-modeling.md"
+      ],
+      "relevant_references": [
+        "anti-patterns.md",
+        "data-access-patterns.md",
+        "domain-modeling.md",
+        "migration-patterns.md",
+        "observability-patterns.md",
+        "transaction-patterns.md"
+      ],
+      "irrelevant_references": [],
+      "omitted_relevant_references": [
+        "anti-patterns.md",
+        "data-access-patterns.md",
+        "migration-patterns.md",
+        "observability-patterns.md",
+        "transaction-patterns.md"
+      ],
+      "reference_precision": 1.0,
+      "reference_recall": 0.1667,
+      "approximate_context_bytes": 35396
+    },
+    {
+      "scenario_id": "SR-104",
+      "references_loaded": [
+        "anti-patterns.md",
+        "architecture-boundaries.md",
+        "messaging-patterns.md",
+        "transaction-patterns.md"
+      ],
+      "relevant_references": [
+        "anti-patterns.md",
+        "architecture-boundaries.md",
+        "messaging-patterns.md",
+        "transaction-patterns.md"
+      ],
+      "irrelevant_references": [],
+      "omitted_relevant_references": [],
+      "reference_precision": 1.0,
+      "reference_recall": 1.0,
+      "approximate_context_bytes": 96950
+    },
+    {
+      "scenario_id": "NE-101",
+      "references_loaded": [
+        "architecture-boundaries.md",
+        "decision-matrix.md"
+      ],
+      "relevant_references": [
+        "architecture-boundaries.md",
+        "decision-matrix.md",
+        "domain-modeling.md"
+      ],
+      "irrelevant_references": [],
+      "omitted_relevant_references": [
+        "domain-modeling.md"
+      ],
+      "reference_precision": 1.0,
+      "reference_recall": 0.6667,
+      "approximate_context_bytes": 55154
+    },
+    {
+      "scenario_id": "NE-102",
+      "references_loaded": [
+        "consistency-patterns.md",
+        "data-access-patterns.md",
+        "decision-matrix.md"
+      ],
+      "relevant_references": [
+        "consistency-patterns.md",
+        "data-access-patterns.md",
+        "decision-matrix.md",
+        "observability-patterns.md",
+        "performance-patterns.md"
+      ],
+      "irrelevant_references": [],
+      "omitted_relevant_references": [
+        "observability-patterns.md",
+        "performance-patterns.md"
+      ],
+      "reference_precision": 1.0,
+      "reference_recall": 0.6,
+      "approximate_context_bytes": 68334
+    },
+    {
+      "scenario_id": "NE-103",
+      "references_loaded": [
+        "caching-patterns.md",
+        "decision-matrix.md",
+        "security-boundaries.md"
+      ],
+      "relevant_references": [
+        "data-access-patterns.md",
+        "decision-matrix.md",
+        "migration-patterns.md",
+        "security-boundaries.md"
+      ],
+      "irrelevant_references": [
+        "caching-patterns.md"
+      ],
+      "omitted_relevant_references": [
+        "data-access-patterns.md",
+        "migration-patterns.md"
+      ],
+      "reference_precision": 0.6667,
+      "reference_recall": 0.5,
+      "approximate_context_bytes": 65354
+    },
+    {
+      "scenario_id": "NE-104",
+      "references_loaded": [
+        "decision-matrix.md",
+        "performance-patterns.md"
+      ],
+      "relevant_references": [
+        "data-access-patterns.md",
+        "decision-matrix.md",
+        "distributed-systems.md",
+        "migration-patterns.md",
+        "performance-patterns.md"
+      ],
+      "irrelevant_references": [],
+      "omitted_relevant_references": [
+        "data-access-patterns.md",
+        "distributed-systems.md",
+        "migration-patterns.md"
+      ],
+      "reference_precision": 1.0,
+      "reference_recall": 0.4,
+      "approximate_context_bytes": 46533
+    },
+    {
+      "scenario_id": "NE-105",
+      "references_loaded": [
+        "consistency-patterns.md",
+        "decision-matrix.md"
+      ],
+      "relevant_references": [
+        "architecture-boundaries.md",
+        "consistency-patterns.md",
+        "data-access-patterns.md",
+        "decision-matrix.md",
+        "migration-patterns.md"
+      ],
+      "irrelevant_references": [],
+      "omitted_relevant_references": [
+        "architecture-boundaries.md",
+        "data-access-patterns.md",
+        "migration-patterns.md"
+      ],
+      "reference_precision": 1.0,
+      "reference_recall": 0.4,
+      "approximate_context_bytes": 50566
+    },
+    {
+      "scenario_id": "NE-106",
+      "references_loaded": [
+        "decision-matrix.md",
+        "messaging-patterns.md"
+      ],
+      "relevant_references": [
+        "decision-matrix.md",
+        "messaging-patterns.md",
+        "observability-patterns.md",
+        "resilience-patterns.md",
+        "transaction-patterns.md"
+      ],
+      "irrelevant_references": [],
+      "omitted_relevant_references": [
+        "observability-patterns.md",
+        "resilience-patterns.md",
+        "transaction-patterns.md"
+      ],
+      "reference_precision": 1.0,
+      "reference_recall": 0.4,
+      "approximate_context_bytes": 49811
+    },
+    {
+      "scenario_id": "NE-107",
+      "references_loaded": [
+        "consistency-patterns.md",
+        "decision-matrix.md"
+      ],
+      "relevant_references": [
+        "concurrency-patterns.md",
+        "consistency-patterns.md",
+        "data-access-patterns.md",
+        "decision-matrix.md"
+      ],
+      "irrelevant_references": [],
+      "omitted_relevant_references": [
+        "concurrency-patterns.md",
+        "data-access-patterns.md"
+      ],
+      "reference_precision": 1.0,
+      "reference_recall": 0.5,
+      "approximate_context_bytes": 50566
+    },
+    {
+      "scenario_id": "NE-108",
+      "references_loaded": [
+        "decision-matrix.md",
+        "idempotency.md",
+        "messaging-patterns.md"
+      ],
+      "relevant_references": [
+        "consistency-patterns.md",
+        "decision-matrix.md",
+        "distributed-systems.md",
+        "idempotency.md",
+        "messaging-patterns.md"
+      ],
+      "irrelevant_references": [],
+      "omitted_relevant_references": [
+        "consistency-patterns.md",
+        "distributed-systems.md"
+      ],
+      "reference_precision": 1.0,
+      "reference_recall": 0.6,
+      "approximate_context_bytes": 61999
+    },
+    {
+      "scenario_id": "BF-101",
+      "references_loaded": [
+        "api-patterns.md",
+        "migration-patterns.md",
+        "observability-patterns.md"
+      ],
+      "relevant_references": [
+        "api-patterns.md",
+        "migration-patterns.md"
+      ],
+      "irrelevant_references": [
+        "observability-patterns.md"
+      ],
+      "omitted_relevant_references": [],
+      "reference_precision": 0.6667,
+      "reference_recall": 1.0,
+      "approximate_context_bytes": 60803
+    },
+    {
+      "scenario_id": "BF-102",
+      "references_loaded": [
+        "architecture-boundaries.md",
+        "migration-patterns.md"
+      ],
+      "relevant_references": [
+        "architecture-boundaries.md",
+        "data-access-patterns.md",
+        "migration-patterns.md"
+      ],
+      "irrelevant_references": [],
+      "omitted_relevant_references": [
+        "data-access-patterns.md"
+      ],
+      "reference_precision": 1.0,
+      "reference_recall": 0.6667,
+      "approximate_context_bytes": 47857
+    },
+    {
+      "scenario_id": "BF-103",
+      "references_loaded": [
+        "data-access-patterns.md",
+        "migration-patterns.md",
+        "performance-patterns.md"
+      ],
+      "relevant_references": [
+        "data-access-patterns.md",
+        "performance-patterns.md",
+        "testing-patterns.md"
+      ],
+      "irrelevant_references": [
+        "migration-patterns.md"
+      ],
+      "omitted_relevant_references": [
+        "testing-patterns.md"
+      ],
+      "reference_precision": 0.6667,
+      "reference_recall": 0.6667,
+      "approximate_context_bytes": 57004
+    },
+    {
+      "scenario_id": "BF-104",
+      "references_loaded": [
+        "messaging-patterns.md",
+        "migration-patterns.md"
+      ],
+      "relevant_references": [
+        "messaging-patterns.md",
+        "migration-patterns.md"
+      ],
+      "irrelevant_references": [],
+      "omitted_relevant_references": [],
+      "reference_precision": 1.0,
+      "reference_recall": 1.0,
+      "approximate_context_bytes": 42514
+    },
+    {
+      "scenario_id": "BF-105",
+      "references_loaded": [
+        "migration-patterns.md"
+      ],
+      "relevant_references": [
+        "idempotency.md",
+        "migration-patterns.md",
+        "transaction-patterns.md"
+      ],
+      "irrelevant_references": [],
+      "omitted_relevant_references": [
+        "idempotency.md",
+        "transaction-patterns.md"
+      ],
+      "reference_precision": 1.0,
+      "reference_recall": 0.3333,
+      "approximate_context_bytes": 28177
+    },
+    {
+      "scenario_id": "BF-106",
+      "references_loaded": [
+        "data-access-patterns.md",
+        "observability-patterns.md",
+        "testing-patterns.md"
+      ],
+      "relevant_references": [
+        "data-access-patterns.md",
+        "migration-patterns.md",
+        "observability-patterns.md"
+      ],
+      "irrelevant_references": [
+        "testing-patterns.md"
+      ],
+      "omitted_relevant_references": [
+        "migration-patterns.md"
+      ],
+      "reference_precision": 0.6667,
+      "reference_recall": 0.6667,
+      "approximate_context_bytes": 61319
+    },
+    {
+      "scenario_id": "BF-107",
+      "references_loaded": [],
+      "relevant_references": [
+        "architecture-boundaries.md",
+        "idempotency.md",
+        "messaging-patterns.md",
+        "observability-patterns.md",
+        "transaction-patterns.md"
+      ],
+      "irrelevant_references": [],
+      "omitted_relevant_references": [
+        "architecture-boundaries.md",
+        "idempotency.md",
+        "messaging-patterns.md",
+        "observability-patterns.md",
+        "transaction-patterns.md"
+      ],
+      "reference_precision": 0.0,
+      "reference_recall": 0.0,
+      "approximate_context_bytes": 16243
+    },
+    {
+      "scenario_id": "BF-108",
+      "references_loaded": [
+        "api-patterns.md",
+        "architecture-boundaries.md",
+        "migration-patterns.md"
+      ],
+      "relevant_references": [
+        "api-patterns.md",
+        "architecture-boundaries.md",
+        "migration-patterns.md"
+      ],
+      "irrelevant_references": [],
+      "omitted_relevant_references": [],
+      "reference_precision": 1.0,
+      "reference_recall": 1.0,
+      "approximate_context_bytes": 66391
+    },
+    {
+      "scenario_id": "FD-101",
+      "references_loaded": [
+        "distributed-systems.md",
+        "idempotency.md"
+      ],
+      "relevant_references": [
+        "distributed-systems.md",
+        "idempotency.md",
+        "messaging-patterns.md",
+        "observability-patterns.md",
+        "resilience-patterns.md"
+      ],
+      "irrelevant_references": [],
+      "omitted_relevant_references": [
+        "messaging-patterns.md",
+        "observability-patterns.md",
+        "resilience-patterns.md"
+      ],
+      "reference_precision": 1.0,
+      "reference_recall": 0.4,
+      "approximate_context_bytes": 41648
+    },
+    {
+      "scenario_id": "FD-102",
+      "references_loaded": [
+        "distributed-systems.md",
+        "idempotency.md"
+      ],
+      "relevant_references": [
+        "distributed-systems.md",
+        "idempotency.md",
+        "resilience-patterns.md",
+        "transaction-patterns.md"
+      ],
+      "irrelevant_references": [],
+      "omitted_relevant_references": [
+        "resilience-patterns.md",
+        "transaction-patterns.md"
+      ],
+      "reference_precision": 1.0,
+      "reference_recall": 0.5,
+      "approximate_context_bytes": 41648
+    },
+    {
+      "scenario_id": "FD-103",
+      "references_loaded": [
+        "api-patterns.md",
+        "concurrency-patterns.md",
+        "idempotency.md",
+        "security-boundaries.md"
+      ],
+      "relevant_references": [
+        "api-patterns.md",
+        "concurrency-patterns.md",
+        "idempotency.md",
+        "security-boundaries.md",
+        "transaction-patterns.md"
+      ],
+      "irrelevant_references": [],
+      "omitted_relevant_references": [
+        "transaction-patterns.md"
+      ],
+      "reference_precision": 1.0,
+      "reference_recall": 0.8,
+      "approximate_context_bytes": 81824
+    },
+    {
+      "scenario_id": "FD-104",
+      "references_loaded": [
+        "resilience-patterns.md"
+      ],
+      "relevant_references": [
+        "observability-patterns.md",
+        "resilience-patterns.md"
+      ],
+      "irrelevant_references": [],
+      "omitted_relevant_references": [
+        "observability-patterns.md"
+      ],
+      "reference_precision": 1.0,
+      "reference_recall": 0.5,
+      "approximate_context_bytes": 29494
+    },
+    {
+      "scenario_id": "FD-105",
+      "references_loaded": [
+        "caching-patterns.md",
+        "data-access-patterns.md"
+      ],
+      "relevant_references": [
+        "caching-patterns.md",
+        "concurrency-patterns.md",
+        "performance-patterns.md",
+        "resilience-patterns.md"
+      ],
+      "irrelevant_references": [
+        "data-access-patterns.md"
+      ],
+      "omitted_relevant_references": [
+        "concurrency-patterns.md",
+        "performance-patterns.md",
+        "resilience-patterns.md"
+      ],
+      "reference_precision": 0.5,
+      "reference_recall": 0.25,
+      "approximate_context_bytes": 46532
+    },
+    {
+      "scenario_id": "FD-106",
+      "references_loaded": [
+        "messaging-patterns.md"
+      ],
+      "relevant_references": [
+        "consistency-patterns.md",
+        "messaging-patterns.md",
+        "observability-patterns.md"
+      ],
+      "irrelevant_references": [],
+      "omitted_relevant_references": [
+        "consistency-patterns.md",
+        "observability-patterns.md"
+      ],
+      "reference_precision": 1.0,
+      "reference_recall": 0.3333,
+      "approximate_context_bytes": 30580
+    },
+    {
+      "scenario_id": "FD-107",
+      "references_loaded": [
+        "migration-patterns.md"
+      ],
+      "relevant_references": [
+        "migration-patterns.md",
+        "observability-patterns.md",
+        "resilience-patterns.md",
+        "transaction-patterns.md"
+      ],
+      "irrelevant_references": [],
+      "omitted_relevant_references": [
+        "observability-patterns.md",
+        "resilience-patterns.md",
+        "transaction-patterns.md"
+      ],
+      "reference_precision": 1.0,
+      "reference_recall": 0.25,
+      "approximate_context_bytes": 28177
+    },
+    {
+      "scenario_id": "FD-108",
+      "references_loaded": [
+        "idempotency.md",
+        "messaging-patterns.md",
+        "transaction-patterns.md"
+      ],
+      "relevant_references": [
+        "idempotency.md",
+        "messaging-patterns.md",
+        "transaction-patterns.md"
+      ],
+      "irrelevant_references": [],
+      "omitted_relevant_references": [],
+      "reference_precision": 1.0,
+      "reference_recall": 1.0,
+      "approximate_context_bytes": 62449
+    },
+    {
+      "scenario_id": "SEC-101",
+      "references_loaded": [
+        "security-boundaries.md"
+      ],
+      "relevant_references": [
+        "api-patterns.md",
+        "data-access-patterns.md",
+        "security-boundaries.md"
+      ],
+      "irrelevant_references": [],
+      "omitted_relevant_references": [
+        "api-patterns.md",
+        "data-access-patterns.md"
+      ],
+      "reference_precision": 1.0,
+      "reference_recall": 0.3333,
+      "approximate_context_bytes": 33602
+    },
+    {
+      "scenario_id": "SEC-102",
+      "references_loaded": [
+        "api-patterns.md",
+        "idempotency.md",
+        "security-boundaries.md"
+      ],
+      "relevant_references": [
+        "api-patterns.md",
+        "idempotency.md",
+        "security-boundaries.md",
+        "transaction-patterns.md"
+      ],
+      "irrelevant_references": [],
+      "omitted_relevant_references": [
+        "transaction-patterns.md"
+      ],
+      "reference_precision": 1.0,
+      "reference_recall": 0.75,
+      "approximate_context_bytes": 64324
+    },
+    {
+      "scenario_id": "SEC-103",
+      "references_loaded": [
+        "security-boundaries.md"
+      ],
+      "relevant_references": [
+        "observability-patterns.md",
+        "resilience-patterns.md",
+        "security-boundaries.md"
+      ],
+      "irrelevant_references": [],
+      "omitted_relevant_references": [
+        "observability-patterns.md",
+        "resilience-patterns.md"
+      ],
+      "reference_precision": 1.0,
+      "reference_recall": 0.3333,
+      "approximate_context_bytes": 33602
+    },
+    {
+      "scenario_id": "SEC-104",
+      "references_loaded": [
+        "security-boundaries.md"
+      ],
+      "relevant_references": [
+        "observability-patterns.md",
+        "resilience-patterns.md",
+        "security-boundaries.md"
+      ],
+      "irrelevant_references": [],
+      "omitted_relevant_references": [
+        "observability-patterns.md",
+        "resilience-patterns.md"
+      ],
+      "reference_precision": 1.0,
+      "reference_recall": 0.3333,
+      "approximate_context_bytes": 33602
+    },
+    {
+      "scenario_id": "SEC-105",
+      "references_loaded": [
+        "observability-patterns.md",
+        "security-boundaries.md"
+      ],
+      "relevant_references": [
+        "api-patterns.md",
+        "observability-patterns.md",
+        "security-boundaries.md"
+      ],
+      "irrelevant_references": [],
+      "omitted_relevant_references": [
+        "api-patterns.md"
+      ],
+      "reference_precision": 1.0,
+      "reference_recall": 0.6667,
+      "approximate_context_bytes": 47694
+    },
+    {
+      "scenario_id": "SEC-106",
+      "references_loaded": [
+        "observability-patterns.md",
+        "security-boundaries.md"
+      ],
+      "relevant_references": [
+        "api-patterns.md",
+        "observability-patterns.md",
+        "security-boundaries.md",
+        "testing-patterns.md"
+      ],
+      "irrelevant_references": [],
+      "omitted_relevant_references": [
+        "api-patterns.md",
+        "testing-patterns.md"
+      ],
+      "reference_precision": 1.0,
+      "reference_recall": 0.5,
+      "approximate_context_bytes": 47694
+    },
+    {
+      "scenario_id": "SEC-107",
+      "references_loaded": [
+        "api-patterns.md",
+        "security-boundaries.md"
+      ],
+      "relevant_references": [
+        "api-patterns.md",
+        "observability-patterns.md",
+        "performance-patterns.md",
+        "resilience-patterns.md",
+        "security-boundaries.md"
+      ],
+      "irrelevant_references": [],
+      "omitted_relevant_references": [
+        "observability-patterns.md",
+        "performance-patterns.md",
+        "resilience-patterns.md"
+      ],
+      "reference_precision": 1.0,
+      "reference_recall": 0.4,
+      "approximate_context_bytes": 52136
+    },
+    {
+      "scenario_id": "SEC-108",
+      "references_loaded": [
+        "caching-patterns.md",
+        "security-boundaries.md"
+      ],
+      "relevant_references": [
+        "caching-patterns.md",
+        "migration-patterns.md",
+        "security-boundaries.md"
+      ],
+      "irrelevant_references": [],
+      "omitted_relevant_references": [
+        "migration-patterns.md"
+      ],
+      "reference_precision": 1.0,
+      "reference_recall": 0.6667,
+      "approximate_context_bytes": 46123
+    },
+    {
+      "scenario_id": "OP-101",
+      "references_loaded": [
+        "idempotency.md",
+        "observability-patterns.md"
+      ],
+      "relevant_references": [
+        "distributed-systems.md",
+        "idempotency.md",
+        "messaging-patterns.md",
+        "observability-patterns.md",
+        "transaction-patterns.md"
+      ],
+      "irrelevant_references": [],
+      "omitted_relevant_references": [
+        "distributed-systems.md",
+        "messaging-patterns.md",
+        "transaction-patterns.md"
+      ],
+      "reference_precision": 1.0,
+      "reference_recall": 0.4,
+      "approximate_context_bytes": 42523
+    },
+    {
+      "scenario_id": "OP-102",
+      "references_loaded": [
+        "idempotency.md",
+        "messaging-patterns.md"
+      ],
+      "relevant_references": [
+        "idempotency.md",
+        "messaging-patterns.md",
+        "observability-patterns.md",
+        "security-boundaries.md"
+      ],
+      "irrelevant_references": [],
+      "omitted_relevant_references": [
+        "observability-patterns.md",
+        "security-boundaries.md"
+      ],
+      "reference_precision": 1.0,
+      "reference_recall": 0.5,
+      "approximate_context_bytes": 42768
+    },
+    {
+      "scenario_id": "OP-103",
+      "references_loaded": [
+        "migration-patterns.md"
+      ],
+      "relevant_references": [
+        "migration-patterns.md",
+        "observability-patterns.md",
+        "testing-patterns.md",
+        "transaction-patterns.md"
+      ],
+      "irrelevant_references": [],
+      "omitted_relevant_references": [
+        "observability-patterns.md",
+        "testing-patterns.md",
+        "transaction-patterns.md"
+      ],
+      "reference_precision": 1.0,
+      "reference_recall": 0.25,
+      "approximate_context_bytes": 28177
+    },
+    {
+      "scenario_id": "OP-104",
+      "references_loaded": [
+        "messaging-patterns.md",
+        "observability-patterns.md",
+        "performance-patterns.md",
+        "resilience-patterns.md"
+      ],
+      "relevant_references": [
+        "observability-patterns.md",
+        "performance-patterns.md",
+        "resilience-patterns.md"
+      ],
+      "irrelevant_references": [
+        "messaging-patterns.md"
+      ],
+      "omitted_relevant_references": [],
+      "reference_precision": 0.75,
+      "reference_recall": 1.0,
+      "approximate_context_bytes": 68982
+    },
+    {
+      "scenario_id": "OP-105",
+      "references_loaded": [
+        "migration-patterns.md"
+      ],
+      "relevant_references": [
+        "api-patterns.md",
+        "migration-patterns.md",
+        "observability-patterns.md",
+        "resilience-patterns.md"
+      ],
+      "irrelevant_references": [],
+      "omitted_relevant_references": [
+        "api-patterns.md",
+        "observability-patterns.md",
+        "resilience-patterns.md"
+      ],
+      "reference_precision": 1.0,
+      "reference_recall": 0.25,
+      "approximate_context_bytes": 28177
+    },
+    {
+      "scenario_id": "OP-106",
+      "references_loaded": [
+        "api-patterns.md",
+        "observability-patterns.md",
+        "security-boundaries.md"
+      ],
+      "relevant_references": [
+        "api-patterns.md",
+        "idempotency.md",
+        "observability-patterns.md",
+        "performance-patterns.md",
+        "security-boundaries.md"
+      ],
+      "irrelevant_references": [],
+      "omitted_relevant_references": [
+        "idempotency.md",
+        "performance-patterns.md"
+      ],
+      "reference_precision": 1.0,
+      "reference_recall": 0.6,
+      "approximate_context_bytes": 66228
+    },
+    {
+      "scenario_id": "OP-107",
+      "references_loaded": [
+        "idempotency.md"
+      ],
+      "relevant_references": [
+        "concurrency-patterns.md",
+        "idempotency.md",
+        "messaging-patterns.md",
+        "observability-patterns.md",
+        "security-boundaries.md"
+      ],
+      "irrelevant_references": [],
+      "omitted_relevant_references": [
+        "concurrency-patterns.md",
+        "messaging-patterns.md",
+        "observability-patterns.md",
+        "security-boundaries.md"
+      ],
+      "reference_precision": 1.0,
+      "reference_recall": 0.2,
+      "approximate_context_bytes": 28431
+    },
+    {
+      "scenario_id": "OP-108",
+      "references_loaded": [
+        "observability-patterns.md"
+      ],
+      "relevant_references": [
+        "distributed-systems.md",
+        "observability-patterns.md",
+        "resilience-patterns.md"
+      ],
+      "irrelevant_references": [],
+      "omitted_relevant_references": [
+        "distributed-systems.md",
+        "resilience-patterns.md"
+      ],
+      "reference_precision": 1.0,
+      "reference_recall": 0.3333,
+      "approximate_context_bytes": 30335
+    }
+  ]
+}

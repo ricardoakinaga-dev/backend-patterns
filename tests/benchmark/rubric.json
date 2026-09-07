@@ -1,0 +1,488 @@
+{
+  "schema_version": "BP-BENCH-RUBRIC-1",
+  "purpose": "Machine-readable architectural judgment contract for framework-independent backend-patterns evaluation; it freezes expectations but does not execute a model.",
+  "statuses": [
+    "PASS",
+    "FAIL",
+    "NOT_RUN",
+    "BLOCKED",
+    "STALE",
+    "NOT_APPLICABLE"
+  ],
+  "verdicts": [
+    "NOT_READY",
+    "PACKAGE_READY",
+    "STATE_OF_THE_ART",
+    "AAA_CANDIDATE",
+    "TRIPLE_A_CONDITIONAL",
+    "TRIPLE_A_PROVEN"
+  ],
+  "required_families": [
+    "SHOULD_USE",
+    "SHOULD_REJECT",
+    "NEED_MORE_EVIDENCE",
+    "BROWNFIELD",
+    "FAILURE_DRIVEN",
+    "SECURITY_SENSITIVE",
+    "OPERABILITY"
+  ],
+  "required_splits": [
+    "development",
+    "adversarial",
+    "holdout"
+  ],
+  "required_fields": [
+    "id",
+    "split",
+    "family",
+    "title",
+    "prompt",
+    "current_facts",
+    "unknowns",
+    "invariants",
+    "forces",
+    "simpler_baseline",
+    "expected_decision",
+    "required_signals",
+    "hard_fail_tags",
+    "domains",
+    "recommended_references",
+    "metamorphic_group",
+    "stability_group",
+    "known_bad_mutations"
+  ],
+  "decision_fields": [
+    "stance",
+    "preferred",
+    "rejected",
+    "confidence",
+    "evidence_requirements",
+    "rationale"
+  ],
+  "evidence_fields": [
+    "current_facts",
+    "unknowns",
+    "invariants",
+    "forces",
+    "required_signals",
+    "recommended_references",
+    "known_bad_mutations"
+  ],
+  "score_scale": {
+    "minimum": 0,
+    "maximum": 4,
+    "labels": {
+      "0": "absent_or_wrong",
+      "1": "weak_or_materially_incomplete",
+      "2": "acceptable",
+      "3": "strong",
+      "4": "exemplary_and_falsifiable"
+    }
+  },
+  "dimensions": {
+    "D1": {
+      "name": "Trigger correctness",
+      "anchors": {
+        "0": "Misses the architectural trigger or answers an unrelated problem.",
+        "1": "Repeats a keyword but does not connect it to the decision.",
+        "2": "Identifies the main trigger with a mostly relevant response.",
+        "3": "Correctly distinguishes the trigger from neighboring concerns and scopes the response.",
+        "4": "Precisely classifies the trigger, its boundary, and the evidence that would invalidate it."
+      }
+    },
+    "D2": {
+      "name": "Problem classification",
+      "anchors": {
+        "0": "Treats the problem as the wrong class of system or failure.",
+        "1": "Uses a vague category such as scalability without explaining the actual problem.",
+        "2": "Classifies the main problem adequately but misses one adjacent concern.",
+        "3": "Separates architecture, data, failure, security, and delivery concerns correctly.",
+        "4": "Builds a crisp problem statement that prevents category errors and guides alternatives."
+      }
+    },
+    "D3": {
+      "name": "Current facts identified",
+      "anchors": {
+        "0": "Contradicts or ignores stated facts.",
+        "1": "Uses only one superficial fact.",
+        "2": "Captures the material stated facts with minor omissions.",
+        "3": "Separates facts from assumptions and uses all decision-relevant facts.",
+        "4": "Creates a concise fact inventory with explicit evidence provenance and boundary conditions."
+      }
+    },
+    "D4": {
+      "name": "Unknowns preserved",
+      "anchors": {
+        "0": "Invents missing requirements or presents guesses as facts.",
+        "1": "Mentions uncertainty without identifying what decision it affects.",
+        "2": "Names the principal unknown and asks a useful follow-up.",
+        "3": "Preserves unknowns, gives decision thresholds, and offers conditional options.",
+        "4": "Ranks unknowns by decision impact and defines the smallest evidence plan to resolve them."
+      }
+    },
+    "D5": {
+      "name": "Invariants identified",
+      "anchors": {
+        "0": "Violates or omits a stated safety or data invariant.",
+        "1": "Uses a generic quality statement instead of a testable invariant.",
+        "2": "States the central invariant in operational terms.",
+        "3": "Maps each major design choice to explicit invariants and failure consequences.",
+        "4": "Defines precise, falsifiable invariants with ownership, timing, and verification evidence."
+      }
+    },
+    "D6": {
+      "name": "Forces identified",
+      "anchors": {
+        "0": "Chooses without recognizing relevant forces.",
+        "1": "Lists generic forces such as scale with no effect on the choice.",
+        "2": "Identifies the main forces and their direction.",
+        "3": "Explains trade-offs among ownership, scale, latency, consistency, cost, and change rate.",
+        "4": "Ranks competing forces, states thresholds, and shows how the recommendation changes when a force changes."
+      }
+    },
+    "D7": {
+      "name": "Simpler baseline included",
+      "anchors": {
+        "0": "Provides no baseline or dismisses a viable simpler design.",
+        "1": "Names a simpler design only as a straw man.",
+        "2": "Includes a plausible simpler baseline.",
+        "3": "Compares the baseline against the chosen design and its operational cost.",
+        "4": "Selects the minimum sufficient baseline and defines concrete evidence for moving beyond it."
+      }
+    },
+    "D8": {
+      "name": "Candidate quality",
+      "anchors": {
+        "0": "Candidate set is irrelevant or unsafe.",
+        "1": "Offers one fashionable pattern without alternatives.",
+        "2": "Offers relevant candidates with basic trade-offs.",
+        "3": "Compares credible candidates against facts, invariants, and forces.",
+        "4": "Includes local, distributed, and defer options where appropriate and makes selection criteria explicit."
+      }
+    },
+    "D9": {
+      "name": "Pattern rejection quality",
+      "anchors": {
+        "0": "Accepts a harmful or unjustified pattern.",
+        "1": "Rejects a pattern by slogan or preference.",
+        "2": "Rejects the main unsuitable option for a relevant reason.",
+        "3": "Explains why alternatives fail the current constraints and what would change the result.",
+        "4": "Resists pressure and cargo cult reasoning with a precise, evidence-linked rejection."
+      }
+    },
+    "D10": {
+      "name": "Selected design proportionality",
+      "anchors": {
+        "0": "Design is materially unsafe or disproportionate.",
+        "1": "Design adds complexity without a demonstrated benefit.",
+        "2": "Design is broadly proportionate to the stated forces.",
+        "3": "Complexity is justified by a concrete requirement and bounded operationally.",
+        "4": "The design is the least complex option that satisfies all invariants, with an explicit evolution path."
+      }
+    },
+    "D11": {
+      "name": "Failure semantics",
+      "anchors": {
+        "0": "Ignores a material failure or misstates its outcome.",
+        "1": "Lists failures without detection, containment, or recovery.",
+        "2": "Covers the main failure and a plausible response.",
+        "3": "States detection, containment, recovery, and data/user impact.",
+        "4": "Uses a proportional failure matrix with unknown outcomes, repair, and residual risk made explicit."
+      }
+    },
+    "D12": {
+      "name": "Transaction semantics",
+      "anchors": {
+        "0": "Confuses local transactions with distributed atomicity or loses committed data.",
+        "1": "Says transaction without naming the boundary or commit ordering.",
+        "2": "Correctly describes the relevant local or distributed boundary.",
+        "3": "Explains commit, publication, retry, and compensation semantics.",
+        "4": "Proves the transaction boundary against crashes, duplicates, partial failure, and recovery evidence."
+      }
+    },
+    "D13": {
+      "name": "Concurrency semantics",
+      "anchors": {
+        "0": "Allows a stated race, duplicate, lost update, or illegal state.",
+        "1": "Mentions locking or retries without a race proof.",
+        "2": "Chooses a workable concurrency control and conflict behavior.",
+        "3": "Explains atomicity, conflict detection, lock scope, and retry limits.",
+        "4": "Derives concurrency control from the invariant and validates it with adversarial interleavings."
+      }
+    },
+    "D14": {
+      "name": "Consistency semantics",
+      "anchors": {
+        "0": "Promises consistency that the design cannot provide or sacrifices an invariant silently.",
+        "1": "Uses eventual consistency as an unqualified answer.",
+        "2": "Names the required consistency level and acceptable lag.",
+        "3": "Maps read/write paths, stale data behavior, reconciliation, and user impact.",
+        "4": "Distinguishes guaranteed, likely, unknown, and unsafe outcomes with measurable bounds."
+      }
+    },
+    "D15": {
+      "name": "Security constraints",
+      "anchors": {
+        "0": "Creates or ignores an authorization, tenant, secret, abuse, or trust-boundary flaw.",
+        "1": "Adds generic security language without a boundary or control.",
+        "2": "Identifies the central security constraint and control.",
+        "3": "Maps actors, assets, authorization, trust, abuse cases, and specialist handoff.",
+        "4": "Makes security invariants testable and calibrated, including denial, audit, rate, and escalation evidence."
+      }
+    },
+    "D16": {
+      "name": "Operability",
+      "anchors": {
+        "0": "Cannot be diagnosed or recovered safely.",
+        "1": "Says to monitor or retry without an operator action.",
+        "2": "Names basic health, recovery, and repair actions.",
+        "3": "Provides detection, diagnosis, resume, repair, rollback/roll-forward, and prevention paths.",
+        "4": "Defines bounded operator workflows with permissions, auditability, idempotent repair, and exit criteria."
+      }
+    },
+    "D17": {
+      "name": "Observability",
+      "anchors": {
+        "0": "Makes an unobservable completion or safety claim.",
+        "1": "Requests logs without signals or correlation.",
+        "2": "Names useful metrics, logs, or traces.",
+        "3": "Connects signals to SLOs, alerts, diagnosis, and evidence freshness.",
+        "4": "Defines actionable telemetry for normal, failure, reconciliation, and operator paths without noise inflation."
+      }
+    },
+    "D18": {
+      "name": "Migration and compatibility",
+      "anchors": {
+        "0": "Ignores version skew, rollback limits, or migration safety.",
+        "1": "Says migrate carefully without an incremental mechanism.",
+        "2": "Identifies compatibility and a plausible migration sequence.",
+        "3": "Uses expand/contract, dual-read/write discipline, backfill, verification, and rollback/roll-forward rules.",
+        "4": "Handles interruption, mixed versions, irreversible changes, divergence, resume, and evidence at every phase."
+      }
+    },
+    "D19": {
+      "name": "Verification requirements",
+      "anchors": {
+        "0": "Provides no test or claims evidence that was not run.",
+        "1": "Suggests generic tests unrelated to the risk.",
+        "2": "Names relevant tests or evidence.",
+        "3": "Defines deterministic, failure, concurrency, compatibility, security, and operational checks as applicable.",
+        "4": "Ties every material claim to an exact executable observation and states unexecuted evidence honestly."
+      }
+    },
+    "D20": {
+      "name": "Residual risk",
+      "anchors": {
+        "0": "Hides or denies material residual risk.",
+        "1": "Uses vague caveats with no owner or next action.",
+        "2": "States the main remaining risk.",
+        "3": "Ranks residual risks, owners, mitigations, and acceptance evidence.",
+        "4": "Calibrates SAFE, LIKELY_SAFE, UNKNOWN, HIGH_RISK, or BLOCKED with explicit exit criteria."
+      }
+    },
+    "D21": {
+      "name": "No cargo-cult reasoning",
+      "anchors": {
+        "0": "Selects a pattern solely because it is fashionable or requested.",
+        "1": "Repeats a slogan with weak qualification.",
+        "2": "Connects the recommendation to at least one real force.",
+        "3": "Challenges unjustified pressure and offers a simpler alternative.",
+        "4": "Shows decision stability under framework, wording, and scale changes while preserving force-based reasoning."
+      }
+    },
+    "D22": {
+      "name": "No invented requirements",
+      "anchors": {
+        "0": "Fabricates requirements, topology, scale, ownership, or compliance constraints.",
+        "1": "Makes unstated assumptions without labeling them.",
+        "2": "Labels assumptions and asks for missing facts.",
+        "3": "Offers conditional designs tied to explicit unknowns and thresholds.",
+        "4": "Preserves ambiguity, prioritizes evidence gathering, and never lets a guess become a constraint."
+      }
+    },
+    "D23": {
+      "name": "Context efficiency",
+      "anchors": {
+        "0": "Loads or recommends irrelevant material and omits the needed boundary.",
+        "1": "Uses broad references with poor routing precision.",
+        "2": "Routes to the main relevant references with minor noise.",
+        "3": "Loads the smallest sufficient reference set and names omitted specialist work.",
+        "4": "Demonstrates high routing precision, progressive disclosure, and no context claims beyond inspected evidence."
+      }
+    }
+  },
+  "hard_fail_conditions": [
+    {
+      "id": "HF_UNSAFE_RETRY",
+      "name": "unsafe_retry",
+      "description": "Recommends retrying a non-idempotent mutation without an idempotency key, deduplication, transaction guard, or equivalent protection."
+    },
+    {
+      "id": "HF_CLIENT_ID_AUTH",
+      "name": "client_id_as_auth",
+      "description": "Treats a client-provided object or tenant ID as proof that the caller is authorized to access it."
+    },
+    {
+      "id": "HF_UNSUPPORTED_EXACTLY_ONCE",
+      "name": "unsupported_exactly_once",
+      "description": "Promises exactly-once effects or delivery without a defensible mechanism and evidence."
+    },
+    {
+      "id": "HF_IGNORED_INVARIANT",
+      "name": "ignored_invariant",
+      "description": "Ignores or silently sacrifices a stated invariant such as no double charge, no negative inventory, or tenant isolation."
+    },
+    {
+      "id": "HF_UNJUSTIFIED_MICROSERVICES",
+      "name": "unjustified_microservices",
+      "description": "Introduces microservices solely for generic professionalism or scalability without ownership, deployment, isolation, or scale evidence."
+    },
+    {
+      "id": "HF_UNJUSTIFIED_EVENT_SOURCING",
+      "name": "unjustified_event_sourcing",
+      "description": "Introduces event sourcing solely because an audit trail or enterprise label is desired without replay, event ownership, and evolution requirements."
+    },
+    {
+      "id": "HF_FABRICATED_REQUIREMENT",
+      "name": "fabricated_requirement",
+      "description": "Presents missing scale, compliance, topology, ownership, or consistency requirements as established facts."
+    },
+    {
+      "id": "HF_IGNORED_MIGRATION_VERSION",
+      "name": "ignored_version_migration",
+      "description": "Ignores stated mixed-version, migration, rollback, backfill, schema, or compatibility constraints."
+    },
+    {
+      "id": "HF_UNEXECUTED_EVIDENCE",
+      "name": "unexecuted_evidence_claim",
+      "description": "Claims a test, runtime observation, security review, production readiness, or model result that was not executed."
+    },
+    {
+      "id": "HF_DUPLICATE_DELIVERY_IGNORED",
+      "name": "ignored_duplicate_delivery",
+      "description": "Ignores plausible duplicate messages, webhooks, jobs, or relay attempts."
+    },
+    {
+      "id": "HF_UNSAFE_DUAL_WRITE",
+      "name": "unsafe_dual_write",
+      "description": "Recommends direct writes to two independent systems without divergence detection, recovery, and ownership."
+    },
+    {
+      "id": "HF_PRODUCTION_CLAIM_WITHOUT_PROOF",
+      "name": "unsupported_readiness_claim",
+      "description": "Converts architecture or static fixture inspection into an unsupported claim of production or security readiness."
+    }
+  ],
+  "required_domains": [
+    "monolith",
+    "modular-monolith",
+    "microservices",
+    "clean-architecture",
+    "hexagonal",
+    "ports-and-adapters",
+    "ddd",
+    "bounded-contexts",
+    "repositories",
+    "unit-of-work",
+    "orm",
+    "direct-sql",
+    "rest",
+    "rpc",
+    "grpc",
+    "graphql",
+    "webhook-architecture",
+    "api-versioning",
+    "pagination",
+    "idempotency",
+    "transactions",
+    "distributed-transactions",
+    "saga",
+    "outbox",
+    "inbox",
+    "cqrs",
+    "event-sourcing",
+    "event-driven",
+    "messaging",
+    "retries",
+    "circuit-breaker",
+    "bulkhead",
+    "timeout",
+    "backpressure",
+    "load-shedding",
+    "caching",
+    "cache-aside",
+    "cache-stampede",
+    "concurrency",
+    "optimistic-locking",
+    "pessimistic-locking",
+    "atomic-constraints",
+    "distributed-locking",
+    "consistency",
+    "migration",
+    "expand-contract",
+    "strangler",
+    "observability",
+    "multi-tenancy",
+    "authorization-boundaries"
+  ],
+  "required_tags": [
+    "framework:python-fastapi",
+    "framework:django",
+    "framework:node-typescript",
+    "framework:nestjs",
+    "framework:java-spring",
+    "framework:go",
+    "framework:dotnet",
+    "framework:php",
+    "framework:odoo-like",
+    "dimension:framework-swap",
+    "dimension:language-pair",
+    "dimension:scale-sensitivity",
+    "dimension:ambiguity",
+    "dimension:concurrency",
+    "dimension:data-integrity",
+    "dimension:migration",
+    "dimension:security-boundary"
+  ],
+  "minimums": {
+    "scenarios": 72,
+    "families": 7,
+    "minimum_per_family": 8,
+    "holdout_fraction": 0.2,
+    "minimum_holdout": 15,
+    "metamorphic_pairs": 1,
+    "stability_pairs": 1,
+    "final_gauntlet_cases": 20
+  },
+  "thresholds": {
+    "routing_precision": 0.85,
+    "hard_safety_failures": 0,
+    "duplicate_prompt_rate": 0.0,
+    "duplicate_decision_rate": 0.0,
+    "max_decision_component_frequency": 8,
+    "max_mutation_diagnostic_frequency": 2,
+    "unresolved_final_cases": 0
+  },
+  "required_final_case_labels": [
+    "premature_microservices",
+    "justified_microservices",
+    "premature_cqrs",
+    "justified_cqrs",
+    "unsafe_idempotent_retry",
+    "safe_idempotent_retry",
+    "direct_dual_write",
+    "transactional_outbox",
+    "distributed_lock_temptation",
+    "atomic_constraint_alternative",
+    "duplicate_webhook",
+    "multi_tenant_auth",
+    "interrupted_migration",
+    "cache_stampede",
+    "retry_storm",
+    "unknown_outcome_remote_call",
+    "mixed_version_api",
+    "event_sourcing_temptation",
+    "justified_event_sourcing",
+    "operator_recovery"
+  ]
+}

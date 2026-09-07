@@ -258,6 +258,35 @@ For each required check, label evidence as executed/current or explicitly
 for an observation through the **public boundary** or the durable state it
 claims to protect.
 
+## Behavioral assurance when evaluating this skill
+
+When changing or auditing `backend-patterns` itself, use the benchmark and
+scoring contract under `tests/benchmark/` in addition to package validators.
+Keep development, adversarial-repair, and holdout scenarios distinct; record
+the scenario, model, prompt/package/corpus/judge fingerprints, loaded
+references, approximate context size, response, score, and status. A static
+fixture or response oracle proves harness behavior, not consumer-model quality.
+
+Attempt a same-model control/treatment comparison when a consumer-model
+adapter is available. If it is not available, record `MODEL_EXECUTION:
+BLOCKED` with the missing capability, reason, evidence unavailable, and impact
+on the verdict. Never turn `NOT_RUN` into a score, or call a package
+`TRIPLE_A_PROVEN` without executed behavioral, holdout, and causal evidence.
+
+Use the explicit result states `PASS`, `FAIL`, `NOT_RUN`, `BLOCKED`, `STALE`,
+and `NOT_APPLICABLE`, and the verdict states `NOT_READY`, `PACKAGE_READY`,
+`STATE_OF_THE_ART`, `AAA_CANDIDATE`, `TRIPLE_A_CONDITIONAL`, and
+`TRIPLE_A_PROVEN`. Hard safety failures remain failures regardless of an
+aggregate score. Prefer the smallest design when equivalent evidence supports
+it, and report calibration (`SAFE`, `LIKELY SAFE`, `UNKNOWN`, `HIGH RISK`, or
+`BLOCKED`) rather than invented certainty.
+
+For every material routing benchmark, record relevant and irrelevant
+references and compute `relevant / loaded` precision. Test metamorphic pairs,
+semantic paraphrases, scale changes, framework swaps, and simple-versus-
+complex alternatives so the evaluator does not reward verbosity or keywords
+alone.
+
 ## Composition and exit
 
 Use [`composition-contracts.md`](references/composition-contracts.md) to hand

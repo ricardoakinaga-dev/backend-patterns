@@ -1,0 +1,332 @@
+{
+  "scope": "GENERALIZATION_GATES",
+  "captured_at": "2026-09-07T15:52:22.444665+00:00",
+  "model_execution": "NOT_INFERRED",
+  "corpus_fingerprint": "1b01914abffa1dd2d710b0c9e631786e468cd9b03d23bbce49a7ec07e24bf9f2",
+  "structure": {
+    "scenario_count": 72,
+    "split_counts": {
+      "development": 29,
+      "adversarial": 25,
+      "holdout": 18
+    },
+    "holdout_fraction": 0.25,
+    "metamorphic_groups": {
+      "MG-CACHE-EVIDENCE": [
+        "FD-105",
+        "SR-009",
+        "SU-004",
+        "SU-103"
+      ],
+      "MG-COMMIT-PUBLISH": [
+        "FD-108",
+        "G-07",
+        "G-08"
+      ],
+      "MG-CQRS-SCALE": [
+        "G-03",
+        "G-04",
+        "SR-102"
+      ],
+      "MG-EVENT-HISTORY": [
+        "G-18",
+        "G-19",
+        "SR-103"
+      ],
+      "MG-LOCK-CONSTRAINT": [
+        "G-09",
+        "G-10"
+      ],
+      "MG-MIGRATION-SAFETY": [
+        "BF-105",
+        "FD-107",
+        "OP-103",
+        "SU-008"
+      ],
+      "MG-MIXED-VERSIONS": [
+        "BF-101",
+        "SU-104"
+      ],
+      "MG-OWNERSHIP": [
+        "BF-102",
+        "NE-105"
+      ],
+      "MG-REMOTE-UNKNOWN": [
+        "FD-101",
+        "FD-102"
+      ],
+      "MG-REPLAY-REPAIR": [
+        "OP-102",
+        "OP-107"
+      ],
+      "MG-RETRY-SAFETY": [
+        "G-05",
+        "G-06"
+      ],
+      "MG-SCALE-OWNERSHIP": [
+        "G-01",
+        "G-02",
+        "SR-101",
+        "SU-005"
+      ],
+      "MG-TENANT-AUTH": [
+        "SEC-101",
+        "SEC-102",
+        "SEC-108"
+      ]
+    },
+    "metamorphic_pair_groups": 13,
+    "stability_groups": {
+      "ST-ATOMIC-RESERVATION": [
+        "G-09",
+        "G-10"
+      ],
+      "ST-BULKHEAD-POOLS": [
+        "SU-009",
+        "SU-102"
+      ],
+      "ST-CQRS-SCALE": [
+        "G-03",
+        "G-04",
+        "SR-102"
+      ],
+      "ST-EVENT-HISTORY": [
+        "G-18",
+        "G-19",
+        "SR-103"
+      ],
+      "ST-LOCAL-MODULES": [
+        "SR-007",
+        "SR-104"
+      ],
+      "ST-MICROSERVICES-PRESSURE": [
+        "G-01",
+        "SR-101"
+      ],
+      "ST-MIGRATION-RESUME": [
+        "BF-105",
+        "FD-107",
+        "OP-103"
+      ],
+      "ST-MIXED-VERSION": [
+        "BF-101",
+        "SU-008",
+        "SU-104"
+      ],
+      "ST-OUTBOX-WEBHOOK": [
+        "FD-108",
+        "G-07",
+        "G-08"
+      ],
+      "ST-OWNERSHIP": [
+        "BF-102",
+        "NE-105"
+      ],
+      "ST-PAYMENT-IDEMPOTENCY": [
+        "G-05",
+        "G-06"
+      ],
+      "ST-REPLAY-REPAIR": [
+        "OP-102",
+        "OP-107"
+      ],
+      "ST-RETRY-LAYERS": [
+        "FD-104",
+        "SR-012"
+      ],
+      "ST-SAGA-WORKFLOW": [
+        "SR-010",
+        "SU-010"
+      ],
+      "ST-UNKNOWN-OUTCOME": [
+        "FD-101",
+        "FD-102"
+      ],
+      "ST-WEBHOOK-IDEMPOTENCY": [
+        "FD-103",
+        "SEC-102"
+      ]
+    },
+    "stability_pair_groups": 16,
+    "metamorphic_relations": {
+      "MG-CACHE-EVIDENCE": {
+        "axis": "measured cache benefit and freshness budget",
+        "relation": "Changing measured read cost or acceptable staleness may change the cache decision, but never changes the database source-of-truth invariant.",
+        "expected_behavior": "The recommendation changes only when the evidence crosses the stated cost or staleness threshold."
+      },
+      "MG-COMMIT-PUBLISH": {
+        "axis": "publication failure after local commit",
+        "relation": "Changing broker availability must not change the local transaction outcome or erase the durable publication obligation.",
+        "expected_behavior": "A direct dual write remains unsafe; an outbox/reconciliation path remains the minimum boundary."
+      },
+      "MG-CQRS-SCALE": {
+        "axis": "read/write asymmetry and projection lag",
+        "relation": "Changing read volume or write volume may justify a read model only when lag and ownership remain acceptable.",
+        "expected_behavior": "The answer distinguishes measured projection pressure from a symmetric CRUD baseline."
+      },
+      "MG-EVENT-HISTORY": {
+        "axis": "temporal reconstruction requirement",
+        "relation": "Adding a contractual need to reconstruct past state can change the event-history decision; ordinary audit fields do not.",
+        "expected_behavior": "The answer preserves current-state correctness and names replay/schema/privacy evidence."
+      },
+      "MG-LOCK-CONSTRAINT": {
+        "axis": "conflict rate and invariant scope",
+        "relation": "Changing conflict rate may move from optimistic compare-and-swap to stronger coordination, but the invariant and conflict response stay explicit.",
+        "expected_behavior": "A distributed lock is not selected merely because concurrent writes exist."
+      },
+      "MG-MIGRATION-SAFETY": {
+        "axis": "interruption and mixed-version compatibility",
+        "relation": "Adding worker interruption or old readers changes rollout controls, not the need for additive compatibility and a parity gate.",
+        "expected_behavior": "The answer retains expand-contract, resumability, and rollback/roll-forward evidence."
+      },
+      "MG-MIXED-VERSIONS": {
+        "axis": "old/new client coexistence",
+        "relation": "Changing the duration or population of mixed versions may change retirement timing, but not compatibility during the window.",
+        "expected_behavior": "The answer identifies translation, telemetry, and a reversible contract boundary."
+      },
+      "MG-OWNERSHIP": {
+        "axis": "data and team ownership",
+        "relation": "Changing independent ownership or deployment authority may justify a boundary; shared mutable ownership does not.",
+        "expected_behavior": "The recommendation follows ownership evidence rather than service-count preference."
+      },
+      "MG-REMOTE-UNKNOWN": {
+        "axis": "remote timeout and outcome lookup",
+        "relation": "Changing the provider's timeout behavior must not turn an unknown outcome into a confirmed failure.",
+        "expected_behavior": "The answer queries or reconciles the remote reference before any non-idempotent retry."
+      },
+      "MG-REPLAY-REPAIR": {
+        "axis": "operator replay and repair authorization",
+        "relation": "Changing replay volume or approval policy must not remove idempotency, auditability, or quarantine controls.",
+        "expected_behavior": "The answer separates safe replay from an unbounded requeue loop."
+      },
+      "MG-RETRY-SAFETY": {
+        "axis": "side-effect safety and retry budget",
+        "relation": "Changing idempotency evidence or deadline budget may change whether retry is allowed, but never licenses multiplicative retries.",
+        "expected_behavior": "The answer assigns one retry owner and defines reconciliation for ambiguous effects."
+      },
+      "MG-SCALE-OWNERSHIP": {
+        "axis": "independent scale, deploy, or fault-isolation pressure",
+        "relation": "Adding measured independent pressure may justify a service boundary; generic projected scale does not.",
+        "expected_behavior": "The answer compares extraction cost with a modular baseline and ownership evidence."
+      },
+      "MG-TENANT-AUTH": {
+        "axis": "tenant boundary and authorization context",
+        "relation": "Changing tenant count or cache pressure must not weaken server-side tenant authorization or cache-key isolation.",
+        "expected_behavior": "The answer treats tenant scope as a security invariant, not a client convention."
+      }
+    },
+    "stability_relations": {
+      "ST-ATOMIC-RESERVATION": {
+        "axis": "reservation under duplicate and crash interleavings",
+        "relation": "Framework, wording, or scale changes preserve the reservation boundary and duplicate outcome.",
+        "expected_behavior": "The answer remains local-atomic or explicitly reconciled when publication is external."
+      },
+      "ST-BULKHEAD-POOLS": {
+        "axis": "resource pool isolation",
+        "relation": "Changing pool size or optional-work load preserves capacity for critical work.",
+        "expected_behavior": "The answer keeps bounded admission and visible degradation."
+      },
+      "ST-CQRS-SCALE": {
+        "axis": "projection lag under read pressure",
+        "relation": "Changing scale wording does not create a CQRS requirement without read/write asymmetry and lag acceptance.",
+        "expected_behavior": "The answer remains consistent with the freshness contract."
+      },
+      "ST-EVENT-HISTORY": {
+        "axis": "history and replay obligation",
+        "relation": "Changing framework or deployment wording preserves the distinction between audit history and event-sourced truth.",
+        "expected_behavior": "The answer requires temporal reconstruction evidence before event sourcing."
+      },
+      "ST-LOCAL-MODULES": {
+        "axis": "same-process module atomicity",
+        "relation": "Changing module names or team wording does not justify a broker when local atomicity is the requirement.",
+        "expected_behavior": "The answer preserves in-process boundaries until durable asynchronous ownership exists."
+      },
+      "ST-MICROSERVICES-PRESSURE": {
+        "axis": "measured service-boundary pressure",
+        "relation": "Changing scale language preserves the requirement for independent ownership, deployment, isolation, or scaling evidence.",
+        "expected_behavior": "The answer rejects architecture by professionalism or projected scale alone."
+      },
+      "ST-MIGRATION-RESUME": {
+        "axis": "resume and contraction gates",
+        "relation": "Changing backfill size or worker count preserves checkpoint integrity and parity before contraction.",
+        "expected_behavior": "The answer remains safe under interruption and mixed versions."
+      },
+      "ST-MIXED-VERSION": {
+        "axis": "compatibility window",
+        "relation": "Changing client mix or rollout wording preserves old/new compatibility until retirement evidence exists.",
+        "expected_behavior": "The answer does not assume an atomic fleet upgrade."
+      },
+      "ST-OUTBOX-WEBHOOK": {
+        "axis": "publication and webhook duplicate effects",
+        "relation": "Changing delivery timing preserves durable publication and idempotent consumer effects.",
+        "expected_behavior": "The answer does not infer business exactly-once from transport delivery."
+      },
+      "ST-OWNERSHIP": {
+        "axis": "ownership and boundary authority",
+        "relation": "Changing framework or team labels preserves the owner of mutable state and the contract at its boundary.",
+        "expected_behavior": "The answer avoids shared mutable truth without an explicit transition plan."
+      },
+      "ST-PAYMENT-IDEMPOTENCY": {
+        "axis": "payment retry and duplicate capture",
+        "relation": "Changing provider latency or client retry wording preserves the at-most-once business effect and unknown-outcome handling.",
+        "expected_behavior": "The answer queries/reconciles before retrying a timed-out capture."
+      },
+      "ST-REPLAY-REPAIR": {
+        "axis": "safe replay under live traffic",
+        "relation": "Changing replay size or operator wording preserves authorization, deduplication, and convergence.",
+        "expected_behavior": "The answer remains safe when replay overlaps live delivery."
+      },
+      "ST-RETRY-LAYERS": {
+        "axis": "retry ownership and deadline",
+        "relation": "Changing the number of client or worker layers preserves one bounded retry budget.",
+        "expected_behavior": "The answer rejects multiplicative retry loops and names recovery."
+      },
+      "ST-SAGA-WORKFLOW": {
+        "axis": "workflow ownership and compensation",
+        "relation": "Changing step count or framework preserves durable state, compensation semantics, and idempotent transitions.",
+        "expected_behavior": "The answer does not substitute retries for compensation."
+      },
+      "ST-UNKNOWN-OUTCOME": {
+        "axis": "ambiguous remote outcome",
+        "relation": "Changing timeout wording preserves the distinction between unknown, failed, and confirmed success.",
+        "expected_behavior": "The answer reconciles before repeating a side effect."
+      },
+      "ST-WEBHOOK-IDEMPOTENCY": {
+        "axis": "duplicate webhook delivery",
+        "relation": "Changing provider timing or delivery count preserves signature verification and one-effect processing.",
+        "expected_behavior": "The answer uses a durable event identity rather than in-memory deduplication."
+      }
+    },
+    "relation_errors": []
+  },
+  "final_gauntlet": {
+    "count": 20,
+    "structure_status": "PASS",
+    "execution_status": "BLOCKED",
+    "status": "BLOCKED",
+    "reason": "Final-gauntlet cases are structurally present; consumer-model response capture was not supplied."
+  },
+  "holdout": {
+    "status": "PASS",
+    "execution_status": "BLOCKED",
+    "reason": "No consumer-model response capture was supplied."
+  },
+  "metamorphic": {
+    "structure_status": "PASS",
+    "relations_status": "PASS",
+    "execution_status": "BLOCKED",
+    "reason": "Pairwise response comparison requires model output."
+  },
+  "minimality": {
+    "status": "BLOCKED",
+    "reason": "Minimal-context response comparison requires model output."
+  },
+  "decision_stability": {
+    "structure_status": "PASS",
+    "relations_status": "PASS",
+    "execution_status": "BLOCKED",
+    "reason": "Framework/wording/scale stability requires model output."
+  },
+  "status": "BLOCKED",
+  "errors": []
+}

@@ -1,5 +1,10 @@
 # ExecPlan — `backend-patterns` State-of-the-Art / Triple-A
 
+> Historical package-build plan for the previous prompt revision. The active
+> continuation plan for the revised Triple-A closure is
+> [`phase-1.1-execplan.md`](phase-1.1-execplan.md); evidence from this plan's
+> old bar is stale for that phase and remains only as historical provenance.
+
 ## Purpose and outcome
 
 Build the self-contained `backend-patterns` Agent Skill requested in

@@ -1,0 +1,527 @@
+{
+  "scope": "RESPONSE_LEVEL_MUTATION_ORACLES",
+  "status": "PASS",
+  "model_execution": "NOT_INFERRED",
+  "oracle_count": 15,
+  "passed": 15,
+  "failed": 0,
+  "errors": [],
+  "results": [
+    {
+      "id": "RM-01",
+      "scenario_id": "G-05",
+      "mutation": "unsafe_retry",
+      "status": "PASS",
+      "baseline_status": "PASS",
+      "baseline_safe": true,
+      "mutated_status": "FAIL",
+      "baseline_average_0_4": 3.6957,
+      "mutated_average_0_4": 3.6522,
+      "score_delta_0_4": 0.0435,
+      "expected_tag": "unsafe_retry",
+      "observed_tags": [
+        "unsafe_retry"
+      ],
+      "tag_hit": true,
+      "minimum_score_delta": 0.15,
+      "causal_sensitivity": true,
+      "mutation_operator": "replace bounded retry clause with unbounded non-idempotent retry",
+      "preserved_contract": "payment invariants, unknown outcome, recovery, and verification clauses",
+      "body_shape": {
+        "sequence_ratio": 0.9338,
+        "token_jaccard": 0.8533,
+        "changed_token_count": 11
+      },
+      "body_shape_thresholds": {
+        "min_sequence_ratio": 0.65,
+        "min_token_jaccard": 0.65
+      },
+      "body_shape_safe": true,
+      "mutation_metadata_safe": true,
+      "shared_context_held_constant": true,
+      "shared_context_sha256": "6878db4e6f81ad2928824246d79f7815ff9b09caa3f38ac60ec4cbe633119401"
+    },
+    {
+      "id": "RM-02",
+      "scenario_id": "G-08",
+      "mutation": "direct_dual_write",
+      "status": "PASS",
+      "baseline_status": "PASS",
+      "baseline_safe": true,
+      "mutated_status": "FAIL",
+      "baseline_average_0_4": 3.6957,
+      "mutated_average_0_4": 3.6522,
+      "score_delta_0_4": 0.0435,
+      "expected_tag": "direct_dual_write",
+      "observed_tags": [
+        "direct_dual_write"
+      ],
+      "tag_hit": true,
+      "minimum_score_delta": 0.15,
+      "causal_sensitivity": true,
+      "mutation_operator": "replace the outbox boundary with a direct database-and-broker write",
+      "preserved_contract": "reservation invariants, recovery, duplicate delivery, and verification clauses",
+      "body_shape": {
+        "sequence_ratio": 0.9071,
+        "token_jaccard": 0.8226,
+        "changed_token_count": 11
+      },
+      "body_shape_thresholds": {
+        "min_sequence_ratio": 0.65,
+        "min_token_jaccard": 0.65
+      },
+      "body_shape_safe": true,
+      "mutation_metadata_safe": true,
+      "shared_context_held_constant": true,
+      "shared_context_sha256": "efeca6c8d6815e4fef0941a953c76bdb3d273cfb2185fb63ddf5f907af13a5fb"
+    },
+    {
+      "id": "RM-03",
+      "scenario_id": "G-06",
+      "mutation": "unsupported_exactly_once",
+      "status": "PASS",
+      "baseline_status": "PASS",
+      "baseline_safe": true,
+      "mutated_status": "FAIL",
+      "baseline_average_0_4": 3.6957,
+      "mutated_average_0_4": 3.6957,
+      "score_delta_0_4": 0.0,
+      "expected_tag": "exactly_once",
+      "observed_tags": [
+        "exactly_once"
+      ],
+      "tag_hit": true,
+      "minimum_score_delta": 0.1,
+      "causal_sensitivity": true,
+      "mutation_operator": "flip the delivery guarantee from at-least-once to exactly-once",
+      "preserved_contract": "payment idempotency, timeout, retry, reconciliation, and verification clauses",
+      "body_shape": {
+        "sequence_ratio": 0.981,
+        "token_jaccard": 0.9524,
+        "changed_token_count": 3
+      },
+      "body_shape_thresholds": {
+        "min_sequence_ratio": 0.65,
+        "min_token_jaccard": 0.65
+      },
+      "body_shape_safe": true,
+      "mutation_metadata_safe": true,
+      "shared_context_held_constant": true,
+      "shared_context_sha256": "7e20c42df4c2e1f5e9c075da7349aa5a3ce7bfd8a67248eee0bed0a52a1bf585"
+    },
+    {
+      "id": "RM-04",
+      "scenario_id": "SEC-103",
+      "mutation": "missing_authz",
+      "status": "PASS",
+      "baseline_status": "PASS",
+      "baseline_safe": true,
+      "mutated_status": "FAIL",
+      "baseline_average_0_4": 3.6522,
+      "mutated_average_0_4": 3.6522,
+      "score_delta_0_4": 0.0,
+      "expected_tag": "missing_authz",
+      "observed_tags": [
+        "missing_authz"
+      ],
+      "tag_hit": true,
+      "minimum_score_delta": 0.1,
+      "causal_sensitivity": true,
+      "mutation_operator": "remove the server-side authorization and tenant-scope clause",
+      "preserved_contract": "URL safety invariant, resource budget, bounded failure, and SSRF verification",
+      "body_shape": {
+        "sequence_ratio": 0.9325,
+        "token_jaccard": 0.8413,
+        "changed_token_count": 10
+      },
+      "body_shape_thresholds": {
+        "min_sequence_ratio": 0.65,
+        "min_token_jaccard": 0.65
+      },
+      "body_shape_safe": true,
+      "mutation_metadata_safe": true,
+      "shared_context_held_constant": true,
+      "shared_context_sha256": "c57fec88a9d2e47bb707c52b5e7cbd6e02d6752c0a8e959937535288cc2a10db"
+    },
+    {
+      "id": "RM-05",
+      "scenario_id": "SU-008",
+      "mutation": "removed_migration_compatibility",
+      "status": "PASS",
+      "baseline_status": "PASS",
+      "baseline_safe": true,
+      "mutated_status": "FAIL",
+      "baseline_average_0_4": 3.6087,
+      "mutated_average_0_4": 3.5652,
+      "score_delta_0_4": 0.0435,
+      "expected_tag": "removed_migration_compatibility",
+      "observed_tags": [
+        "removed_migration_compatibility"
+      ],
+      "tag_hit": true,
+      "minimum_score_delta": 0.15,
+      "causal_sensitivity": true,
+      "mutation_operator": "replace the mixed-version compatibility assertion with an incompatibility assertion",
+      "preserved_contract": "migration sequence, cleanup unknown, rollback, and verification clauses",
+      "body_shape": {
+        "sequence_ratio": 0.925,
+        "token_jaccard": 0.8214,
+        "changed_token_count": 10
+      },
+      "body_shape_thresholds": {
+        "min_sequence_ratio": 0.65,
+        "min_token_jaccard": 0.65
+      },
+      "body_shape_safe": true,
+      "mutation_metadata_safe": true,
+      "shared_context_held_constant": true,
+      "shared_context_sha256": "91b24e4d5482c7d891f107ae233c39e3e0489ea4566d6327e1510abaa29e9558"
+    },
+    {
+      "id": "RM-06",
+      "scenario_id": "FD-103",
+      "mutation": "duplicate_delivery",
+      "status": "PASS",
+      "baseline_status": "PASS",
+      "baseline_safe": true,
+      "mutated_status": "FAIL",
+      "baseline_average_0_4": 3.7391,
+      "mutated_average_0_4": 3.7391,
+      "score_delta_0_4": 0.0,
+      "expected_tag": "missing_duplicate_safety",
+      "observed_tags": [
+        "missing_duplicate_safety"
+      ],
+      "tag_hit": true,
+      "minimum_score_delta": 0.1,
+      "causal_sensitivity": true,
+      "mutation_operator": "remove inbox deduplication and make duplicate delivery ordinary",
+      "preserved_contract": "signature verification, fulfillment invariant, recovery, and concurrency verification",
+      "body_shape": {
+        "sequence_ratio": 0.849,
+        "token_jaccard": 0.6721,
+        "changed_token_count": 20
+      },
+      "body_shape_thresholds": {
+        "min_sequence_ratio": 0.65,
+        "min_token_jaccard": 0.65
+      },
+      "body_shape_safe": true,
+      "mutation_metadata_safe": true,
+      "shared_context_held_constant": true,
+      "shared_context_sha256": "4f2248c8f289fa5ff238f10467a66be46663a1486a12e73e0a73cf268159cc6b"
+    },
+    {
+      "id": "RM-07",
+      "scenario_id": "SU-002",
+      "mutation": "ignored_invariant",
+      "status": "PASS",
+      "baseline_status": "PASS",
+      "baseline_safe": true,
+      "mutated_status": "FAIL",
+      "baseline_average_0_4": 3.6957,
+      "mutated_average_0_4": 3.6957,
+      "score_delta_0_4": 0.0,
+      "expected_tag": "missing_invariant",
+      "observed_tags": [
+        "missing_invariant"
+      ],
+      "tag_hit": true,
+      "minimum_score_delta": 0.1,
+      "causal_sensitivity": true,
+      "mutation_operator": "replace the stale-write invariant with a generic coordination statement",
+      "preserved_contract": "compare-and-swap choice, conflict unknown, recovery, and verification",
+      "body_shape": {
+        "sequence_ratio": 0.8558,
+        "token_jaccard": 0.7193,
+        "changed_token_count": 16
+      },
+      "body_shape_thresholds": {
+        "min_sequence_ratio": 0.65,
+        "min_token_jaccard": 0.65
+      },
+      "body_shape_safe": true,
+      "mutation_metadata_safe": true,
+      "shared_context_held_constant": true,
+      "shared_context_sha256": "f39c289adbf4b869df86401d1a5cf0a0f34f48cb399874100541c668582914d7"
+    },
+    {
+      "id": "RM-08",
+      "scenario_id": "SU-005",
+      "mutation": "unjustified_microservices",
+      "status": "PASS",
+      "baseline_status": "PASS",
+      "baseline_safe": true,
+      "mutated_status": "FAIL",
+      "baseline_average_0_4": 3.6522,
+      "mutated_average_0_4": 3.6522,
+      "score_delta_0_4": 0.0,
+      "expected_tag": "cargo_cult_microservices",
+      "observed_tags": [
+        "cargo_cult_microservices"
+      ],
+      "tag_hit": true,
+      "minimum_score_delta": 0.1,
+      "causal_sensitivity": true,
+      "mutation_operator": "replace the modular selection with a professionalism-only microservices selection",
+      "preserved_contract": "absence of independent driver, invariant, baseline, evolution evidence, and verification",
+      "body_shape": {
+        "sequence_ratio": 0.865,
+        "token_jaccard": 0.6786,
+        "changed_token_count": 18
+      },
+      "body_shape_thresholds": {
+        "min_sequence_ratio": 0.65,
+        "min_token_jaccard": 0.65
+      },
+      "body_shape_safe": true,
+      "mutation_metadata_safe": true,
+      "shared_context_held_constant": true,
+      "shared_context_sha256": "26f0cd21d6a93630d3ef094736db197a09b1e2ead1cdea74f9b8ee9b3a66cac3"
+    },
+    {
+      "id": "RM-09",
+      "scenario_id": "G-19",
+      "mutation": "unjustified_event_sourcing",
+      "status": "PASS",
+      "baseline_status": "PASS",
+      "baseline_safe": true,
+      "mutated_status": "FAIL",
+      "baseline_average_0_4": 3.4348,
+      "mutated_average_0_4": 3.4348,
+      "score_delta_0_4": 0.0,
+      "expected_tag": "cargo_cult_event_sourcing",
+      "observed_tags": [
+        "cargo_cult_event_sourcing"
+      ],
+      "tag_hit": true,
+      "minimum_score_delta": 0.1,
+      "causal_sensitivity": true,
+      "mutation_operator": "replace contractual history justification with an audit-fashion justification",
+      "preserved_contract": "history invariant, archive unknown, baseline, and replay verification",
+      "body_shape": {
+        "sequence_ratio": 0.8373,
+        "token_jaccard": 0.75,
+        "changed_token_count": 13
+      },
+      "body_shape_thresholds": {
+        "min_sequence_ratio": 0.65,
+        "min_token_jaccard": 0.65
+      },
+      "body_shape_safe": true,
+      "mutation_metadata_safe": true,
+      "shared_context_held_constant": true,
+      "shared_context_sha256": "38e9ec242f9ea0e8414d62f7396fbc65935c1031f28f078a794e3c43d4c8adc1"
+    },
+    {
+      "id": "RM-10",
+      "scenario_id": "G-01",
+      "mutation": "fabricated_requirement",
+      "status": "PASS",
+      "baseline_status": "PASS",
+      "baseline_safe": true,
+      "mutated_status": "FAIL",
+      "baseline_average_0_4": 3.6087,
+      "mutated_average_0_4": 3.6087,
+      "score_delta_0_4": 0.0,
+      "expected_tag": "invented_requirement",
+      "observed_tags": [
+        "invented_requirement"
+      ],
+      "tag_hit": true,
+      "minimum_score_delta": 0.1,
+      "causal_sensitivity": true,
+      "mutation_operator": "replace the proportionate decision with an unsupported Kafka requirement",
+      "preserved_contract": "current facts, unknown future growth, invariant, baseline, and verification",
+      "body_shape": {
+        "sequence_ratio": 0.9465,
+        "token_jaccard": 0.8113,
+        "changed_token_count": 10
+      },
+      "body_shape_thresholds": {
+        "min_sequence_ratio": 0.65,
+        "min_token_jaccard": 0.65
+      },
+      "body_shape_safe": true,
+      "mutation_metadata_safe": true,
+      "shared_context_held_constant": true,
+      "shared_context_sha256": "1159c6a0206fb18b8114d45e80b76e9a62c4b356b3986e385b2ce58f75c17aad"
+    },
+    {
+      "id": "RM-11",
+      "scenario_id": "OP-101",
+      "mutation": "missing_recovery",
+      "status": "PASS",
+      "baseline_status": "PASS",
+      "baseline_safe": true,
+      "mutated_status": "FAIL",
+      "baseline_average_0_4": 3.6087,
+      "mutated_average_0_4": 3.6087,
+      "score_delta_0_4": 0.0,
+      "expected_tag": "missing_recovery",
+      "observed_tags": [
+        "missing_recovery"
+      ],
+      "tag_hit": true,
+      "minimum_score_delta": 0.1,
+      "causal_sensitivity": true,
+      "mutation_operator": "remove replay, dead-letter, ownership, and audit recovery obligations",
+      "preserved_contract": "workflow classification, side-effect invariant, reconciliation, and verification",
+      "body_shape": {
+        "sequence_ratio": 0.9883,
+        "token_jaccard": 1.0,
+        "changed_token_count": 0
+      },
+      "body_shape_thresholds": {
+        "min_sequence_ratio": 0.65,
+        "min_token_jaccard": 0.65
+      },
+      "body_shape_safe": true,
+      "mutation_metadata_safe": true,
+      "shared_context_held_constant": true,
+      "shared_context_sha256": "2643cc9a6446dfeacf84250a84a14d3fde4e203db1e8c526b063f444a343f59d"
+    },
+    {
+      "id": "RM-12",
+      "scenario_id": "SU-004",
+      "mutation": "ignored_cache_invariant",
+      "status": "PASS",
+      "baseline_status": "PASS",
+      "baseline_safe": true,
+      "mutated_status": "FAIL",
+      "baseline_average_0_4": 3.6087,
+      "mutated_average_0_4": 3.6087,
+      "score_delta_0_4": 0.0,
+      "expected_tag": "missing_invariant",
+      "observed_tags": [
+        "missing_cache_invalidation",
+        "missing_invariant"
+      ],
+      "tag_hit": true,
+      "minimum_score_delta": 0.1,
+      "causal_sensitivity": true,
+      "mutation_operator": "replace cache source-of-truth and staleness invariant with a latency statement",
+      "preserved_contract": "cache choice, database baseline, invalidation controls, recovery, and verification",
+      "body_shape": {
+        "sequence_ratio": 0.8377,
+        "token_jaccard": 0.6981,
+        "changed_token_count": 16
+      },
+      "body_shape_thresholds": {
+        "min_sequence_ratio": 0.65,
+        "min_token_jaccard": 0.65
+      },
+      "body_shape_safe": true,
+      "mutation_metadata_safe": true,
+      "shared_context_held_constant": true,
+      "shared_context_sha256": "8a2c12bba7bc794641c2a1a1bb435f0f2c1513a97b847a55400afd980496e2f4"
+    },
+    {
+      "id": "RM-13",
+      "scenario_id": "SR-012",
+      "mutation": "retry_amplification",
+      "status": "PASS",
+      "baseline_status": "PASS",
+      "baseline_safe": true,
+      "mutated_status": "FAIL",
+      "baseline_average_0_4": 3.5217,
+      "mutated_average_0_4": 3.4783,
+      "score_delta_0_4": 0.0434,
+      "expected_tag": "unsafe_retry",
+      "observed_tags": [
+        "unsafe_retry"
+      ],
+      "tag_hit": true,
+      "minimum_score_delta": 0.1,
+      "causal_sensitivity": true,
+      "mutation_operator": "replace one bounded retry budget with retries at three independent layers",
+      "preserved_contract": "inventory invariant, retry-after unknown, reconciliation recovery, and verification",
+      "body_shape": {
+        "sequence_ratio": 0.8393,
+        "token_jaccard": 0.678,
+        "changed_token_count": 19
+      },
+      "body_shape_thresholds": {
+        "min_sequence_ratio": 0.65,
+        "min_token_jaccard": 0.65
+      },
+      "body_shape_safe": true,
+      "mutation_metadata_safe": true,
+      "shared_context_held_constant": true,
+      "shared_context_sha256": "1af422a4cd8e324cd32207e4d6b185025e0864711c91f03184b5fe52a511b398"
+    },
+    {
+      "id": "RM-14",
+      "scenario_id": "G-18",
+      "mutation": "unproven_readiness",
+      "status": "PASS",
+      "baseline_status": "PASS",
+      "baseline_safe": true,
+      "mutated_status": "FAIL",
+      "baseline_average_0_4": 3.5652,
+      "mutated_average_0_4": 3.5652,
+      "score_delta_0_4": 0.0,
+      "expected_tag": "unproven_readiness",
+      "observed_tags": [
+        "unproven_readiness"
+      ],
+      "tag_hit": true,
+      "minimum_score_delta": 0.1,
+      "causal_sensitivity": true,
+      "mutation_operator": "remove the static-evidence readiness disclaimer by changing one readiness assertion",
+      "preserved_contract": "event-sourcing rejection, unknowns, runtime-test requirement, operators, and claim boundary",
+      "body_shape": {
+        "sequence_ratio": 0.9941,
+        "token_jaccard": 0.9767,
+        "changed_token_count": 1
+      },
+      "body_shape_thresholds": {
+        "min_sequence_ratio": 0.65,
+        "min_token_jaccard": 0.65
+      },
+      "body_shape_safe": true,
+      "mutation_metadata_safe": true,
+      "shared_context_held_constant": true,
+      "shared_context_sha256": "d87a34fc7595c1b2e146fd8f108a8ff4f98a6b88f68e7d6e71484336f3416e2c"
+    },
+    {
+      "id": "RM-15",
+      "scenario_id": "FD-102",
+      "mutation": "unknown_remote_outcome",
+      "status": "PASS",
+      "baseline_status": "PASS",
+      "baseline_safe": true,
+      "mutated_status": "FAIL",
+      "baseline_average_0_4": 3.6087,
+      "mutated_average_0_4": 3.6087,
+      "score_delta_0_4": 0.0,
+      "expected_tag": "unknown_outcome",
+      "observed_tags": [
+        "unknown_outcome"
+      ],
+      "tag_hit": true,
+      "minimum_score_delta": 0.1,
+      "causal_sensitivity": true,
+      "mutation_operator": "replace unknown-outcome classification with direct failure retry",
+      "preserved_contract": "label invariant, idempotency key, deadline, operator recovery, and verification",
+      "body_shape": {
+        "sequence_ratio": 0.7839,
+        "token_jaccard": 0.6981,
+        "changed_token_count": 16
+      },
+      "body_shape_thresholds": {
+        "min_sequence_ratio": 0.65,
+        "min_token_jaccard": 0.65
+      },
+      "body_shape_safe": true,
+      "mutation_metadata_safe": true,
+      "shared_context_held_constant": true,
+      "shared_context_sha256": "d7283eccbaf4862bff662f0d3ff044f2f9315902545bcfe5a282aaf1253ca4be"
+    }
+  ],
+  "fingerprints": {
+    "scenario_file": "1b01914abffa1dd2d710b0c9e631786e468cd9b03d23bbce49a7ec07e24bf9f2",
+    "rubric_file": "cd87521db83758394e2b15ba84c196b0581c878082d963f6465670a700ab3b06",
+    "oracle_file": "44f43d563c7665be19cca9646588d676a5820c5d70996f0afeebd39c2ed9a876"
+  }
+}

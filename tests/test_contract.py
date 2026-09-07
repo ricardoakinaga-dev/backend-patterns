@@ -50,6 +50,10 @@ class PackageContractTests(unittest.TestCase):
         self.assertEqual(report["passed_oracles"], 26)
 
     def test_assurance_report_when_workspace_evidence_is_present(self):
+        if (ROOT / "docs" / "triple-a-assurance-report.md").is_file():
+            result = run_script("scripts/validate-phase-assurance.py")
+            self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+            return
         if not (ROOT / "docs" / "assurance-report.md").is_file():
             self.skipTest("consumer package copy does not carry workspace assurance evidence")
         result = run_script("scripts/validate-assurance-report.py")
