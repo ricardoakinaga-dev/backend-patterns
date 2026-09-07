@@ -1,0 +1,54 @@
+{
+  "schema_version": "BP-COMP-1",
+  "package": "backend-patterns",
+  "owner": "architectural pattern judgment",
+  "not_owned": [
+    "backend implementation and migration execution",
+    "final security certification",
+    "factual verification or release approval",
+    "product or human authority decisions"
+  ],
+  "record_required_fields": [
+    "problem",
+    "constraints",
+    "forces",
+    "invariants",
+    "selected_patterns",
+    "rejected_patterns",
+    "boundaries",
+    "failure_semantics",
+    "security_constraints",
+    "observability_requirements",
+    "migration_and_compatibility",
+    "verification_requirements",
+    "unresolved_risks",
+    "evidence_requests"
+  ],
+  "handoffs": [
+    {
+      "capability": "backend-engineering-vNext",
+      "trigger": "The design is implementation-ready and crosses code, API, data, transaction, migration, or operational boundaries.",
+      "input": ["architecture_decision", "invariants", "contracts", "failure_semantics", "verification_requirements"],
+      "expected_output": ["implemented artifact", "actual command/runtime evidence", "remaining risks", "verification handoff"],
+      "optional": true,
+      "circular": false
+    },
+    {
+      "capability": "security-engineering-vNext",
+      "trigger": "The design changes authentication, authorization, tenant isolation, secrets, sensitive data, SSRF, parsing, webhooks, payment, privilege, or service trust.",
+      "input": ["trust boundaries", "actors/assets", "authorization matrix", "abuse cases", "security constraints"],
+      "expected_output": ["findings with evidence level", "repair procedure", "re-verification status", "limitations"],
+      "optional": true,
+      "circular": false
+    },
+    {
+      "capability": "verification-loop-vNext",
+      "trigger": "A completion claim depends on current runtime behavior, persisted state, compatibility, concurrency, migration, or failure evidence.",
+      "input": ["claim", "mechanism", "exact artifact", "expected evidence", "reproduction", "limitations"],
+      "expected_output": ["criterion-level verdict", "freshness/artifact identity", "largest gap", "checks not run"],
+      "optional": true,
+      "circular": false
+    }
+  ],
+  "execution_claim": "This contract proves handoff shape only; it does not prove that another capability was available, invoked, or passed."
+}

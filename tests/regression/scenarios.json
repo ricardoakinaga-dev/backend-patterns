@@ -1,0 +1,72 @@
+[
+  {
+    "id": "REG-001",
+    "category": "regression",
+    "title": "No framework bias in core",
+    "prompt": "Evaluate the same architecture decision in Python, Go, Java, and .NET without changing the reasoning core.",
+    "expected_outcome": "PASS",
+    "required_observations": [
+      "reason from boundary and guarantees rather than framework preference",
+      "load optional examples only when needed"
+    ],
+    "required_concepts": [
+      "framework-independent",
+      "language",
+      "constraints"
+    ],
+    "known_bad": {
+      "mutation": "inject_framework_bias",
+      "target": "package_scan",
+      "expected_result": "FAIL",
+      "diagnostic": "framework-specific name"
+    }
+  },
+  {
+    "id": "REG-002",
+    "category": "regression",
+    "title": "Brownfield-first evolution",
+    "prompt": "Improve an existing backend whose public contract and database have unknown historical constraints.",
+    "expected_outcome": "PASS",
+    "required_observations": [
+      "inspect current callers/contracts/data before replacement",
+      "preserve Chesterton's Fence",
+      "prefer incremental migration and characterization evidence"
+    ],
+    "required_concepts": [
+      "brownfield",
+      "compatibility",
+      "migration",
+      "current"
+    ],
+    "known_bad": {
+      "mutation": "remove_required_observations",
+      "target": "required_observations",
+      "expected_result": "FAIL",
+      "diagnostic": "required_observations"
+    }
+  },
+  {
+    "id": "REG-003",
+    "category": "regression",
+    "title": "No verification theater",
+    "prompt": "A builder says the architecture 'looks correct' after a compile-only check.",
+    "expected_outcome": "PASS",
+    "required_observations": [
+      "reject explanation as proof",
+      "request public-boundary/failure evidence",
+      "state NOT_RUN or limitation honestly"
+    ],
+    "required_concepts": [
+      "looks correct",
+      "proof",
+      "NOT_RUN",
+      "public boundary"
+    ],
+    "known_bad": {
+      "mutation": "remove_required_observations",
+      "target": "required_observations",
+      "expected_result": "FAIL",
+      "diagnostic": "required_observations"
+    }
+  }
+]

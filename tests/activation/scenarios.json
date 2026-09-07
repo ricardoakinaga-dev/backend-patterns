@@ -1,0 +1,118 @@
+[
+  {
+    "id": "ACT-001",
+    "category": "activation",
+    "title": "Order creation with transaction and event publication",
+    "prompt": "Design the transaction flow for order creation and publishing an integration event.",
+    "expected_outcome": "ACTIVATE",
+    "required_observations": [
+      "inspect the current write and event boundary",
+      "state the invariant and partial-failure behavior",
+      "request evidence for duplicate publication"
+    ],
+    "required_concepts": [
+      "transaction",
+      "outbox",
+      "invariant",
+      "duplicate"
+    ],
+    "known_bad": {
+      "mutation": "remove_required_observations",
+      "target": "required_observations",
+      "expected_result": "FAIL",
+      "diagnostic": "required_observations"
+    }
+  },
+  {
+    "id": "ACT-002",
+    "category": "activation",
+    "title": "Duplicate webhook handling",
+    "prompt": "How should duplicate Stripe-style webhooks be processed safely?",
+    "expected_outcome": "ACTIVATE",
+    "required_observations": [
+      "bind replay identity to actor/provider scope",
+      "make side effects duplicate-safe",
+      "define signature/authentication and evidence"
+    ],
+    "required_concepts": [
+      "idempotency",
+      "duplicate",
+      "security",
+      "verification"
+    ],
+    "known_bad": {
+      "mutation": "remove_required_concepts",
+      "target": "required_concepts",
+      "expected_result": "FAIL",
+      "diagnostic": "required_concepts"
+    }
+  },
+  {
+    "id": "ACT-003",
+    "category": "activation",
+    "title": "Monolith boundary refactor",
+    "prompt": "Refactor this backend into safer module boundaries while preserving compatibility.",
+    "expected_outcome": "ACTIVATE",
+    "required_observations": [
+      "trace the connected path",
+      "compare modular monolith with service split",
+      "define compatibility and rollback"
+    ],
+    "required_concepts": [
+      "boundary",
+      "compatibility",
+      "rollback",
+      "minimum"
+    ],
+    "known_bad": {
+      "mutation": "replace_expected_outcome",
+      "target": "expected_outcome",
+      "expected_result": "FAIL",
+      "diagnostic": "unknown outcome"
+    }
+  },
+  {
+    "id": "ACT-004",
+    "category": "activation",
+    "title": "Trivial local edit stays out",
+    "prompt": "Rename one local variable in an already-tested handler; no contract, data, or failure behavior changes.",
+    "expected_outcome": "DECLINE",
+    "required_observations": [
+      "decline heavy architecture analysis",
+      "keep a proportional focused check"
+    ],
+    "required_concepts": [
+      "do not activate",
+      "small",
+      "focused"
+    ],
+    "known_bad": {
+      "mutation": "replace_expected_outcome",
+      "target": "expected_outcome",
+      "expected_result": "FAIL",
+      "diagnostic": "unknown outcome"
+    }
+  },
+  {
+    "id": "ACT-005",
+    "category": "activation",
+    "title": "Frontend-only visual change stays out",
+    "prompt": "Adjust button spacing in a frontend component without a backend or API change.",
+    "expected_outcome": "DECLINE",
+    "required_observations": [
+      "route to the visual/frontend owner",
+      "do not invent a backend boundary"
+    ],
+    "required_concepts": [
+      "frontend",
+      "do not activate",
+      "boundary"
+    ],
+    "known_bad": {
+      "mutation": "remove_required_observations",
+      "target": "required_observations",
+      "expected_result": "FAIL",
+      "diagnostic": "required_observations"
+    }
+  }
+]

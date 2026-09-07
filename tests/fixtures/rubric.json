@@ -1,0 +1,30 @@
+{
+  "schema_version": "BP-EVAL-1",
+  "purpose": "Deterministic corpus contract for evaluating backend-patterns reasoning; it does not execute a model.",
+  "required_categories": [
+    "activation",
+    "selection",
+    "rejection",
+    "adversarial",
+    "composition",
+    "regression"
+  ],
+  "required_fields": [
+    "id",
+    "category",
+    "title",
+    "prompt",
+    "expected_outcome",
+    "required_observations",
+    "required_concepts",
+    "known_bad"
+  ],
+  "known_bad_required_fields": ["mutation", "target", "expected_result", "diagnostic"],
+  "outcome_states": ["ACTIVATE", "DECLINE", "SELECT", "REJECT", "CHALLENGE", "HANDOFF", "PASS"],
+  "claims_not_supported_by_this_harness": [
+    "model quality or causal improvement",
+    "production security certification",
+    "runtime behavior of a consuming backend",
+    "independent human approval"
+  ]
+}

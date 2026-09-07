@@ -1,0 +1,98 @@
+[
+  {
+    "id": "SEL-001",
+    "category": "selection",
+    "title": "Local atomic write beats distributed transaction",
+    "prompt": "A single service updates two tables under one database and has no external side effect. Choose a transaction pattern.",
+    "expected_outcome": "SELECT",
+    "required_observations": [
+      "select one local ACID transaction",
+      "reject distributed transaction as unnecessary",
+      "test rollback and durable invariants"
+    ],
+    "required_concepts": [
+      "ACID",
+      "distributed transaction",
+      "rollback",
+      "minimum"
+    ],
+    "known_bad": {
+      "mutation": "remove_rejected_alternative",
+      "target": "required_observations",
+      "expected_result": "FAIL",
+      "diagnostic": "required_observations"
+    }
+  },
+  {
+    "id": "SEL-002",
+    "category": "selection",
+    "title": "Outbox for committed state and asynchronous publication",
+    "prompt": "A database commit must be followed by an asynchronous integration event and the broker can be unavailable.",
+    "expected_outcome": "SELECT",
+    "required_observations": [
+      "select outbox only if the failure boundary requires it",
+      "publish after commit",
+      "make relay and consumer duplicate-safe"
+    ],
+    "required_concepts": [
+      "outbox",
+      "after commit",
+      "duplicate",
+      "broker"
+    ],
+    "known_bad": {
+      "mutation": "remove_required_observations",
+      "target": "required_observations",
+      "expected_result": "FAIL",
+      "diagnostic": "required_observations"
+    }
+  },
+  {
+    "id": "SEL-003",
+    "category": "selection",
+    "title": "Optimistic concurrency for low-conflict edits",
+    "prompt": "A resource is edited by multiple clients, conflicts are uncommon, and overwrites must be detected.",
+    "expected_outcome": "SELECT",
+    "required_observations": [
+      "select version/CAS optimistic control",
+      "map stale version to a stable conflict",
+      "exercise concurrent writes"
+    ],
+    "required_concepts": [
+      "optimistic",
+      "compare-and-swap",
+      "conflict",
+      "concurrency"
+    ],
+    "known_bad": {
+      "mutation": "remove_required_concepts",
+      "target": "required_concepts",
+      "expected_result": "FAIL",
+      "diagnostic": "required_concepts"
+    }
+  },
+  {
+    "id": "SEL-004",
+    "category": "selection",
+    "title": "Modular monolith before service split",
+    "prompt": "A small team owns a cohesive CRUD domain with no independent scaling or deployment requirement.",
+    "expected_outcome": "SELECT",
+    "required_observations": [
+      "select a modular monolith or existing module",
+      "reject microservices without a driver",
+      "record complexity and operational cost"
+    ],
+    "required_concepts": [
+      "modular monolith",
+      "microservices",
+      "independent scaling",
+      "complexity"
+    ],
+    "known_bad": {
+      "mutation": "replace_expected_outcome",
+      "target": "expected_outcome",
+      "expected_result": "FAIL",
+      "diagnostic": "unknown outcome"
+    }
+  }
+]

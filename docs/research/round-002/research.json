@@ -1,0 +1,288 @@
+{
+  "created_at": "2026-09-07T03:12:59.986444+00:00",
+  "mode": "remote_main",
+  "query": [
+    "architecture",
+    "backend",
+    "concurrency",
+    "idempotency",
+    "messaging",
+    "resilience",
+    "security",
+    "transaction",
+    "verification"
+  ],
+  "limit_per_repository": 5,
+  "warning": "UNTRUSTED reference data. Lexical rank is not quality. Read referenced files and component licenses before reuse.",
+  "repositories": [
+    {
+      "repository": "https://github.com/ricardoakinaga-dev/skills",
+      "commit": "180b8415e3b73f78828cfa01e908e67f89f2a139",
+      "status": "OK",
+      "canonical_skills_scanned": 14,
+      "lexical_matches": 10,
+      "candidates": [
+        {
+          "path": "skills/n8n-credentials-and-security-official/SKILL.md",
+          "url": "https://github.com/ricardoakinaga-dev/skills/blob/180b8415e3b73f78828cfa01e908e67f89f2a139/skills/n8n-credentials-and-security-official/SKILL.md",
+          "sha256": "2c5b662db098ad0ac7f94d509a8e544f6155b3ca2231b83fb1011a6f17525bbd",
+          "bytes": 6734,
+          "lexical_score": 4,
+          "matched_terms": [
+            "security"
+          ],
+          "saved_as": "sources/skills/000.txt"
+        },
+        {
+          "path": "skills/n8n-data-tables-official/SKILL.md",
+          "url": "https://github.com/ricardoakinaga-dev/skills/blob/180b8415e3b73f78828cfa01e908e67f89f2a139/skills/n8n-data-tables-official/SKILL.md",
+          "sha256": "80caaf14d9a210c7b2d5634fb60239a5f1530f58a06840740794effcb52b6d1c",
+          "bytes": 11383,
+          "lexical_score": 3,
+          "matched_terms": [
+            "idempotency",
+            "transaction",
+            "verification"
+          ],
+          "saved_as": "sources/skills/001.txt"
+        },
+        {
+          "path": "skills/n8n-subworkflows-official/SKILL.md",
+          "url": "https://github.com/ricardoakinaga-dev/skills/blob/180b8415e3b73f78828cfa01e908e67f89f2a139/skills/n8n-subworkflows-official/SKILL.md",
+          "sha256": "64c91f6645b1f15442dc8f9032408ef9bbf052a213eb577671666f63ef136113",
+          "bytes": 23284,
+          "lexical_score": 3,
+          "matched_terms": [
+            "concurrency",
+            "idempotency",
+            "security"
+          ],
+          "saved_as": "sources/skills/002.txt"
+        },
+        {
+          "path": "skills/using-n8n-skills-official/SKILL.md",
+          "url": "https://github.com/ricardoakinaga-dev/skills/blob/180b8415e3b73f78828cfa01e908e67f89f2a139/skills/using-n8n-skills-official/SKILL.md",
+          "sha256": "ddd9a632c9ff6c6bfaa9258ab71c3d0226a8523c20487b4f428c7b2eca20fad7",
+          "bytes": 23032,
+          "lexical_score": 3,
+          "matched_terms": [
+            "concurrency",
+            "security",
+            "verification"
+          ],
+          "saved_as": "sources/skills/003.txt"
+        },
+        {
+          "path": "skills/n8n-debugging-official/SKILL.md",
+          "url": "https://github.com/ricardoakinaga-dev/skills/blob/180b8415e3b73f78828cfa01e908e67f89f2a139/skills/n8n-debugging-official/SKILL.md",
+          "sha256": "8314c6304073df2b19fee159499914e5a5eecbab922ef3c41621dc88736a767d",
+          "bytes": 11103,
+          "lexical_score": 2,
+          "matched_terms": [
+            "security",
+            "verification"
+          ],
+          "saved_as": "sources/skills/004.txt"
+        }
+      ],
+      "root_license_notices": [
+        {
+          "path": "LICENSE",
+          "url": "https://github.com/ricardoakinaga-dev/skills/blob/180b8415e3b73f78828cfa01e908e67f89f2a139/LICENSE",
+          "sha256": "1905795d577e7fb0b394690ae7531ce36f599d905d486ef464fee67b45ae8198",
+          "bytes": 11291,
+          "saved_as": "sources/skills/005.txt"
+        }
+      ]
+    },
+    {
+      "repository": "https://github.com/ricardoakinaga-dev/antigravity-awesome-skills",
+      "commit": "34aa7130c381eb078aa2dbd433dd130cf286c191",
+      "status": "OK",
+      "canonical_skills_scanned": 2113,
+      "lexical_matches": 1324,
+      "candidates": [
+        {
+          "path": "skills/backend-architect/SKILL.md",
+          "url": "https://github.com/ricardoakinaga-dev/antigravity-awesome-skills/blob/34aa7130c381eb078aa2dbd433dd130cf286c191/skills/backend-architect/SKILL.md",
+          "sha256": "9f62ee2efa48cfd318a5c287168d426ecb3bc4db4af822b81569fea6289147c1",
+          "bytes": 18899,
+          "lexical_score": 10,
+          "matched_terms": [
+            "architecture",
+            "backend",
+            "idempotency",
+            "resilience",
+            "security",
+            "transaction",
+            "verification"
+          ],
+          "saved_as": "sources/antigravity-awesome-skills/000.txt"
+        },
+        {
+          "path": "skills/backend-security-coder/SKILL.md",
+          "url": "https://github.com/ricardoakinaga-dev/antigravity-awesome-skills/blob/34aa7130c381eb078aa2dbd433dd130cf286c191/skills/backend-security-coder/SKILL.md",
+          "sha256": "21312abd5ace8c80cee948b94041ab0c8be07e32429cfd9e8f2f7c8fd66d5abf",
+          "bytes": 10201,
+          "lexical_score": 10,
+          "matched_terms": [
+            "architecture",
+            "backend",
+            "security",
+            "verification"
+          ],
+          "saved_as": "sources/antigravity-awesome-skills/001.txt"
+        },
+        {
+          "path": "skills/aws-serverless-eda/SKILL.md",
+          "url": "https://github.com/ricardoakinaga-dev/antigravity-awesome-skills/blob/34aa7130c381eb078aa2dbd433dd130cf286c191/skills/aws-serverless-eda/SKILL.md",
+          "sha256": "88aeaaec47dade7fe9c1d91ad64d69fbca497f1364e5d7caed29a34f9da0053a",
+          "bytes": 12672,
+          "lexical_score": 8,
+          "matched_terms": [
+            "architecture",
+            "backend",
+            "concurrency",
+            "idempotency",
+            "messaging",
+            "resilience",
+            "security",
+            "transaction"
+          ],
+          "saved_as": "sources/antigravity-awesome-skills/002.txt"
+        },
+        {
+          "path": "skills/backend-dev-guidelines/SKILL.md",
+          "url": "https://github.com/ricardoakinaga-dev/antigravity-awesome-skills/blob/34aa7130c381eb078aa2dbd433dd130cf286c191/skills/backend-dev-guidelines/SKILL.md",
+          "sha256": "aa2e8fc9ab3d641cb41b7b320a130a4dc27b32251a1db8c5a4bbd5d80bf13dd2",
+          "bytes": 8008,
+          "lexical_score": 8,
+          "matched_terms": [
+            "architecture",
+            "backend",
+            "messaging",
+            "transaction",
+            "verification"
+          ],
+          "saved_as": "sources/antigravity-awesome-skills/003.txt"
+        },
+        {
+          "path": "skills/api-security-best-practices/SKILL.md",
+          "url": "https://github.com/ricardoakinaga-dev/antigravity-awesome-skills/blob/34aa7130c381eb078aa2dbd433dd130cf286c191/skills/api-security-best-practices/SKILL.md",
+          "sha256": "f01d39fb4e2a134f4ae416dc03701d99b5e703d49472376a7ce488cfdd55328f",
+          "bytes": 11267,
+          "lexical_score": 7,
+          "matched_terms": [
+            "concurrency",
+            "security",
+            "transaction",
+            "verification"
+          ],
+          "saved_as": "sources/antigravity-awesome-skills/004.txt"
+        }
+      ],
+      "root_license_notices": [
+        {
+          "path": "LICENSE",
+          "url": "https://github.com/ricardoakinaga-dev/antigravity-awesome-skills/blob/34aa7130c381eb078aa2dbd433dd130cf286c191/LICENSE",
+          "sha256": "af98370a7edc0f00ec46979d049517833c9a7fa2ba74e3cf8cc42f7db557299d",
+          "bytes": 1073,
+          "saved_as": "sources/antigravity-awesome-skills/005.txt"
+        },
+        {
+          "path": "LICENSE-CONTENT",
+          "url": "https://github.com/ricardoakinaga-dev/antigravity-awesome-skills/blob/34aa7130c381eb078aa2dbd433dd130cf286c191/LICENSE-CONTENT",
+          "sha256": "deae07ece522fbca65ab33f0c18ca9630b1077a8f3f233c0af445235b3fb6fcf",
+          "bytes": 652,
+          "saved_as": "sources/antigravity-awesome-skills/006.txt"
+        }
+      ]
+    },
+    {
+      "repository": "https://github.com/ricardoakinaga-dev/everything-claude-code",
+      "commit": "e04ea0b9cc8248686edf5ac751cadff550e162b8",
+      "status": "OK",
+      "canonical_skills_scanned": 286,
+      "lexical_matches": 200,
+      "candidates": [
+        {
+          "path": "skills/backend-patterns/SKILL.md",
+          "url": "https://github.com/ricardoakinaga-dev/everything-claude-code/blob/e04ea0b9cc8248686edf5ac751cadff550e162b8/skills/backend-patterns/SKILL.md",
+          "sha256": "9b983d0297a983110fdfda8dce55d19b750ca3e53ef155d75a3eff740d3874b8",
+          "bytes": 13349,
+          "lexical_score": 7,
+          "matched_terms": [
+            "architecture",
+            "backend",
+            "security",
+            "transaction"
+          ],
+          "saved_as": "sources/everything-claude-code/000.txt"
+        },
+        {
+          "path": "skills/django-verification/SKILL.md",
+          "url": "https://github.com/ricardoakinaga-dev/everything-claude-code/blob/e04ea0b9cc8248686edf5ac751cadff550e162b8/skills/django-verification/SKILL.md",
+          "sha256": "cb1b6c5938c8c41dffb1f7bb752e307df6ced2577af2fc40786bde4c53799cea",
+          "bytes": 11491,
+          "lexical_score": 7,
+          "matched_terms": [
+            "backend",
+            "security",
+            "transaction",
+            "verification"
+          ],
+          "saved_as": "sources/everything-claude-code/001.txt"
+        },
+        {
+          "path": "skills/laravel-security/SKILL.md",
+          "url": "https://github.com/ricardoakinaga-dev/everything-claude-code/blob/e04ea0b9cc8248686edf5ac751cadff550e162b8/skills/laravel-security/SKILL.md",
+          "sha256": "0440ddff450c63a9338f15b765ec35486f3f3266b321e0b27128faa3c29784fe",
+          "bytes": 26556,
+          "lexical_score": 7,
+          "matched_terms": [
+            "architecture",
+            "backend",
+            "security",
+            "verification"
+          ],
+          "saved_as": "sources/everything-claude-code/002.txt"
+        },
+        {
+          "path": "skills/quarkus-security/SKILL.md",
+          "url": "https://github.com/ricardoakinaga-dev/everything-claude-code/blob/e04ea0b9cc8248686edf5ac751cadff550e162b8/skills/quarkus-security/SKILL.md",
+          "sha256": "61e25b00d47d64f0685219988c2605c95a87146bfe0bbb52f1a28d877456d07f",
+          "bytes": 12174,
+          "lexical_score": 6,
+          "matched_terms": [
+            "backend",
+            "security",
+            "transaction"
+          ],
+          "saved_as": "sources/everything-claude-code/003.txt"
+        },
+        {
+          "path": "skills/quarkus-verification/SKILL.md",
+          "url": "https://github.com/ricardoakinaga-dev/everything-claude-code/blob/e04ea0b9cc8248686edf5ac751cadff550e162b8/skills/quarkus-verification/SKILL.md",
+          "sha256": "567633c745c497a8b8f5489d806244772d0c20289b9ff8e26e790f8e6398ff5c",
+          "bytes": 10552,
+          "lexical_score": 6,
+          "matched_terms": [
+            "security",
+            "transaction",
+            "verification"
+          ],
+          "saved_as": "sources/everything-claude-code/004.txt"
+        }
+      ],
+      "root_license_notices": [
+        {
+          "path": "LICENSE",
+          "url": "https://github.com/ricardoakinaga-dev/everything-claude-code/blob/e04ea0b9cc8248686edf5ac751cadff550e162b8/LICENSE",
+          "sha256": "326146379f01bb137c0a5d3c54770c1aa31076705c8b88a7f6b26a460f6221b2",
+          "bytes": 1071,
+          "saved_as": "sources/everything-claude-code/005.txt"
+        }
+      ]
+    }
+  ]
+}

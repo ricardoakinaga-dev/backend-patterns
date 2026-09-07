@@ -1,0 +1,7 @@
+{
+  "fresh_context": true,
+  "filesystem_isolation": "shared workspace; read-only critics use pre/post filesystem fingerprints",
+  "max_concurrency": 3,
+  "wait_supported": true,
+  "notes": "The live multi_agent_v1 surface exposes spawn, send_input, wait, close, and resume. fork_context:false provides a non-inherited packet. No separate worktree isolation was exposed; the Lead owns shared state and disjoint writers are mandatory."
+}
